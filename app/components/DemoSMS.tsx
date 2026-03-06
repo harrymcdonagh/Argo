@@ -103,7 +103,7 @@ export default function DemoSMS() {
   const allRevealed = revealedFields.size === Object.keys(FIELD_TRIGGERS).length;
 
   return (
-    <section id="demo" ref={sectionRef} className="relative bg-cream-100 py-20 md:py-28">
+    <section id="demo" ref={sectionRef} className="paper-texture relative py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-6">
         <div className="mx-auto mb-14 max-w-2xl text-center">
           <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-widest text-amber-600">
@@ -122,7 +122,7 @@ export default function DemoSMS() {
         <div className="mx-auto max-w-3xl md:flex md:items-start md:gap-8">
           {/* Phone mockup */}
           <div className="mx-auto max-w-sm md:mx-0">
-            <div className="rounded-[2.5rem] border border-cream-200 bg-white p-2 shadow-warm-xl">
+            <div className="rounded-[2.5rem] border-2 border-stone-900 bg-white p-2 shadow-warm-xl">
               {/* Phone body */}
               <div className="relative rounded-[2rem] bg-cream-50 pb-6">
                 {/* Status bar */}

@@ -17,28 +17,22 @@ export default function Hero() {
               </span>
             </div>
 
-            {/* Product name */}
-            <p className="mb-4 font-[family-name:var(--font-display)] text-3xl font-extrabold tracking-tight text-amber-600 md:text-4xl">
-              CallCatch
-            </p>
-
             <h1 className="font-[family-name:var(--font-display)] text-4xl font-extrabold leading-[1.08] tracking-tight text-stone-900 md:text-5xl lg:text-6xl">
               Stop Losing Leads{" "}
-              <span className="text-amber-600">
-                While You&apos;re on the Job
-              </span>
+              <span className="text-amber-600">While You&apos;re on the Job</span>
             </h1>
 
             {/* Punchy tagline */}
             <p className="mt-4 text-xl font-medium text-stone-700">
-              CallCatch texts your missed callers back in under 60 seconds — so you never lose a job while you&apos;re on one.
+              CallCatch texts your missed callers back in under 60 seconds — so you never
+              lose a job while you&apos;re on one.
             </p>
 
             <p className="mt-4 max-w-lg text-base leading-relaxed text-stone-600 md:text-lg">
-              Your phone rings while you&apos;re under a sink, up a ladder, or
-              with a client. You can&apos;t answer — but <strong>CallCatch</strong> texts them
-              back within a minute, finds out what they need, and sends you the
-              details. Fully done for you.
+              Your phone rings while you&apos;re under a sink, up a ladder, or with a
+              client. You can&apos;t answer — but <strong>CallCatch</strong> texts them
+              back within a minute, finds out what they need, and sends you the details.
+              Fully done for you.
             </p>
 
             {/* Mobile-only notification card (compact) */}
@@ -46,22 +40,40 @@ export default function Hero() {
               <div className="rounded-2xl border border-cream-200 bg-white p-4 shadow-warm">
                 <div className="flex items-start gap-3 rounded-xl bg-cream-50 p-3">
                   <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-amber-100 text-amber-600">
-                    <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+                    <svg
+                      className="h-4 w-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"
+                      />
                     </svg>
                   </div>
                   <div className="flex-1">
-                    <p className="text-sm font-semibold text-stone-900">New Lead Captured</p>
+                    <p className="text-sm font-semibold text-stone-900">
+                      New Lead Captured
+                    </p>
                     <div className="mt-2 grid grid-cols-2 gap-1.5">
                       <span className="text-xs text-stone-500">Sarah Mitchell</span>
-                      <span className="text-xs text-stone-500">Leaking tap — kitchen</span>
-                      <span className="text-xs font-medium text-amber-600">This week</span>
+                      <span className="text-xs text-stone-500">
+                        Leaking tap — kitchen
+                      </span>
+                      <span className="text-xs font-medium text-amber-600">
+                        This week
+                      </span>
                       <span className="text-xs text-stone-500">SS7 1AB</span>
                     </div>
                   </div>
                 </div>
                 <div className="mt-3 rounded-lg bg-emerald-100 px-3 py-1.5 text-center">
-                  <span className="text-xs font-semibold text-emerald-700">Ready to call back</span>
+                  <span className="text-xs font-semibold text-emerald-700">
+                    Ready to call back
+                  </span>
                 </div>
               </div>
             </div>
@@ -102,13 +114,27 @@ export default function Hero() {
               <div className="mb-4 rounded-xl bg-cream-50 p-4">
                 <div className="flex items-start gap-3">
                   <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-amber-100 text-amber-600">
-                    <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+                    <svg
+                      className="h-5 w-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"
+                      />
                     </svg>
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-stone-900">New Lead Captured</p>
-                    <p className="mt-0.5 text-xs text-stone-500">Just now &middot; via CallCatch</p>
+                    <p className="text-sm font-semibold text-stone-900">
+                      New Lead Captured
+                    </p>
+                    <p className="mt-0.5 text-xs text-stone-500">
+                      Just now &middot; via CallCatch
+                    </p>
                   </div>
                 </div>
               </div>
@@ -117,11 +143,15 @@ export default function Hero() {
               <div className="space-y-3">
                 <div className="flex items-center justify-between rounded-lg bg-cream-50 px-4 py-3">
                   <span className="text-xs font-medium text-stone-500">Name</span>
-                  <span className="text-sm font-semibold text-stone-900">Sarah Mitchell</span>
+                  <span className="text-sm font-semibold text-stone-900">
+                    Sarah Mitchell
+                  </span>
                 </div>
                 <div className="flex items-center justify-between rounded-lg bg-cream-50 px-4 py-3">
                   <span className="text-xs font-medium text-stone-500">Needs</span>
-                  <span className="text-sm font-semibold text-stone-900">Leaking tap — kitchen</span>
+                  <span className="text-sm font-semibold text-stone-900">
+                    Leaking tap — kitchen
+                  </span>
                 </div>
                 <div className="flex items-center justify-between rounded-lg bg-cream-50 px-4 py-3">
                   <span className="text-xs font-medium text-stone-500">Urgency</span>
@@ -134,13 +164,21 @@ export default function Hero() {
               </div>
 
               <div className="mt-4 rounded-lg bg-emerald-100 px-4 py-2.5 text-center">
-                <span className="text-sm font-semibold text-emerald-700">Ready to call back</span>
+                <span className="text-sm font-semibold text-emerald-700">
+                  Ready to call back
+                </span>
               </div>
             </div>
 
             {/* Decorative elements */}
-            <div className="absolute -top-3 -right-3 h-16 w-16 rounded-2xl border border-amber-500/20 bg-amber-50" style={{ zIndex: -1 }} />
-            <div className="absolute -bottom-3 -left-3 h-12 w-12 rounded-xl border border-cream-200 bg-cream-100" style={{ zIndex: -1 }} />
+            <div
+              className="absolute -top-3 -right-3 h-16 w-16 rounded-2xl border border-amber-500/20 bg-amber-50"
+              style={{ zIndex: -1 }}
+            />
+            <div
+              className="absolute -bottom-3 -left-3 h-12 w-12 rounded-xl border border-cream-200 bg-cream-100"
+              style={{ zIndex: -1 }}
+            />
           </div>
         </div>
       </div>
