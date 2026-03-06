@@ -5,8 +5,8 @@ import HowItWorks from "./components/HowItWorks";
 import DemoSMS from "./components/DemoSMS";
 import WhatYouGet from "./components/WhatYouGet";
 import Pricing from "./components/Pricing";
-import FAQ from "./components/FAQ";
 import FinalCTA from "./components/FinalCTA";
+import FAQ from "./components/FAQ";
 import Footer from "./components/Footer";
 
 export default function Home() {
@@ -19,8 +19,8 @@ export default function Home() {
       <DemoSMS />
       <WhatYouGet />
       <Pricing />
-      <FAQ />
       <FinalCTA />
+      <FAQ />
       <Footer />
     </>
   );

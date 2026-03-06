@@ -1,60 +1,111 @@
 export default function Hero() {
   return (
-    <section className="noise-bg relative overflow-hidden pt-32 pb-20 md:pt-44 md:pb-32">
-      {/* Background gradient orbs */}
-      <div className="pointer-events-none absolute -top-40 left-1/2 h-[600px] w-[800px] -translate-x-1/2 rounded-full bg-electric-500/8 blur-3xl" />
-      <div className="pointer-events-none absolute top-20 -right-40 h-[400px] w-[400px] rounded-full bg-electric-400/5 blur-3xl" />
+    <section className="paper-texture relative overflow-hidden pt-28 pb-16 md:pt-40 md:pb-28">
+      {/* Subtle warm gradient */}
+      <div className="pointer-events-none absolute -top-20 right-0 h-[500px] w-[500px] rounded-full bg-amber-500/5 blur-3xl" />
+      <div className="pointer-events-none absolute bottom-0 -left-20 h-[300px] w-[300px] rounded-full bg-amber-600/5 blur-3xl" />
 
       <div className="relative z-10 mx-auto max-w-6xl px-6">
-        <div className="mx-auto max-w-3xl text-center">
-          {/* Live badge */}
-          <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-electric-500/20 bg-electric-500/10 px-4 py-1.5">
-            <span className="pulse-dot inline-block h-2 w-2 rounded-full bg-emerald-400" />
-            <span className="text-sm font-medium text-electric-300">
-              Live for local businesses in Essex
-            </span>
+        <div className="grid items-center gap-12 md:grid-cols-2">
+          {/* Left: Copy */}
+          <div>
+            {/* Live badge */}
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-600/20 bg-emerald-100 px-4 py-1.5">
+              <span className="pulse-dot inline-block h-2 w-2 rounded-full bg-emerald-600" />
+              <span className="text-sm font-medium text-emerald-700">
+                Live for local businesses in Essex
+              </span>
+            </div>
+
+            <h1 className="font-[family-name:var(--font-display)] text-4xl font-extrabold leading-[1.08] tracking-tight text-stone-900 md:text-5xl lg:text-6xl">
+              Stop Losing Leads{" "}
+              <span className="text-amber-600">
+                While You&apos;re on the Job
+              </span>
+            </h1>
+
+            <p className="mt-6 max-w-lg text-lg leading-relaxed text-stone-600 md:text-xl">
+              Your phone rings while you&apos;re under a sink, up a ladder, or
+              with a client. You can&apos;t answer — but your phone texts them
+              back within a minute, finds out what they need, and sends you the
+              details. Fully done for you.
+            </p>
+
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <a
+                href="#book-demo"
+                className="group inline-flex items-center justify-center gap-2 rounded-xl bg-amber-600 px-8 py-4 text-base font-bold text-white transition-all duration-300 hover:bg-amber-700 shadow-warm hover:shadow-warm-lg hover:-translate-y-0.5"
+              >
+                Book a Free Demo
+                <svg
+                  className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2.5}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M13 7l5 5m0 0l-5 5m5-5H6"
+                  />
+                </svg>
+              </a>
+              <a
+                href="#how-it-works"
+                className="inline-flex items-center justify-center gap-2 rounded-xl border border-cream-200 bg-white px-8 py-4 text-base font-medium text-stone-900 transition-all duration-300 hover:border-stone-400 hover:shadow-warm-sm"
+              >
+                See How It Works
+              </a>
+            </div>
           </div>
 
-          <h1 className="font-[family-name:var(--font-display)] text-4xl font-extrabold leading-[1.1] tracking-tight text-white md:text-6xl lg:text-7xl">
-            Stop Losing Leads
-            <br />
-            <span className="bg-gradient-to-r from-electric-400 to-electric-300 bg-clip-text text-transparent">
-              While You&apos;re on the Job
-            </span>
-          </h1>
+          {/* Right: Visual element — lead notification card */}
+          <div className="relative mx-auto w-full max-w-xs md:mx-0 md:ml-auto">
+            <div className="rounded-3xl border border-cream-200 bg-white p-5 shadow-warm-xl transition-all duration-500 hover:shadow-warm-xl hover:-translate-y-1">
+              {/* Simulated notification */}
+              <div className="mb-4 rounded-xl bg-cream-50 p-4">
+                <div className="flex items-start gap-3">
+                  <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-amber-100 text-amber-600">
+                    <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-stone-900">New Lead Captured</p>
+                    <p className="mt-0.5 text-xs text-stone-500">Just now</p>
+                  </div>
+                </div>
+              </div>
 
-          <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-slate-text md:text-xl">
-            Your phone rings while you&apos;re under a sink, up a ladder, or
-            with a client. Our AI answers instantly — by text — qualifies the
-            lead, and sends you the details. Fully done for you.
-          </p>
+              {/* Lead details */}
+              <div className="space-y-3">
+                <div className="flex items-center justify-between rounded-lg bg-cream-50 px-4 py-3">
+                  <span className="text-xs font-medium text-stone-500">Name</span>
+                  <span className="text-sm font-semibold text-stone-900">Sarah M.</span>
+                </div>
+                <div className="flex items-center justify-between rounded-lg bg-cream-50 px-4 py-3">
+                  <span className="text-xs font-medium text-stone-500">Needs</span>
+                  <span className="text-sm font-semibold text-stone-900">Leaking tap</span>
+                </div>
+                <div className="flex items-center justify-between rounded-lg bg-cream-50 px-4 py-3">
+                  <span className="text-xs font-medium text-stone-500">Urgency</span>
+                  <span className="text-sm font-semibold text-amber-600">This week</span>
+                </div>
+                <div className="flex items-center justify-between rounded-lg bg-cream-50 px-4 py-3">
+                  <span className="text-xs font-medium text-stone-500">Area</span>
+                  <span className="text-sm font-semibold text-stone-900">SS7 1AB</span>
+                </div>
+              </div>
 
-          <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <a
-              href="#book-demo"
-              className="glow-blue inline-flex items-center gap-2 rounded-xl bg-electric-500 px-8 py-4 text-base font-bold text-white transition-all hover:bg-electric-400 hover:shadow-2xl hover:shadow-electric-500/30"
-            >
-              Book a Free Demo
-              <svg
-                className="h-4 w-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2.5}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M13 7l5 5m0 0l-5 5m5-5H6"
-                />
-              </svg>
-            </a>
-            <a
-              href="#how-it-works"
-              className="inline-flex items-center gap-2 rounded-xl border border-white/10 px-8 py-4 text-base font-medium text-slate-text transition-all hover:border-white/20 hover:text-white"
-            >
-              See How It Works
-            </a>
+              <div className="mt-4 rounded-lg bg-emerald-100 px-4 py-2.5 text-center">
+                <span className="text-sm font-semibold text-emerald-700">Ready to call back</span>
+              </div>
+            </div>
+
+            {/* Decorative elements */}
+            <div className="absolute -top-3 -right-3 h-16 w-16 rounded-2xl border border-amber-500/20 bg-amber-50" style={{ zIndex: -1 }} />
+            <div className="absolute -bottom-3 -left-3 h-12 w-12 rounded-xl border border-cream-200 bg-cream-100" style={{ zIndex: -1 }} />
           </div>
         </div>
       </div>
