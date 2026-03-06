@@ -22,12 +22,12 @@ const problems = [
   {
     icon: (
       <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15.182 15.182a4.5 4.5 0 01-6.364 0M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75zm-.375 0h.008v.015h-.008V9.75zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75zm-.375 0h.008v.015h-.008V9.75z" />
       </svg>
     ),
-    title: "No Way to Follow Up",
+    title: "The Stress of Always Being \"On\"",
     description:
-      "Missed calls, scribbled notes, forgotten voicemails. Without something in place, good jobs slip through the cracks every single week.",
+      "Constantly checking your phone between jobs, feeling guilty when you see missed calls, wondering how much work you've lost this week. It never switches off.",
   },
 ];
 
@@ -66,6 +66,11 @@ export default function Problem() {
             </div>
           ))}
         </div>
+
+        {/* Transition line to next section */}
+        <p className="mt-14 text-center text-lg font-medium text-stone-500">
+          So what happens when you can&apos;t pick up? Let us show you.
+        </p>
       </div>
     </section>
   );

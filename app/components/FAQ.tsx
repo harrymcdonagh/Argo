@@ -6,7 +6,7 @@ const faqs = [
   {
     question: "What type of businesses is this for?",
     answer:
-      "Any local service business that relies on phone calls for new work. Plumbers, electricians, cleaners, landscapers, locksmiths, roofers, salons, mobile mechanics \u2014 if you miss calls while working, this is built for you. We tailor the text messages and questions for your specific trade.",
+      "Any local service business that relies on phone calls for new work. Plumbers, electricians, cleaners, landscapers, locksmiths, roofers, mobile mechanics \u2014 if you miss calls while working, this is built for you. We tailor the text messages and questions for your specific trade.",
   },
   {
     question: "How long does it take to go live?",
@@ -14,9 +14,29 @@ const faqs = [
       "5-7 working days from sign-up. We handle everything \u2014 connecting to your phone system, writing the text messages, and testing the full flow. You get a walkthrough before we switch it on, and we're on hand to tweak anything.",
   },
   {
+    question: "Does it work with my existing phone number?",
+    answer:
+      "Yes. CallCatch connects to your current business number \u2014 you don't need to change it or get a new one. If you don't have a dedicated business number yet, we can set one up for you as part of the setup.",
+  },
+  {
     question: "What do I need to provide?",
     answer:
       "Just access to your business phone number (or we can set one up for you) and 15 minutes for a quick call where we learn about your business. That's it. We handle all the setup and configuration. You don't need to install anything or learn any software.",
+  },
+  {
+    question: "What if the caller doesn't reply to the text?",
+    answer:
+      "You still get notified that you missed a call from that number, so you can call them back yourself. On the Standard plan, we also send follow-up texts to re-engage them. Most people do reply though \u2014 the text is friendly, relevant, and arrives within a minute of their call.",
+  },
+  {
+    question: "How much does it cost per text?",
+    answer:
+      "Nothing extra. Your monthly fee covers everything \u2014 all texts sent, all replies received, all notifications to you. There are no per-text charges or hidden usage fees. The price you see is the price you pay.",
+  },
+  {
+    question: "Can I see the conversations?",
+    answer:
+      "Yes. Every conversation is logged and you can review the full text exchange at any time. You get a summary notification for each lead, and access to the complete history whenever you need it.",
   },
   {
     question: "What if I want to cancel?",

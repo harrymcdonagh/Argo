@@ -23,6 +23,11 @@ export default function HowItWorks() {
   return (
     <section id="how-it-works" className="paper-texture relative py-20 md:py-28">
       <div className="relative z-10 mx-auto max-w-6xl px-6">
+        {/* Transition line */}
+        <p className="mb-14 text-center text-lg font-medium text-stone-500">
+          It&apos;s not a virtual receptionist. It&apos;s not an answering service. It&apos;s smarter.
+        </p>
+
         <div className="mx-auto mb-14 max-w-2xl text-center">
           <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-widest text-amber-600">
             Simple as 1-2-3
@@ -31,7 +36,7 @@ export default function HowItWorks() {
             How It Works
           </h2>
           <p className="mt-4 text-lg text-stone-600">
-            From missed call to full job details in under 60 seconds.
+            Here&apos;s how CallCatch turns a missed call into a qualified lead in under 60 seconds.
             You don&apos;t lift a finger.
           </p>
         </div>
@@ -57,6 +62,16 @@ export default function HowItWorks() {
               </p>
             </div>
           ))}
+        </div>
+
+        {/* Competitive differentiation */}
+        <div className="mx-auto mt-14 max-w-2xl rounded-2xl border border-amber-600/20 bg-amber-50/50 p-6 text-center">
+          <p className="text-sm leading-relaxed text-stone-600">
+            <strong className="text-stone-900">Unlike a virtual receptionist,</strong> CallCatch
+            doesn&apos;t just take a message — it qualifies the lead, finds out what they need,
+            and gives you everything you need to call back and close the job. It only kicks in
+            when you miss a call — it&apos;s not replacing your phone, it&apos;s catching what falls through.
+          </p>
         </div>
       </div>
     </section>

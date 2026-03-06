@@ -1,4 +1,4 @@
-export default function Footer() {
+export default function ArgoFooter() {
   return (
     <footer className="paper-texture relative">
       {/* Amber accent line at top */}
@@ -16,7 +16,8 @@ export default function Footer() {
               Argo
             </a>
             <p className="mt-3 text-sm leading-relaxed text-stone-500">
-              CallCatch — done-for-you missed call recovery for local businesses across Essex and South East England. A product by Argo.
+              Done-for-you automation tools for local trade businesses across
+              Essex and South East England.
             </p>
           </div>
 
@@ -24,27 +25,12 @@ export default function Footer() {
           <div className="flex gap-16">
             <div>
               <h4 className="text-xs font-bold uppercase tracking-[0.15em] text-stone-400">
-                Navigate
+                Products
               </h4>
               <ul className="mt-4 space-y-2.5">
                 <li>
-                  <a href="#how-it-works" className="text-sm text-stone-600 transition-colors hover:text-amber-600">
-                    How It Works
-                  </a>
-                </li>
-                <li>
-                  <a href="#demo" className="text-sm text-stone-600 transition-colors hover:text-amber-600">
-                    Live Demo
-                  </a>
-                </li>
-                <li>
-                  <a href="#pricing" className="text-sm text-stone-600 transition-colors hover:text-amber-600">
-                    Pricing
-                  </a>
-                </li>
-                <li>
-                  <a href="#faq" className="text-sm text-stone-600 transition-colors hover:text-amber-600">
-                    FAQ
+                  <a href="/callcatch" className="text-sm text-stone-600 transition-colors hover:text-amber-600">
+                    CallCatch
                   </a>
                 </li>
               </ul>
@@ -52,22 +38,17 @@ export default function Footer() {
 
             <div>
               <h4 className="text-xs font-bold uppercase tracking-[0.15em] text-stone-400">
-                Get in Touch
+                Company
               </h4>
               <ul className="mt-4 space-y-2.5">
                 <li>
-                  <a href="https://wa.me/447939939885" className="text-sm text-stone-600 transition-colors hover:text-amber-600">
-                    WhatsApp
+                  <a href="#about" className="text-sm text-stone-600 transition-colors hover:text-amber-600">
+                    About
                   </a>
                 </li>
                 <li>
-                  <a href="mailto:harrymcdonagh82@gmail.com" className="text-sm text-stone-600 transition-colors hover:text-amber-600">
-                    Email
-                  </a>
-                </li>
-                <li>
-                  <a href="tel:07939939885" className="text-sm text-stone-600 transition-colors hover:text-amber-600">
-                    07939 939 885
+                  <a href="#contact" className="text-sm text-stone-600 transition-colors hover:text-amber-600">
+                    Contact
                   </a>
                 </li>
               </ul>

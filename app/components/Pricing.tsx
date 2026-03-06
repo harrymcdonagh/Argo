@@ -1,8 +1,8 @@
 const tiers = [
   {
     name: "Starter",
-    setup: "400",
     monthly: "150",
+    setup: "400",
     description: "Perfect for sole traders who want to stop losing jobs to missed calls.",
     features: [
       "Missed call text-back within 60 seconds",
@@ -12,13 +12,13 @@ const tiers = [
       "30 days of monitoring after launch",
       "Live in 5-7 working days",
     ],
-    cta: "Book a Demo",
+    cta: "Get Started",
     featured: false,
   },
   {
     name: "Standard",
-    setup: "900",
     monthly: "250",
+    setup: "900",
     description:
       "For businesses that want follow-up texts and weekly reports too.",
     features: [
@@ -29,7 +29,7 @@ const tiers = [
       "Day 7 follow-up for stale enquiries",
       "Priority setup and support",
     ],
-    cta: "Book a Demo",
+    cta: "Get Started",
     featured: true,
   },
 ];
@@ -38,7 +38,7 @@ export default function Pricing() {
   return (
     <section id="pricing" className="relative bg-cream-100 py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="mx-auto mb-14 max-w-2xl text-center">
+        <div className="mx-auto mb-6 max-w-2xl text-center">
           <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-widest text-amber-600">
             Pricing
           </span>
@@ -46,8 +46,16 @@ export default function Pricing() {
             Simple, Transparent Pricing
           </h2>
           <p className="mt-4 text-lg text-stone-600">
-            One-time setup fee, then a flat monthly rate. No hidden costs.
-            Cancel anytime.
+            One missed emergency call costs you &pound;300+. CallCatch pays for itself
+            with a single recovered lead.
+          </p>
+        </div>
+
+        {/* ROI anchoring */}
+        <div className="mx-auto mb-14 max-w-lg text-center">
+          <p className="text-sm text-stone-500">
+            The average emergency plumbing job is worth &pound;200-500.
+            How many missed calls are you getting per month?
           </p>
         </div>
 
@@ -76,17 +84,17 @@ export default function Pricing() {
               <p className="mt-2 text-sm text-stone-600">{tier.description}</p>
 
               <div className="mt-6 border-t border-dashed border-cream-200 pt-6">
+                {/* Monthly price leads */}
                 <div className="flex items-baseline gap-1">
                   <span className="font-[family-name:var(--font-display)] text-4xl font-extrabold text-stone-900">
-                    &pound;{tier.setup}
-                  </span>
-                  <span className="text-sm text-stone-500">setup</span>
-                </div>
-                <div className="mt-1 flex items-baseline gap-1">
-                  <span className="text-lg font-semibold text-stone-600">
-                    + &pound;{tier.monthly}
+                    &pound;{tier.monthly}
                   </span>
                   <span className="text-sm text-stone-500">/month</span>
+                </div>
+                <div className="mt-1 flex items-baseline gap-1">
+                  <span className="text-sm text-stone-500">
+                    + &pound;{tier.setup} one-time setup
+                  </span>
                 </div>
               </div>
 
@@ -112,7 +120,7 @@ export default function Pricing() {
               </ul>
 
               <a
-                href="#book-demo"
+                href="https://wa.me/447939939885?text=Hi%20Harry%2C%20I%27m%20interested%20in%20the%20CallCatch%20"
                 className={`mt-8 block rounded-xl py-3.5 text-center text-sm font-bold transition-all ${
                   tier.featured
                     ? "bg-amber-600 text-white hover:bg-amber-700 shadow-warm-sm hover:shadow-warm"
@@ -125,7 +133,7 @@ export default function Pricing() {
           ))}
         </div>
 
-        {/* Pilot pricing + ROI note */}
+        {/* Early client note */}
         <div className="mx-auto mt-8 max-w-lg text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-amber-600/20 bg-amber-50 px-4 py-2">
             <svg
@@ -146,9 +154,6 @@ export default function Pricing() {
               we get a case study
             </span>
           </div>
-          <p className="mt-4 text-sm text-stone-500">
-            One recovered emergency job per month more than covers the fee.
-          </p>
         </div>
       </div>
     </section>

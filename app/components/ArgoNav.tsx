@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 
-export default function Nav() {
+export default function ArgoNav() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -13,10 +13,9 @@ export default function Nav() {
   }, []);
 
   const links = [
-    { label: "How It Works", href: "#how-it-works" },
-    { label: "Live Demo", href: "#demo" },
-    { label: "Pricing", href: "#pricing" },
-    { label: "FAQ", href: "#faq" },
+    { label: "Products", href: "#products" },
+    { label: "About", href: "#about" },
+    { label: "Contact", href: "#contact" },
   ];
 
   return (
@@ -28,25 +27,19 @@ export default function Nav() {
       }`}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <div className="flex items-center gap-3">
-          <a
-            href="/"
-            className="flex items-center gap-2"
-          >
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-amber-600 shadow-warm-sm">
-              <span className="font-[family-name:var(--font-display)] text-lg font-extrabold text-white leading-none">
-                A
-              </span>
-            </div>
-            <span className="font-[family-name:var(--font-display)] text-2xl font-extrabold tracking-tight text-stone-900">
-              Argo
+        <a
+          href="/"
+          className="flex items-center gap-2"
+        >
+          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-amber-600 shadow-warm-sm">
+            <span className="font-[family-name:var(--font-display)] text-lg font-extrabold text-white leading-none">
+              A
             </span>
-          </a>
-          <span className="text-stone-300">/</span>
-          <span className="font-[family-name:var(--font-display)] text-lg font-bold tracking-tight text-amber-600">
-            CallCatch
+          </div>
+          <span className="font-[family-name:var(--font-display)] text-2xl font-extrabold tracking-tight text-stone-900">
+            Argo
           </span>
-        </div>
+        </a>
 
         {/* Desktop nav */}
         <div className="hidden items-center gap-8 md:flex">
@@ -60,10 +53,10 @@ export default function Nav() {
             </a>
           ))}
           <a
-            href="https://wa.me/447939939885?text=Hi%20Harry%2C%20I%27m%20interested%20in%20CallCatch"
+            href="#contact"
             className="rounded-lg bg-amber-600 px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-amber-700 shadow-warm-sm hover:shadow-warm"
           >
-            Book a Free Demo
+            Get in Touch
           </a>
         </div>
 
@@ -100,11 +93,11 @@ export default function Nav() {
               </a>
             ))}
             <a
-              href="https://wa.me/447939939885?text=Hi%20Harry%2C%20I%27m%20interested%20in%20CallCatch"
+              href="#contact"
               onClick={() => setMobileOpen(false)}
               className="mt-2 rounded-lg bg-amber-600 px-5 py-2.5 text-center text-sm font-semibold text-white transition-all hover:bg-amber-700"
             >
-              Book a Free Demo
+              Get in Touch
             </a>
           </div>
         </div>

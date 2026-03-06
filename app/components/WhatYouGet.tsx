@@ -64,11 +64,11 @@ export default function WhatYouGet() {
             Everything Included
           </span>
           <h2 className="font-[family-name:var(--font-display)] text-3xl font-bold tracking-tight text-stone-900 md:text-4xl">
-            What You Get
+            Everything That Happens While You&apos;re on the Job
           </h2>
           <p className="mt-4 text-lg text-stone-600">
-            A complete missed-call recovery system, set up and managed for you.
-            No tech skills needed.
+            CallCatch runs in the background — a complete missed-call recovery system,
+            set up and managed for you. No tech skills needed.
           </p>
         </div>
 

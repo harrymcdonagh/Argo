@@ -9,9 +9,15 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Automate Local | AI Automation for Local Businesses in Essex",
+  title: "Argo | Done-for-You Automation for Local Trade Businesses",
   description:
-    "Done-for-you AI automation for local businesses in Essex and South East England. Missed call text-back, lead qualification, CRM logging, and more. Live in 7 days.",
+    "Argo builds done-for-you automation tools for local trade businesses in Essex and South East England. Our first product, CallCatch, recovers missed calls in under 60 seconds.",
+  openGraph: {
+    title: "Argo | Automation for Local Trade Businesses",
+    description:
+      "Argo builds done-for-you automation tools for local trade businesses in Essex and South East England.",
+    siteName: "Argo",
+  },
 };
 
 export default function RootLayout({
