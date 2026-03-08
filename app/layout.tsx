@@ -11,6 +11,9 @@ const dmSans = DM_Sans({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://argosystems.co.uk"),
+  icons: {
+    icon: "/favicon.svg",
+  },
   title: "Argo | Done-for-You Systems for Local Trade Businesses",
   description:
     "Argo builds done-for-you tools for local trade businesses in Essex and South East England. Our first product, CallCatch, recovers missed calls in under 60 seconds.",
