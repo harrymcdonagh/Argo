@@ -65,6 +65,7 @@ export default function ArgoNav() {
           onClick={() => setMobileOpen(!mobileOpen)}
           className="flex flex-col gap-1.5 md:hidden"
           aria-label="Toggle menu"
+          aria-expanded={mobileOpen}
         >
           <span
             className={`h-0.5 w-6 bg-stone-900 transition-all ${mobileOpen ? "translate-y-2 rotate-45" : ""}`}

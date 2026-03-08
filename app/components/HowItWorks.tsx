@@ -9,8 +9,8 @@ const steps = [
     description:
       "You're on a job and can't pick up. No problem — your phone spots the missed call straight away.",
     icon: (
-      <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 3.75L18 6m0 0l2.25 2.25M18 6l2.25-2.25M18 6l-2.25 2.25m1.5 13.5a9 9 0 11-18 0 9 9 0 0118 0zm-7.5-5.25v-.75m0-3v-.75" />
+      <svg className="h-7 w-7" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
       </svg>
     ),
   },
@@ -20,7 +20,7 @@ const steps = [
     description:
       "The caller receives a friendly text from your business within a minute. It asks what they need, how urgent it is, and where they are.",
     icon: (
-      <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <svg className="h-7 w-7" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
       </svg>
     ),
@@ -31,7 +31,7 @@ const steps = [
     description:
       "A notification lands on your phone with their name, what they need, and how urgent it is. You call back when you're ready — fully in the picture.",
     icon: (
-      <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <svg className="h-7 w-7" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
       </svg>
     ),
@@ -79,7 +79,7 @@ export default function HowItWorks() {
             How It Works
           </h2>
           <p className="mt-4 text-lg text-stone-600">
-            Here&apos;s how CallCatch turns a missed call into a qualified lead in under 60 seconds.
+            Here&apos;s how CallCatch turns a missed call into a ready-to-go enquiry in under 60 seconds.
             You don&apos;t lift a finger.
           </p>
         </div>
@@ -219,7 +219,7 @@ export default function HowItWorks() {
         <div className="mx-auto mt-14 max-w-2xl rounded-2xl border border-amber-600/20 bg-amber-50/50 p-6 text-center">
           <p className="text-sm leading-relaxed text-stone-600">
             <strong className="text-stone-900">Unlike a virtual receptionist,</strong> CallCatch
-            doesn&apos;t just take a message — it qualifies the lead, finds out what they need,
+            doesn&apos;t just take a message — it finds out what they need,
             and gives you everything you need to call back and close the job. It only kicks in
             when you miss a call — it&apos;s not replacing your phone, it&apos;s catching what falls through.
           </p>

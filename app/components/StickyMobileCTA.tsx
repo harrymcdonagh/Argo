@@ -23,7 +23,7 @@ export default function StickyMobileCTA() {
           WhatsApp Us
         </a>
         <a
-          href="mailto:harrymcdonagh82@gmail.com?subject=CallCatch%20Demo"
+          href="mailto:harry@argosystems.co.uk?subject=CallCatch%20Demo"
           className="flex-1 rounded-lg border border-cream-200 bg-white py-3 text-center text-sm font-bold text-stone-900 transition-colors hover:bg-cream-50"
         >
           Email Us

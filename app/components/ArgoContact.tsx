@@ -45,7 +45,7 @@ export default function ArgoContact() {
                   WhatsApp Me
                 </a>
                 <a
-                  href="mailto:harrymcdonagh82@gmail.com?subject=Enquiry%20from%20Argo%20website"
+                  href="mailto:harry@argosystems.co.uk?subject=Enquiry%20from%20Argo%20website"
                   className="inline-flex items-center justify-center gap-2 rounded-xl border border-cream-200 bg-white px-8 py-4 text-base font-medium text-stone-900 transition-all duration-300 hover:border-stone-400 hover:shadow-warm-sm"
                 >
                   <svg className="h-5 w-5 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>

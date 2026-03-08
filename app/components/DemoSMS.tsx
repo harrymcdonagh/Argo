@@ -211,7 +211,7 @@ export default function DemoSMS() {
                   </div>
                   <div>
                     <p className="text-sm font-semibold text-stone-900">
-                      {allRevealed ? "New Lead Captured" : "Lead in Progress"}
+                      {allRevealed ? "New Enquiry Received" : "Gathering Details"}
                     </p>
                     <p className="mt-0.5 text-xs text-stone-500">
                       {allRevealed ? "Just now \u00b7 via CallCatch" : "Gathering details\u2026"}

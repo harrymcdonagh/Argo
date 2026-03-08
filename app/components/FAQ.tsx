@@ -36,7 +36,7 @@ const faqs = [
   {
     question: "Can I see the conversations?",
     answer:
-      "Yes. Every conversation is logged and you can review the full text exchange at any time. You get a summary notification for each lead, and access to the complete history whenever you need it.",
+      "Yes. Every conversation is logged and you can review the full text exchange at any time. You get a summary notification for each enquiry, and access to the complete history whenever you need it.",
   },
   {
     question: "What if I want to cancel?",
@@ -72,6 +72,7 @@ export default function FAQ() {
             >
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
+                aria-expanded={openIndex === i}
                 className="group flex w-full items-center justify-between px-6 py-5 text-left transition-colors duration-200"
               >
                 <span className={`pr-4 font-[family-name:var(--font-display)] text-base font-semibold transition-colors duration-200 ${

@@ -16,7 +16,7 @@ export default function ArgoFooter() {
               Argo
             </a>
             <p className="mt-3 text-sm leading-relaxed text-stone-500">
-              Done-for-you automation tools for local trade businesses across
+              Done-for-you tools for local trade businesses across
               Essex and South East England.
             </p>
           </div>
@@ -49,6 +49,16 @@ export default function ArgoFooter() {
                 <li>
                   <a href="#contact" className="text-sm text-stone-600 transition-colors hover:text-amber-600">
                     Contact
+                  </a>
+                </li>
+                <li>
+                  <a href="/privacy" className="text-sm text-stone-600 transition-colors hover:text-amber-600">
+                    Privacy Policy
+                  </a>
+                </li>
+                <li>
+                  <a href="/terms" className="text-sm text-stone-600 transition-colors hover:text-amber-600">
+                    Terms of Service
                   </a>
                 </li>
               </ul>

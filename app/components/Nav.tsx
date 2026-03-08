@@ -60,7 +60,7 @@ export default function Nav() {
             </a>
           ))}
           <a
-            href="https://wa.me/447939939885?text=Hi%20Harry%2C%20I%27m%20interested%20in%20CallCatch"
+            href="https://calendly.com/harry-argosystems/callcatch-demo"
             className="rounded-lg bg-amber-600 px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-amber-700 shadow-warm-sm hover:shadow-warm"
           >
             Book a Free Demo
@@ -72,6 +72,7 @@ export default function Nav() {
           onClick={() => setMobileOpen(!mobileOpen)}
           className="flex flex-col gap-1.5 md:hidden"
           aria-label="Toggle menu"
+          aria-expanded={mobileOpen}
         >
           <span
             className={`h-0.5 w-6 bg-stone-900 transition-all ${mobileOpen ? "translate-y-2 rotate-45" : ""}`}
@@ -100,7 +101,7 @@ export default function Nav() {
               </a>
             ))}
             <a
-              href="https://wa.me/447939939885?text=Hi%20Harry%2C%20I%27m%20interested%20in%20CallCatch"
+              href="https://calendly.com/harry-argosystems/callcatch-demo"
               onClick={() => setMobileOpen(false)}
               className="mt-2 rounded-lg bg-amber-600 px-5 py-2.5 text-center text-sm font-semibold text-white transition-all hover:bg-amber-700"
             >

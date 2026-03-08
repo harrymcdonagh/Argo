@@ -18,8 +18,8 @@ export default function Hero() {
             </div>
 
             <h1 className="font-[family-name:var(--font-display)] text-4xl font-extrabold leading-[1.08] tracking-tight text-stone-900 md:text-5xl lg:text-6xl">
-              Stop Losing Leads{" "}
-              <span className="text-amber-600">While You&apos;re on the Job</span>
+              Never Miss a Customer{" "}
+              <span className="text-amber-600">Because You Were Busy</span>
             </h1>
 
             {/* Punchy tagline */}
@@ -42,6 +42,7 @@ export default function Hero() {
                   <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-amber-100 text-amber-600">
                     <svg
                       className="h-4 w-4"
+                      aria-hidden="true"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -56,7 +57,7 @@ export default function Hero() {
                   </div>
                   <div className="flex-1">
                     <p className="text-sm font-semibold text-stone-900">
-                      New Lead Captured
+                      New Enquiry Received
                     </p>
                     <div className="mt-2 grid grid-cols-2 gap-1.5">
                       <span className="text-xs text-stone-500">Sarah Mitchell</span>
@@ -80,12 +81,13 @@ export default function Hero() {
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
-                href="https://wa.me/447939939885?text=Hi%20Harry%2C%20I%27m%20interested%20in%20CallCatch"
+                href="https://calendly.com/harry-argosystems/callcatch-demo"
                 className="group inline-flex items-center justify-center gap-2 rounded-xl bg-amber-600 px-8 py-4 text-base font-bold text-white transition-all duration-300 hover:bg-amber-700 shadow-warm hover:shadow-warm-lg hover:-translate-y-0.5"
               >
                 Book a Free Demo
                 <svg
                   className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+                  aria-hidden="true"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -116,6 +118,7 @@ export default function Hero() {
                   <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-amber-100 text-amber-600">
                     <svg
                       className="h-5 w-5"
+                      aria-hidden="true"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -130,7 +133,7 @@ export default function Hero() {
                   </div>
                   <div>
                     <p className="text-sm font-semibold text-stone-900">
-                      New Lead Captured
+                      New Enquiry Received
                     </p>
                     <p className="mt-0.5 text-xs text-stone-500">
                       Just now &middot; via CallCatch

@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CallCatch by Argo — Offer Sheet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    background: #FAF8F5;
+    color: #1C1917;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    max-height: 297mm;
+    margin: 0 auto;
+    padding: 28px 36px 20px;
+    background: #FAF8F5;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .fr { font-family: 'Fraunces', serif; }
+  .amber { color: #D97706; }
+  .stone-body { color: #57534E; }
+  .stone-light { color: #78716C; }
+
+  /* ── Header ── */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #E7E0D8;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .logo-icon {
+    width: 30px; height: 30px;
+    background: #D97706;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: 'Fraunces', serif;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 1;
+  }
+  .logo-text {
+    font-family: 'Fraunces', serif;
+    font-weight: 800;
+    font-size: 20px;
+    letter-spacing: -0.02em;
+    color: #1C1917;
+  }
+  .header-contact {
+    font-size: 9px;
+    color: #78716C;
+    text-align: right;
+    line-height: 1.5;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    padding: 20px 0 14px;
+    text-align: center;
+  }
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 800;
+    font-size: 28px;
+    letter-spacing: -0.02em;
+    color: #1C1917;
+    line-height: 1.15;
+  }
+  .hero h1 span { color: #D97706; }
+  .hero .subtitle {
+    margin-top: 8px;
+    font-size: 12px;
+    color: #57534E;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+  }
+  .badge-green {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 10px;
+    padding: 3px 12px;
+    background: #ECFDF5;
+    border: 1px solid rgba(5,150,105,0.2);
+    border-radius: 100px;
+    font-size: 9px;
+    font-weight: 600;
+    color: #047857;
+  }
+  .badge-green .dot {
+    width: 6px; height: 6px;
+    background: #059669;
+    border-radius: 50%;
+  }
+  .hero-cta {
+    display: inline-block;
+    background: #D97706;
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 7px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+  }
+
+  /* ── How It Works ── */
+  .how-section {
+    background: #F5F0EB;
+    border-radius: 14px;
+    padding: 16px 20px;
+    margin-bottom: 14px;
+  }
+  .how-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 14px;
+    color: #1C1917;
+  }
+  .steps {
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+    position: relative;
+  }
+  .step {
+    flex: 1;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  .steps-line {
+    position: absolute;
+    top: 16px;
+    left: calc(100% / 6);
+    right: calc(100% / 6);
+    height: 2px;
+    background: #D97706;
+    z-index: 0;
+  }
+  .step-num {
+    width: 32px; height: 32px;
+    background: white;
+    border: 2px solid #D97706;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fraunces', serif;
+    font-weight: 800;
+    font-size: 13px;
+    color: #D97706;
+    margin-bottom: 5px;
+    position: relative;
+    z-index: 2;
+  }
+  .step-icon {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 4px;
+  }
+  .step-icon svg {
+    width: 18px; height: 18px;
+    color: #D97706;
+  }
+  .step h4 {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 11px;
+    color: #1C1917;
+    margin-bottom: 3px;
+  }
+  .step p {
+    font-size: 9px;
+    color: #57534E;
+    line-height: 1.45;
+    padding: 0 8px;
+  }
+
+  /* ── Demo Section ── */
+  .demo-section {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 14px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Phone mockup */
+  .phone {
+    width: 175px;
+    flex-shrink: 0;
+    border: 2px solid #44403C;
+    border-radius: 18px;
+    background: white;
+    padding: 2px;
+    box-shadow: 0 3px 12px rgba(28,25,23,0.08);
+  }
+  .phone-inner {
+    background: #FAF8F5;
+    border-radius: 16px;
+    overflow: hidden;
+    padding-bottom: 6px;
+  }
+  .phone-statusbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px 3px;
+    font-size: 7px;
+    font-weight: 600;
+    color: #44403C;
+  }
+  .phone-notch {
+    width: 40px; height: 10px;
+    background: #44403C;
+    border-radius: 100px;
+  }
+  .phone-chat-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 9px 5px;
+    border-bottom: 1px solid #E7E0D8;
+  }
+  .phone-avatar {
+    width: 18px; height: 18px;
+    background: #D97706;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 6px;
+    font-weight: 700;
+    color: white;
+  }
+  .phone-name { font-size: 8px; font-weight: 600; color: #1C1917; }
+  .phone-status { font-size: 6px; color: #059669; }
+  .phone-messages {
+    padding: 5px 7px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .msg {
+    max-width: 88%;
+    padding: 4px 7px;
+    border-radius: 8px;
+    font-size: 7px;
+    line-height: 1.4;
+  }
+  .msg-biz {
+    align-self: flex-start;
+    background: white;
+    color: #1C1917;
+    border-bottom-left-radius: 2px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+  }
+  .msg-cust {
+    align-self: flex-end;
+    background: #D97706;
+    color: white;
+    border-bottom-right-radius: 2px;
+  }
+  .msg-time {
+    font-size: 5px;
+    text-align: right;
+    margin-top: 1px;
+    opacity: 0.5;
+  }
+
+  /* Lead card */
+  .lead-card-wrapper {
+    width: 200px;
+    flex-shrink: 0;
+  }
+  .lead-card-label {
+    font-size: 9px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #D97706;
+    margin-bottom: 5px;
+    text-align: center;
+  }
+  .lead-card {
+    background: white;
+    border: 1px solid #E7E0D8;
+    border-radius: 12px;
+    padding: 10px;
+    box-shadow: 0 3px 12px rgba(28,25,23,0.06);
+  }
+  .lead-notif {
+    background: #FAF8F5;
+    border-radius: 8px;
+    padding: 6px 8px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 8px;
+  }
+  .lead-notif-icon {
+    width: 24px; height: 24px;
+    background: #FEF3C7;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .lead-notif-icon svg { width: 12px; height: 12px; color: #D97706; }
+  .lead-notif-title { font-size: 9px; font-weight: 600; color: #1C1917; }
+  .lead-notif-sub { font-size: 7px; color: #78716C; margin-top: 1px; }
+  .lead-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .lead-field {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #FAF8F5;
+    border-radius: 6px;
+    padding: 5px 8px;
+  }
+  .lead-field-label { font-size: 7px; color: #78716C; font-weight: 500; }
+  .lead-field-value { font-size: 8px; font-weight: 600; color: #1C1917; }
+  .lead-field-value.amber { color: #D97706; }
+  .lead-status {
+    margin-top: 6px;
+    background: #ECFDF5;
+    border-radius: 6px;
+    padding: 4px;
+    text-align: center;
+    font-size: 8px;
+    font-weight: 600;
+    color: #047857;
+  }
+  .lead-caption {
+    margin-top: 6px;
+    font-size: 8px;
+    color: #78716C;
+    line-height: 1.5;
+  }
+
+  /* ── Pricing ── */
+  .pricing-section {
+    background: #F5F0EB;
+    border-radius: 14px;
+    padding: 16px 16px 12px;
+    margin-bottom: 10px;
+  }
+  .pricing-header {
+    text-align: center;
+    margin-bottom: 12px;
+  }
+  .pricing-header h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #1C1917;
+  }
+  .pricing-header p {
+    font-size: 10px;
+    color: #57534E;
+    margin-top: 4px;
+  }
+  .pricing-grid {
+    display: flex;
+    gap: 12px;
+  }
+  .pricing-card {
+    flex: 1;
+    background: white;
+    border: 1px solid #E7E0D8;
+    border-radius: 14px;
+    padding: 14px;
+    position: relative;
+  }
+  .pricing-card.featured {
+    border-color: rgba(217,119,6,0.3);
+    box-shadow: 0 0 0 2px rgba(217,119,6,0.08);
+  }
+  .pricing-badge {
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    background: #D97706;
+    color: white;
+    font-size: 8px;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 100px;
+  }
+  .pricing-card h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #1C1917;
+  }
+  .pricing-card .desc {
+    font-size: 9px;
+    color: #57534E;
+    margin-top: 3px;
+    line-height: 1.4;
+  }
+  .pricing-price-block {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px dashed #E7E0D8;
+  }
+  .pricing-amount {
+    font-family: 'Fraunces', serif;
+    font-weight: 800;
+    font-size: 26px;
+    color: #1C1917;
+    line-height: 1;
+  }
+  .pricing-period {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    color: #78716C;
+    font-weight: 400;
+  }
+  .pricing-setup {
+    font-size: 9px;
+    color: #78716C;
+    margin-top: 2px;
+  }
+  .pricing-features {
+    list-style: none;
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .pricing-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 5px;
+    font-size: 9px;
+    color: #57534E;
+    line-height: 1.4;
+  }
+  .pricing-features li svg {
+    width: 12px; height: 12px;
+    flex-shrink: 0;
+    color: #D97706;
+    margin-top: 1px;
+  }
+  .pilot-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 10px;
+    padding: 4px 14px;
+    background: #FFFBEB;
+    border: 1px solid rgba(217,119,6,0.2);
+    border-radius: 100px;
+    font-size: 9px;
+    font-weight: 500;
+    color: #92400E;
+  }
+  .pilot-badge svg {
+    width: 12px; height: 12px;
+    color: #D97706;
+  }
+
+  /* ── ROI ── */
+  .roi {
+    text-align: center;
+    padding: 8px 0;
+    font-size: 10px;
+    color: #57534E;
+    line-height: 1.5;
+  }
+  .roi strong { color: #1C1917; }
+
+  /* ── Footer ── */
+  .footer-wrapper {
+    margin-top: auto;
+  }
+  .footer {
+    border-top: 1px solid #E7E0D8;
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-left {
+    font-size: 9px;
+    color: #57534E;
+  }
+  .footer-left strong {
+    color: #1C1917;
+    font-weight: 600;
+  }
+  .footer-cta {
+    display: inline-block;
+    background: #D97706;
+    color: white;
+    font-size: 9px;
+    font-weight: 700;
+    padding: 5px 14px;
+    border-radius: 8px;
+    text-decoration: none;
+  }
+  .footer-bottom {
+    text-align: center;
+    margin-top: 6px;
+    font-size: 8px;
+    color: #78716C;
+  }
+
+  /* ── Print ── */
+  @media print {
+    body { background: none; }
+    .page {
+      width: 100%;
+      margin: 0;
+      box-shadow: none;
+    }
+  }
+
+  /* ── Screen preview shadow ── */
+  @media screen {
+    .page {
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    body { background: #e5e5e5; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- 1. HEADER -->
+  <div class="header">
+    <div class="logo">
+      <div class="logo-icon">A</div>
+      <div class="logo-text">Argo</div>
+      <span style="color: #A8A29E; margin: 0 2px;">/</span>
+      <span style="font-family: 'Fraunces', serif; font-weight: 700; font-size: 14px; color: #D97706; letter-spacing: -0.01em;">CallCatch</span>
+    </div>
+    <div class="header-contact">
+      Based in Essex&ensp;|&ensp;harry@argosystems.co.uk&ensp;|&ensp;07939 939 885
+    </div>
+  </div>
+
+  <!-- 2. HERO -->
+  <div class="hero">
+    <h1>Stop Losing Jobs to <span>Missed Calls</span></h1>
+    <p class="subtitle">
+      CallCatch texts your missed callers back in under 60 seconds, finds out what they need, and sends you the details. Fully done for you.
+    </p>
+    <div class="badge-green">
+      <span class="dot"></span>
+      Live for local businesses in Essex
+    </div>
+
+    <div style="margin-top: 14px;">
+      <a href="https://calendly.com/harry-argosystems/callcatch-demo" class="hero-cta">Book a Free Demo</a>
+    </div>
+  </div>
+
+  <!-- 3. HOW IT WORKS -->
+  <div class="how-section">
+    <div class="how-title">How It Works</div>
+    <div class="steps">
+      <div class="steps-line"></div>
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+          </svg>
+        </div>
+        <h4>You Miss a Call</h4>
+        <p>You're on a job and can't pick up. No problem.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
+          </svg>
+        </div>
+        <h4>They Get a Text Back</h4>
+        <p>The caller gets a friendly text within a minute asking what they need.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+          </svg>
+        </div>
+        <h4>You Get the Full Details</h4>
+        <p>A notification with their name, job type, urgency, and location.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. SMS DEMO + LEAD CARD -->
+  <div class="demo-section">
+    <!-- Phone -->
+    <div class="phone">
+      <div class="phone-inner">
+        <div class="phone-statusbar">
+          <span>14:32</span>
+          <div class="phone-notch"></div>
+          <span>4G</span>
+        </div>
+        <div class="phone-chat-header">
+          <div class="phone-avatar">EP</div>
+          <div>
+            <div class="phone-name">Essex PlumbPro</div>
+            <div class="phone-status">Text Message</div>
+          </div>
+        </div>
+        <div class="phone-messages">
+          <div class="msg msg-biz">Hi! Sorry we missed your call &mdash; we're on a job. What's your name and what do you need help with?<div class="msg-time">14:32</div></div>
+          <div class="msg msg-cust">Hi, it's Sarah. Leaking tap in my kitchen &mdash; can you fit me in this week?<div class="msg-time">14:33</div></div>
+          <div class="msg msg-biz">Of course! What's your postcode so we can check you're in our area?<div class="msg-time">14:33</div></div>
+          <div class="msg msg-cust">SS7 1AB<div class="msg-time">14:34</div></div>
+          <div class="msg msg-biz">You're in our area. We'll call you back within the hour to book a time.<div class="msg-time">14:34</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lead card -->
+    <div class="lead-card-wrapper">
+      <div class="lead-card-label">Meanwhile, you get this:</div>
+      <div class="lead-card">
+        <div class="lead-notif">
+          <div class="lead-notif-icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+            </svg>
+          </div>
+          <div>
+            <div class="lead-notif-title">New Enquiry Received</div>
+            <div class="lead-notif-sub">Just now &middot; via CallCatch</div>
+          </div>
+        </div>
+        <div class="lead-fields">
+          <div class="lead-field">
+            <span class="lead-field-label">Name</span>
+            <span class="lead-field-value">Sarah Mitchell</span>
+          </div>
+          <div class="lead-field">
+            <span class="lead-field-label">Needs</span>
+            <span class="lead-field-value">Leaking tap &mdash; kitchen</span>
+          </div>
+          <div class="lead-field">
+            <span class="lead-field-label">Urgency</span>
+            <span class="lead-field-value amber">This week</span>
+          </div>
+          <div class="lead-field">
+            <span class="lead-field-label">Area</span>
+            <span class="lead-field-value">SS7 1AB</span>
+          </div>
+        </div>
+        <div class="lead-status">Ready to call back</div>
+      </div>
+      <p class="lead-caption">You finish the job, check your phone, and call them back &mdash; fully in the picture.</p>
+    </div>
+  </div>
+
+  <!-- 5. PRICING -->
+  <div class="pricing-section">
+    <div class="pricing-header">
+      <h2>Simple, Transparent Pricing</h2>
+      <p>Every missed call is a customer who might not ring back. CallCatch keeps them warm so you never lose the job.</p>
+    </div>
+    <div class="pricing-grid">
+      <!-- Starter -->
+      <div class="pricing-card">
+        <h3>Starter</h3>
+        <p class="desc">Perfect for sole traders who want to stop losing jobs to missed calls.</p>
+        <div class="pricing-price-block">
+          <span class="pricing-amount">&pound;150</span><span class="pricing-period">/month</span>
+          <div class="pricing-setup">+ &pound;400 one-time setup</div>
+        </div>
+        <ul class="pricing-features">
+          <li><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>Missed call text-back within 60 seconds</li>
+          <li><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>3 quick questions to find out what they need</li>
+          <li><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>Notification with full details</li>
+          <li><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>Emergency jobs flagged so you call back first</li>
+          <li><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>Every enquiry saved and logged</li>
+          <li><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>30 days monitoring after launch</li>
+          <li><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>Live in 5-7 working days</li>
+        </ul>
+      </div>
+      <!-- Standard -->
+      <div class="pricing-card featured">
+        <div class="pricing-badge">Recommended</div>
+        <h3>Standard</h3>
+        <p class="desc">For businesses that want follow-up texts and weekly reports too.</p>
+        <div class="pricing-price-block">
+          <span class="pricing-amount">&pound;250</span><span class="pricing-period">/month</span>
+          <div class="pricing-setup">+ &pound;900 one-time setup</div>
+        </div>
+        <ul class="pricing-features">
+          <li><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>Everything in Starter</li>
+          <li><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>3-touch follow-up text sequence</li>
+          <li><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>Booking link sent to the caller</li>
+          <li><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>Weekly report of all your enquiries</li>
+          <li><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>Day 7 follow-up for stale enquiries</li>
+          <li><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>Priority setup and support</li>
+        </ul>
+      </div>
+    </div>
+    <div style="text-align: center;">
+      <div class="pilot-badge">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/></svg>
+        Reduced setup fee for early clients &mdash; you get the full system, we get a case study
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+</body>
+</html>

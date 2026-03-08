@@ -25,7 +25,7 @@ const tiers = [
       "Everything in Starter",
       "3-touch follow-up text sequence",
       "Booking link sent to the caller",
-      "Weekly report of all your leads",
+      "Weekly report of all your enquiries",
       "Day 7 follow-up for stale enquiries",
       "Priority setup and support",
     ],
@@ -46,8 +46,8 @@ export default function Pricing() {
             Simple, Transparent Pricing
           </h2>
           <p className="mt-4 text-lg text-stone-600">
-            One missed emergency call costs you &pound;300+. CallCatch pays for itself
-            with a single recovered lead.
+            Every missed call is a customer who might not ring back. CallCatch keeps them
+            warm so you never lose the job.
           </p>
         </div>
 

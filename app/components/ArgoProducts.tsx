@@ -10,7 +10,7 @@ export default function ArgoProducts() {
             Tools That Work While You Do
           </h2>
           <p className="mt-4 text-lg text-stone-600">
-            We build done-for-you automation tools for local trade businesses.
+            We build done-for-you tools for local trade businesses.
             No tech skills needed — we handle everything.
           </p>
         </div>
@@ -71,7 +71,7 @@ export default function ArgoProducts() {
               In Development
             </h3>
             <p className="mt-2 text-sm leading-relaxed text-stone-400">
-              More automation tools for local businesses. We&apos;re building
+              More tools for local businesses. We&apos;re building
               the next one now.
             </p>
           </div>

@@ -32,7 +32,7 @@ export default function ArgoAbout() {
               </p>
               <p className="mt-4 leading-relaxed text-stone-600">
                 I&apos;m a computer science graduate who loves building
-                automations that make businesses run smoother. I started Argo
+                tools that make businesses run smoother. I started Argo
                 because I kept seeing the same problem — local tradespeople
                 losing good work to missed calls, slow follow-ups, and
                 admin that never gets done. I build the tools to fix that.
@@ -53,7 +53,7 @@ export default function ArgoAbout() {
                   WhatsApp
                 </a>
                 <a
-                  href="mailto:harrymcdonagh82@gmail.com"
+                  href="mailto:harry@argosystems.co.uk"
                   className="inline-flex items-center gap-2 rounded-lg border border-cream-200 px-4 py-2 text-sm font-medium text-stone-700 transition-all hover:border-stone-400 hover:shadow-warm-sm"
                 >
                   <svg className="h-4 w-4 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>

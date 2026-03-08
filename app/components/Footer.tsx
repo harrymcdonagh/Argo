@@ -47,6 +47,16 @@ export default function Footer() {
                     FAQ
                   </a>
                 </li>
+                <li>
+                  <a href="/privacy" className="text-sm text-stone-600 transition-colors hover:text-amber-600">
+                    Privacy Policy
+                  </a>
+                </li>
+                <li>
+                  <a href="/terms" className="text-sm text-stone-600 transition-colors hover:text-amber-600">
+                    Terms of Service
+                  </a>
+                </li>
               </ul>
             </div>
 
@@ -61,7 +71,7 @@ export default function Footer() {
                   </a>
                 </li>
                 <li>
-                  <a href="mailto:harrymcdonagh82@gmail.com" className="text-sm text-stone-600 transition-colors hover:text-amber-600">
+                  <a href="mailto:harry@argosystems.co.uk" className="text-sm text-stone-600 transition-colors hover:text-amber-600">
                     Email
                   </a>
                 </li>

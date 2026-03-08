@@ -15,7 +15,7 @@ export default function ArgoHero() {
           </div>
 
           <h1 className="font-[family-name:var(--font-display)] text-4xl font-extrabold leading-[1.08] tracking-tight text-stone-900 md:text-5xl lg:text-6xl">
-            Done-for-You Automation{" "}
+            Done-for-You Systems{" "}
             <span className="text-amber-600">
               for Local Trade Businesses
             </span>
