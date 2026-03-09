@@ -11,16 +11,8 @@ export default function ArgoAbout() {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  const parallax1X = useTransform(mouseX, (v) => v / 40);
-  const parallax1Y = useTransform(mouseY, (v) => v / 40);
-  const parallax2X = useTransform(mouseX, (v) => v / 50);
-  const parallax2Y = useTransform(mouseY, (v) => v / 50);
-  const parallax3X = useTransform(mouseX, (v) => v / 45);
-  const parallax3Y = useTransform(mouseY, (v) => v / 45);
-  const parallax4X = useTransform(mouseX, (v) => v / 55);
-  const parallax4Y = useTransform(mouseY, (v) => v / 55);
-  const parallax5X = useTransform(mouseX, (v) => v / 60);
-  const parallax5Y = useTransform(mouseY, (v) => v / 60);
+  const parallaxX = useTransform(mouseX, (v) => v / 50);
+  const parallaxY = useTransform(mouseY, (v) => v / 50);
 
   const handleMouseMove = (e: React.MouseEvent) => {
     const rect = sectionRef.current?.getBoundingClientRect();
@@ -67,100 +59,59 @@ export default function ArgoAbout() {
                 />
               </motion.div>
 
-              {/* Floating accent 1: Top-right rotated square */}
+              {/* Orbital ring 1: Large outer ring, slow rotation */}
               <motion.div
-                className="absolute -top-4 -right-2 h-4 w-4 rotate-12 rounded-sm border-2 border-amber-600/20 bg-amber-50"
+                className="pointer-events-none absolute inset-0 flex items-center justify-center"
                 initial={{ opacity: 0 }}
-                animate={
-                  inView
-                    ? {
-                        opacity: 1,
-                        y: [0, -8, 0],
-                      }
-                    : {}
-                }
+                animate={inView ? { opacity: 1, rotate: 360 } : {}}
                 transition={{
-                  opacity: { delay: 0.4, duration: 0.5 },
-                  y: { duration: 5, ease: "easeInOut" as const, repeat: Infinity, delay: 0.4 },
+                  opacity: { delay: 0.5, duration: 0.8 },
+                  rotate: { duration: 25, ease: "linear" as const, repeat: Infinity },
                 }}
-                style={{ x: parallax1X, y: parallax1Y }}
-              />
+                style={{ x: parallaxX, y: parallaxY }}
+              >
+                <div
+                  className="h-72 w-72 rounded-full border border-dashed border-amber-600/20 md:h-80 md:w-80"
+                />
+              </motion.div>
 
-              {/* Floating accent 2: Top-left circle */}
+              {/* Orbital ring 2: Medium ring, opposite rotation */}
               <motion.div
-                className="absolute -top-2 -left-4 h-3 w-3 rounded-full bg-amber-200"
+                className="pointer-events-none absolute inset-0 flex items-center justify-center"
                 initial={{ opacity: 0 }}
-                animate={
-                  inView
-                    ? {
-                        opacity: 1,
-                        y: [0, -8, 0],
-                      }
-                    : {}
-                }
+                animate={inView ? { opacity: 1, rotate: -360 } : {}}
                 transition={{
-                  opacity: { delay: 0.5, duration: 0.5 },
-                  y: { duration: 6, ease: "easeInOut" as const, repeat: Infinity, delay: 0.5 },
+                  opacity: { delay: 0.7, duration: 0.8 },
+                  rotate: { duration: 18, ease: "linear" as const, repeat: Infinity },
                 }}
-                style={{ x: parallax2X, y: parallax2Y }}
-              />
+                style={{ x: parallaxX, y: parallaxY }}
+              >
+                <div
+                  className="h-64 w-64 rounded-full border border-dashed border-amber-300/25 md:h-72 md:w-72"
+                />
+              </motion.div>
 
-              {/* Floating accent 3: Bottom-right horizontal bar */}
+              {/* Orbital ring 3: Small inner arc (half circle), fast rotation */}
               <motion.div
-                className="absolute bottom-8 -right-6 h-0.5 w-8 rounded-full bg-amber-600/30"
+                className="pointer-events-none absolute inset-0 flex items-center justify-center"
                 initial={{ opacity: 0 }}
-                animate={
-                  inView
-                    ? {
-                        opacity: 1,
-                        y: [0, -8, 0],
-                      }
-                    : {}
-                }
+                animate={inView ? { opacity: 1, rotate: 360 } : {}}
                 transition={{
-                  opacity: { delay: 0.6, duration: 0.5 },
-                  y: { duration: 7, ease: "easeInOut" as const, repeat: Infinity, delay: 0.6 },
+                  opacity: { delay: 0.9, duration: 0.8 },
+                  rotate: { duration: 12, ease: "linear" as const, repeat: Infinity },
                 }}
-                style={{ x: parallax3X, y: parallax3Y }}
-              />
-
-              {/* Floating accent 4: Bottom-left rotated square */}
-              <motion.div
-                className="absolute -bottom-3 left-4 h-3 w-3 rotate-45 rounded-sm border-2 border-amber-200"
-                initial={{ opacity: 0 }}
-                animate={
-                  inView
-                    ? {
-                        opacity: 1,
-                        y: [0, -8, 0],
-                      }
-                    : {}
-                }
-                transition={{
-                  opacity: { delay: 0.7, duration: 0.5 },
-                  y: { duration: 5.5, ease: "easeInOut" as const, repeat: Infinity, delay: 0.7 },
-                }}
-                style={{ x: parallax4X, y: parallax4Y }}
-              />
-
-              {/* Floating accent 5: Mid-right circle */}
-              <motion.div
-                className="absolute top-1/2 -right-5 h-2 w-2 rounded-full bg-amber-600/20"
-                initial={{ opacity: 0 }}
-                animate={
-                  inView
-                    ? {
-                        opacity: 1,
-                        y: [0, -8, 0],
-                      }
-                    : {}
-                }
-                transition={{
-                  opacity: { delay: 0.8, duration: 0.5 },
-                  y: { duration: 6.5, ease: "easeInOut" as const, repeat: Infinity, delay: 0.8 },
-                }}
-                style={{ x: parallax5X, y: parallax5Y }}
-              />
+                style={{ x: parallaxX, y: parallaxY }}
+              >
+                <svg className="h-60 w-60 md:h-64 md:w-64" viewBox="0 0 200 200" fill="none">
+                  <path
+                    d="M 100 10 A 90 90 0 0 1 190 100"
+                    stroke="rgb(217 119 6 / 0.15)"
+                    strokeWidth="1"
+                    strokeDasharray="6 4"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              </motion.div>
             </div>
 
             {/* Bio Column */}
