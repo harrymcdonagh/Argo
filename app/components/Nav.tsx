@@ -50,7 +50,7 @@ export default function Nav() {
         </div>
 
         {/* Desktop nav */}
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden items-center gap-8 lg:flex">
           {links.map((link) => (
             <a
               key={link.href}
@@ -71,7 +71,7 @@ export default function Nav() {
         {/* Mobile hamburger */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="flex flex-col gap-1.5 md:hidden"
+          className="flex flex-col gap-1.5 lg:hidden"
           aria-label="Toggle menu"
           aria-expanded={mobileOpen}
         >
@@ -89,7 +89,7 @@ export default function Nav() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="border-t border-cream-200 bg-white md:hidden">
+        <div className="border-t border-cream-200 bg-white lg:hidden">
           <div className="flex flex-col gap-1 px-6 py-4">
             {links.map((link) => (
               <a
