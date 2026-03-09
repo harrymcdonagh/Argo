@@ -27,7 +27,7 @@ export default function PrivacyPolicyPage() {
             <p>
               Argo (&ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;) is
               run by Harry McDonagh, based in Essex, UK. We build done-for-you
-              tools for local trade businesses. This policy explains how we
+              tools for local businesses. This policy explains how we
               handle data when you use our services, including our missed call
               text-back product, CallCatch.
             </p>

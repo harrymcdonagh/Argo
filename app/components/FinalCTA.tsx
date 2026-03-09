@@ -48,7 +48,7 @@ export default function FinalCTA() {
               <img
                 src="/profile.jpg"
                 alt="Harry McDonagh"
-                className="h-12 w-12 rounded-full border border-amber-200/50 object-cover"
+                className="h-14 w-14 rounded-full border border-amber-200/50 object-cover"
               />
               <div className="text-left">
                 <p className="text-sm font-semibold text-stone-900">Harry McDonagh</p>

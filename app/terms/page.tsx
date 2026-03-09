@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Terms of Service | Argo",
   description:
-    "Terms and conditions for using Argo's services, including CallCatch missed call text-back for local trade businesses.",
+    "Terms and conditions for using Argo's services, including CallCatch missed call text-back for local businesses.",
 };
 
 export default function TermsOfServicePage() {
@@ -39,7 +39,7 @@ export default function TermsOfServicePage() {
               What we provide
             </h2>
             <p className="mt-4">
-              Argo builds done-for-you tools for local trade businesses. Our
+              Argo builds done-for-you tools for local businesses. Our
               current product, CallCatch, is a missed call text-back service. It
               automatically texts your missed callers, finds out what they need
               (name, service required, postcode), and sends you the enquiry

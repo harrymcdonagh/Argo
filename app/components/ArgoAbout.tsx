@@ -18,7 +18,7 @@ export default function ArgoAbout() {
               <img
                 src="/profile.jpg"
                 alt="Harry McDonagh, Founder of Argo"
-                className="h-28 w-28 rounded-2xl border border-amber-200/50 object-cover shadow-warm-sm"
+                className="h-36 w-36 rounded-2xl border border-amber-200/50 object-cover shadow-warm-sm"
               />
             </div>
 

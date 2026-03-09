@@ -103,7 +103,7 @@ export default function DemoSMS() {
   const allRevealed = revealedFields.size === Object.keys(FIELD_TRIGGERS).length;
 
   return (
-    <section id="demo" ref={sectionRef} className="paper-texture relative py-20 md:py-28">
+    <section id="demo" ref={sectionRef} className="relative bg-cream-100 py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-6">
         <div className="mx-auto mb-14 max-w-2xl text-center">
           <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-widest text-amber-600">
@@ -269,8 +269,8 @@ export default function DemoSMS() {
 
         {/* Caption */}
         <p className="mt-10 text-center text-sm text-stone-500">
-          This exact system works for plumbers, electricians, heating engineers,
-          roofers, locksmiths, and any other trade business that takes jobs over the phone.
+          This exact system works for plumbers, electricians, locksmiths, salons,
+          dental practices, and any other business that takes bookings over the phone.
         </p>
       </div>
     </section>

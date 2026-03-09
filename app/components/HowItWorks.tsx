@@ -64,7 +64,7 @@ export default function HowItWorks() {
   }, []);
 
   return (
-    <section id="how-it-works" ref={sectionRef} className="relative bg-cream-100 py-20 md:py-28">
+    <section id="how-it-works" ref={sectionRef} className="paper-texture relative py-20 md:py-28">
       <div className="relative z-10 mx-auto max-w-6xl px-6">
         {/* Transition line */}
         <p className="mb-14 text-center text-lg font-medium text-stone-500">

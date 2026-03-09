@@ -15,11 +15,11 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Argo | CallCatch — Missed Call Recovery for Local Businesses in Essex",
   description:
-    "CallCatch by Argo texts your missed callers back in under 60 seconds, finds out what they need, and sends you the details. Built for trade businesses in Essex and South East England.",
+    "CallCatch by Argo texts your missed callers back in under 60 seconds, finds out what they need, and sends you the details. Built for local businesses in Essex and South East England.",
   openGraph: {
-    title: "Argo | CallCatch",
+    title: "Argo | CallCatch — Never Miss a Customer Because You Were Busy",
     description:
-      "CallCatch by Argo texts your missed callers back in under 60 seconds, finds out what they need, and sends you the details. Built for trade businesses in Essex and South East England.",
+      "Texts your missed callers back in under 60 seconds, finds out what they need, and sends you the details. Done for you.",
     siteName: "Argo",
     url: "https://argosystems.co.uk/callcatch",
     images: [
@@ -42,8 +42,8 @@ export default function CallCatchPage() {
       <Nav />
       <Hero />
       <Problem />
-      <DemoSMS />
       <HowItWorks />
+      <DemoSMS />
       <WhatYouGet />
       <Pricing />
       <FinalCTA />

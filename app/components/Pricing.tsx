@@ -54,8 +54,8 @@ export default function Pricing() {
         {/* ROI anchoring */}
         <div className="mx-auto mb-14 max-w-lg text-center">
           <p className="text-sm text-stone-500">
-            The average emergency plumbing job is worth &pound;200-500.
-            How many missed calls are you getting per month?
+            Just one recovered job per month covers the entire fee.
+            How many missed calls are you getting right now?
           </p>
         </div>
 

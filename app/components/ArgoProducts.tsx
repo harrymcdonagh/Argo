@@ -10,7 +10,7 @@ export default function ArgoProducts() {
             Tools That Work While You Do
           </h2>
           <p className="mt-4 text-lg text-stone-600">
-            We build done-for-you tools for local trade businesses.
+            We build done-for-you tools for local businesses.
             No tech skills needed — we handle everything.
           </p>
         </div>

@@ -13,9 +13,9 @@ export default function ArgoNav() {
   }, []);
 
   const links = [
-    { label: "Products", href: "#products" },
-    { label: "About", href: "#about" },
-    { label: "Contact", href: "#contact" },
+    { label: "Products", href: "/#products" },
+    { label: "About", href: "/#about" },
+    { label: "Contact", href: "/#contact" },
   ];
 
   return (
@@ -53,7 +53,7 @@ export default function ArgoNav() {
             </a>
           ))}
           <a
-            href="#contact"
+            href="/#contact"
             className="rounded-lg bg-amber-600 px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-amber-700 shadow-warm-sm hover:shadow-warm"
           >
             Get in Touch
@@ -94,7 +94,7 @@ export default function ArgoNav() {
               </a>
             ))}
             <a
-              href="#contact"
+              href="/#contact"
               onClick={() => setMobileOpen(false)}
               className="mt-2 rounded-lg bg-amber-600 px-5 py-2.5 text-center text-sm font-semibold text-white transition-all hover:bg-amber-700"
             >
