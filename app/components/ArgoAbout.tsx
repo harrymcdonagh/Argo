@@ -13,13 +13,13 @@ export default function ArgoAbout() {
 
         <div className="mx-auto max-w-2xl">
           <div className="flex flex-col items-center gap-8 rounded-2xl border border-cream-200 bg-white p-8 shadow-warm md:flex-row md:items-start md:p-10">
-            {/* Photo placeholder */}
+            {/* Photo */}
             <div className="flex-shrink-0">
-              <div className="flex h-28 w-28 items-center justify-center rounded-2xl bg-gradient-to-br from-amber-100 to-amber-50 border border-amber-200/50 shadow-warm-sm">
-                <span className="font-[family-name:var(--font-display)] text-3xl font-bold text-amber-600">
-                  HM
-                </span>
-              </div>
+              <img
+                src="/profile.jpg"
+                alt="Harry McDonagh, Founder of Argo"
+                className="h-28 w-28 rounded-2xl border border-amber-200/50 object-cover shadow-warm-sm"
+              />
             </div>
 
             {/* Bio */}

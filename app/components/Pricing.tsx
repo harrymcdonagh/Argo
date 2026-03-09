@@ -12,7 +12,7 @@ const tiers = [
       "30 days of monitoring after launch",
       "Live in 5-7 working days",
     ],
-    cta: "Get Started",
+    cta: "Book a Free Demo",
     featured: false,
   },
   {
@@ -29,7 +29,7 @@ const tiers = [
       "Day 7 follow-up for stale enquiries",
       "Priority setup and support",
     ],
-    cta: "Get Started",
+    cta: "Book a Free Demo",
     featured: true,
   },
 ];
@@ -102,6 +102,7 @@ export default function Pricing() {
                 {tier.features.map((feature) => (
                   <li key={feature} className="flex items-start gap-3">
                     <svg
+                      aria-hidden="true"
                       className="mt-0.5 h-5 w-5 flex-shrink-0 text-amber-600"
                       fill="none"
                       viewBox="0 0 24 24"
@@ -120,7 +121,7 @@ export default function Pricing() {
               </ul>
 
               <a
-                href="https://wa.me/447939939885?text=Hi%20Harry%2C%20I%27m%20interested%20in%20the%20CallCatch%20"
+                href="https://calendly.com/harry-argosystems/callcatch-demo"
                 className={`mt-8 block rounded-xl py-3.5 text-center text-sm font-bold transition-all ${
                   tier.featured
                     ? "bg-amber-600 text-white hover:bg-amber-700 shadow-warm-sm hover:shadow-warm"
@@ -137,6 +138,7 @@ export default function Pricing() {
         <div className="mx-auto mt-8 max-w-lg text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-amber-600/20 bg-amber-50 px-4 py-2">
             <svg
+              aria-hidden="true"
               className="h-4 w-4 text-amber-600"
               fill="none"
               viewBox="0 0 24 24"

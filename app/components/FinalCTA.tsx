@@ -45,11 +45,11 @@ export default function FinalCTA() {
 
             {/* Founder mini-intro */}
             <div className="mx-auto mt-8 flex items-center justify-center gap-3">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-amber-100 to-amber-50 border border-amber-200/50">
-                <span className="font-[family-name:var(--font-display)] text-sm font-bold text-amber-600">
-                  HM
-                </span>
-              </div>
+              <img
+                src="/profile.jpg"
+                alt="Harry McDonagh"
+                className="h-12 w-12 rounded-full border border-amber-200/50 object-cover"
+              />
               <div className="text-left">
                 <p className="text-sm font-semibold text-stone-900">Harry McDonagh</p>
                 <p className="text-xs text-stone-500">Founder, Argo &middot; Based in Essex</p>

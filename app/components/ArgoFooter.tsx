@@ -42,12 +42,12 @@ export default function ArgoFooter() {
               </h4>
               <ul className="mt-4 space-y-2.5">
                 <li>
-                  <a href="#about" className="text-sm text-stone-600 transition-colors hover:text-amber-600">
+                  <a href="/#about" className="text-sm text-stone-600 transition-colors hover:text-amber-600">
                     About
                   </a>
                 </li>
                 <li>
-                  <a href="#contact" className="text-sm text-stone-600 transition-colors hover:text-amber-600">
+                  <a href="/#contact" className="text-sm text-stone-600 transition-colors hover:text-amber-600">
                     Contact
                   </a>
                 </li>

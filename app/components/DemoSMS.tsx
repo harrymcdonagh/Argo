@@ -136,7 +136,7 @@ export default function DemoSMS() {
                       <div className="h-3 w-0.5 rounded-full bg-stone-700" />
                       <div className="h-3.5 w-0.5 rounded-full bg-stone-400" />
                     </div>
-                    <svg className="ml-1 h-3 w-3 text-stone-700" fill="currentColor" viewBox="0 0 20 20">
+                    <svg aria-hidden="true" className="ml-1 h-3 w-3 text-stone-700" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M17 3H3a2 2 0 00-2 2v2a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2z" />
                     </svg>
                   </div>
@@ -205,7 +205,7 @@ export default function DemoSMS() {
                       ? "bg-amber-100 text-amber-600"
                       : "bg-stone-100 text-stone-400"
                   }`}>
-                    <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <svg aria-hidden="true" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
                     </svg>
                   </div>
