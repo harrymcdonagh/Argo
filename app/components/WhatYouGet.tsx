@@ -1,3 +1,10 @@
+"use client";
+
+import ScrollReveal from "./ScrollReveal";
+import StaggerGroup from "./StaggerGroup";
+import { staggerItem } from "./StaggerGroup";
+import { motion } from "framer-motion";
+
 const features = [
   {
     icon: (
@@ -59,39 +66,42 @@ export default function WhatYouGet() {
   return (
     <section className="relative bg-cream-100 py-20 md:py-28">
       <div className="relative z-10 mx-auto max-w-6xl px-6">
-        <div className="mx-auto mb-14 max-w-2xl text-center">
-          <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-widest text-amber-600">
-            Everything Included
-          </span>
-          <h2 className="font-[family-name:var(--font-display)] text-3xl font-bold tracking-tight text-stone-900 md:text-4xl">
-            Everything That Happens While You&apos;re on the Job
-          </h2>
-          <p className="mt-4 text-lg text-stone-600">
-            CallCatch runs in the background — a complete missed-call recovery system,
-            set up and managed for you. No tech skills needed.
-          </p>
-        </div>
+        <ScrollReveal>
+          <div className="mx-auto mb-14 max-w-2xl text-center">
+            <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-widest text-amber-600">
+              Everything Included
+            </span>
+            <h2 className="font-[family-name:var(--font-display)] text-3xl font-bold tracking-tight text-stone-900 md:text-4xl">
+              Everything That Happens While You&apos;re on the Job
+            </h2>
+            <p className="mt-4 text-lg text-stone-600">
+              CallCatch runs in the background — a complete missed-call recovery system,
+              set up and managed for you. No tech skills needed.
+            </p>
+          </div>
+        </ScrollReveal>
 
-        <div className="grid gap-5 sm:grid-cols-2">
+        <StaggerGroup className="grid gap-5 sm:grid-cols-2">
           {features.map((feature, i) => (
-            <div
-              key={i}
-              className="group flex gap-5 rounded-2xl border border-cream-200 bg-white p-6 shadow-warm-sm transition-all duration-300 hover:shadow-warm hover:-translate-y-0.5"
-            >
-              <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-amber-50 text-amber-600 transition-colors group-hover:bg-amber-100">
-                {feature.icon}
+            <motion.div variants={staggerItem} key={i}>
+              <div
+                className="group flex gap-5 rounded-2xl border border-cream-200 bg-white p-6 shadow-warm-sm transition-all duration-300 hover:shadow-warm hover:-translate-y-0.5"
+              >
+                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-amber-50 text-amber-600 transition-colors group-hover:bg-amber-100">
+                  {feature.icon}
+                </div>
+                <div>
+                  <h3 className="font-[family-name:var(--font-display)] text-lg font-bold text-stone-900">
+                    {feature.title}
+                  </h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-stone-600">
+                    {feature.description}
+                  </p>
+                </div>
               </div>
-              <div>
-                <h3 className="font-[family-name:var(--font-display)] text-lg font-bold text-stone-900">
-                  {feature.title}
-                </h3>
-                <p className="mt-1.5 text-sm leading-relaxed text-stone-600">
-                  {feature.description}
-                </p>
-              </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </StaggerGroup>
       </div>
     </section>
   );

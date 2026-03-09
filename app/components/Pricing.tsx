@@ -1,3 +1,11 @@
+"use client";
+
+import { motion } from "framer-motion";
+import ScrollReveal from "./ScrollReveal";
+import StaggerGroup, { staggerItem } from "./StaggerGroup";
+import AnimatedCounter from "./AnimatedCounter";
+import MagneticButton from "./MagneticButton";
+
 const tiers = [
   {
     name: "Starter",
@@ -38,125 +46,156 @@ export default function Pricing() {
   return (
     <section id="pricing" className="paper-texture relative py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="mx-auto mb-6 max-w-2xl text-center">
-          <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-widest text-amber-600">
-            Pricing
-          </span>
-          <h2 className="font-[family-name:var(--font-display)] text-3xl font-bold tracking-tight text-stone-900 md:text-4xl">
-            Simple, Transparent Pricing
-          </h2>
-          <p className="mt-4 text-lg text-stone-600">
-            Every missed call is a customer who might not ring back. CallCatch keeps them
-            warm so you never lose the job.
-          </p>
-        </div>
+        <ScrollReveal>
+          <div className="mx-auto mb-6 max-w-2xl text-center">
+            <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-widest text-amber-600">
+              Pricing
+            </span>
+            <h2 className="font-[family-name:var(--font-display)] text-3xl font-bold tracking-tight text-stone-900 md:text-4xl">
+              Simple, Transparent Pricing
+            </h2>
+            <p className="mt-4 text-lg text-stone-600">
+              Every missed call is a customer who might not ring back. CallCatch keeps them
+              warm so you never lose the job.
+            </p>
+          </div>
+        </ScrollReveal>
 
         {/* ROI anchoring */}
-        <div className="mx-auto mb-14 max-w-lg text-center">
-          <p className="text-sm text-stone-500">
-            Just one recovered job per month covers the entire fee.
-            How many missed calls are you getting right now?
-          </p>
-        </div>
+        <ScrollReveal delay={0.1}>
+          <div className="mx-auto mb-14 max-w-lg text-center">
+            <p className="text-sm text-stone-500">
+              Just one recovered job per month covers the entire fee.
+              How many missed calls are you getting right now?
+            </p>
+          </div>
+        </ScrollReveal>
 
-        <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
-          {tiers.map((tier) => (
-            <div
-              key={tier.name}
-              className={`relative rounded-2xl border bg-white p-8 shadow-warm transition-all duration-300 hover:shadow-warm-lg hover:-translate-y-0.5 ${
-                tier.featured
-                  ? "border-amber-600/30 ring-2 ring-amber-600/10"
-                  : "border-cream-200"
-              }`}
-            >
-              {/* Dashed top accent for invoice feel */}
-              <div className={`absolute top-0 left-6 right-6 h-px ${tier.featured ? "bg-amber-600" : "border-t border-dashed border-cream-200"}`} />
-
-              {tier.featured && (
-                <div className="absolute -top-3 right-6 rounded-full bg-amber-600 px-3 py-1 text-xs font-bold text-white shadow-warm-sm">
-                  Recommended
-                </div>
-              )}
-
-              <h3 className="font-[family-name:var(--font-display)] text-2xl font-bold text-stone-900">
-                {tier.name}
-              </h3>
-              <p className="mt-2 text-sm text-stone-600">{tier.description}</p>
-
-              <div className="mt-6 border-t border-dashed border-cream-200 pt-6">
-                {/* Monthly price leads */}
-                <div className="flex items-baseline gap-1">
-                  <span className="font-[family-name:var(--font-display)] text-4xl font-extrabold text-stone-900">
-                    &pound;{tier.monthly}
-                  </span>
-                  <span className="text-sm text-stone-500">/month</span>
-                </div>
-                <div className="mt-1 flex items-baseline gap-1">
-                  <span className="text-sm text-stone-500">
-                    + &pound;{tier.setup} one-time setup
-                  </span>
-                </div>
-              </div>
-
-              <ul className="mt-6 space-y-3">
-                {tier.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-3">
-                    <svg
-                      aria-hidden="true"
-                      className="mt-0.5 h-5 w-5 flex-shrink-0 text-amber-600"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M4.5 12.75l6 6 9-13.5"
-                      />
-                    </svg>
-                    <span className="text-sm text-stone-600">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <a
-                href="https://calendly.com/harry-argosystems/callcatch-demo"
-                className={`mt-8 block rounded-xl py-3.5 text-center text-sm font-bold transition-all ${
+        <StaggerGroup className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
+          {tiers.map((tier) => {
+            const card = (
+              <div
+                className={`relative rounded-2xl border bg-white p-8 shadow-warm transition-all duration-300 hover:shadow-warm-lg hover:-translate-y-0.5 ${
                   tier.featured
-                    ? "bg-amber-600 text-white hover:bg-amber-700 shadow-warm-sm hover:shadow-warm"
-                    : "border border-cream-200 text-stone-900 hover:border-stone-400 hover:bg-cream-50"
+                    ? "border-amber-600/30 ring-2 ring-amber-600/10"
+                    : "border-cream-200"
                 }`}
               >
-                {tier.cta}
-              </a>
-            </div>
-          ))}
-        </div>
+                {/* Dashed top accent for invoice feel */}
+                <div className={`absolute top-0 left-6 right-6 h-px ${tier.featured ? "bg-amber-600" : "border-t border-dashed border-cream-200"}`} />
+
+                {tier.featured && (
+                  <div className="absolute -top-3 right-6 rounded-full bg-amber-600 px-3 py-1 text-xs font-bold text-white shadow-warm-sm">
+                    Recommended
+                  </div>
+                )}
+
+                <h3 className="font-[family-name:var(--font-display)] text-2xl font-bold text-stone-900">
+                  {tier.name}
+                </h3>
+                <p className="mt-2 text-sm text-stone-600">{tier.description}</p>
+
+                <div className="mt-6 border-t border-dashed border-cream-200 pt-6">
+                  {/* Monthly price leads */}
+                  <div className="flex items-baseline gap-1">
+                    <AnimatedCounter
+                      value={parseInt(tier.monthly)}
+                      prefix="£"
+                      className="font-[family-name:var(--font-display)] text-4xl font-extrabold text-stone-900"
+                    />
+                    <span className="text-sm text-stone-500">/month</span>
+                  </div>
+                  <div className="mt-1 flex items-baseline gap-1">
+                    <span className="text-sm text-stone-500">
+                      + <AnimatedCounter value={parseInt(tier.setup)} prefix="£" className="" /> one-time setup
+                    </span>
+                  </div>
+                </div>
+
+                <ul className="mt-6 space-y-3">
+                  {tier.features.map((feature) => (
+                    <li key={feature} className="flex items-start gap-3">
+                      <svg
+                        aria-hidden="true"
+                        className="mt-0.5 h-5 w-5 flex-shrink-0 text-amber-600"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M4.5 12.75l6 6 9-13.5"
+                        />
+                      </svg>
+                      <span className="text-sm text-stone-600">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <MagneticButton
+                  href="https://calendly.com/harry-argosystems/callcatch-demo"
+                  className={`mt-8 block rounded-xl py-3.5 text-center text-sm font-bold transition-all ${
+                    tier.featured
+                      ? "bg-amber-600 text-white hover:bg-amber-700 shadow-warm-sm hover:shadow-warm"
+                      : "border border-cream-200 text-stone-900 hover:border-stone-400 hover:bg-cream-50"
+                  }`}
+                >
+                  {tier.cta}
+                </MagneticButton>
+              </div>
+            );
+
+            return (
+              <motion.div variants={staggerItem} key={tier.name}>
+                {tier.featured ? (
+                  <motion.div
+                    animate={{
+                      boxShadow: [
+                        "0 0 0 0 rgba(217,119,6,0)",
+                        "0 0 20px 4px rgba(217,119,6,0.15)",
+                        "0 0 0 0 rgba(217,119,6,0)",
+                      ],
+                    }}
+                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                    className="rounded-2xl"
+                  >
+                    {card}
+                  </motion.div>
+                ) : (
+                  card
+                )}
+              </motion.div>
+            );
+          })}
+        </StaggerGroup>
 
         {/* Early client note */}
-        <div className="mx-auto mt-8 max-w-lg text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-amber-600/20 bg-amber-50 px-4 py-2">
-            <svg
-              aria-hidden="true"
-              className="h-4 w-4 text-amber-600"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"
-              />
-            </svg>
-            <span className="text-sm font-medium text-amber-800">
-              Reduced setup fee for early clients — you get the full system,
-              we get a case study
-            </span>
+        <ScrollReveal delay={0.2}>
+          <div className="mx-auto mt-8 max-w-lg text-center">
+            <div className="inline-flex items-center gap-2 rounded-full border border-amber-600/20 bg-amber-50 px-4 py-2">
+              <svg
+                aria-hidden="true"
+                className="h-4 w-4 text-amber-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"
+                />
+              </svg>
+              <span className="text-sm font-medium text-amber-800">
+                Reduced setup fee for early clients — you get the full system,
+                we get a case study
+              </span>
+            </div>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

@@ -1,3 +1,10 @@
+"use client";
+
+import ScrollReveal from "./ScrollReveal";
+import StaggerGroup from "./StaggerGroup";
+import { staggerItem } from "./StaggerGroup";
+import { motion } from "framer-motion";
+
 const problems = [
   {
     icon: (
@@ -35,42 +42,47 @@ export default function Problem() {
   return (
     <section className="relative bg-cream-100 py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="mx-auto mb-14 max-w-2xl text-center">
-          <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-widest text-amber-600">
-            The Problem
-          </span>
-          <h2 className="font-[family-name:var(--font-display)] text-3xl font-bold tracking-tight text-stone-900 md:text-4xl">
-            Sound Familiar?
-          </h2>
-          <p className="mt-4 text-lg text-stone-600">
-            Every missed call is money walking out the door. Here&apos;s what&apos;s
-            costing you jobs right now.
-          </p>
-        </div>
+        <ScrollReveal>
+          <div className="mx-auto mb-14 max-w-2xl text-center">
+            <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-widest text-amber-600">
+              The Problem
+            </span>
+            <h2 className="font-[family-name:var(--font-display)] text-3xl font-bold tracking-tight text-stone-900 md:text-4xl">
+              Sound Familiar?
+            </h2>
+            <p className="mt-4 text-lg text-stone-600">
+              Every missed call is money walking out the door. Here&apos;s what&apos;s
+              costing you jobs right now.
+            </p>
+          </div>
+        </ScrollReveal>
 
-        <div className="grid gap-6 md:grid-cols-3">
+        <StaggerGroup className="grid gap-6 md:grid-cols-3">
           {problems.map((problem, i) => (
-            <div
-              key={i}
-              className="group rounded-2xl border-l-4 border-l-red-500 bg-white p-7 shadow-warm transition-all duration-300 hover:shadow-warm-lg hover:-translate-y-0.5"
-            >
-              <div className="mb-4 inline-flex rounded-xl bg-red-50 p-3 text-red-600">
-                {problem.icon}
+            <motion.div variants={staggerItem} key={i}>
+              <div
+                className="group rounded-2xl border-l-4 border-l-red-500 bg-white p-7 shadow-warm transition-all duration-300 hover:shadow-warm-lg hover:-translate-y-0.5"
+              >
+                <div className="mb-4 inline-flex rounded-xl bg-red-50 p-3 text-red-600">
+                  {problem.icon}
+                </div>
+                <h3 className="font-[family-name:var(--font-display)] text-xl font-bold text-stone-900">
+                  {problem.title}
+                </h3>
+                <p className="mt-3 leading-relaxed text-stone-600">
+                  {problem.description}
+                </p>
               </div>
-              <h3 className="font-[family-name:var(--font-display)] text-xl font-bold text-stone-900">
-                {problem.title}
-              </h3>
-              <p className="mt-3 leading-relaxed text-stone-600">
-                {problem.description}
-              </p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </StaggerGroup>
 
         {/* Transition line to next section */}
-        <p className="mt-14 text-center text-lg font-medium text-stone-500">
-          So what happens when you can&apos;t pick up? Let us show you.
-        </p>
+        <ScrollReveal delay={0.3}>
+          <p className="mt-14 text-center text-lg font-medium text-stone-500">
+            So what happens when you can&apos;t pick up? Let us show you.
+          </p>
+        </ScrollReveal>
       </div>
     </section>
   );
