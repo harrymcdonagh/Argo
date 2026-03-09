@@ -38,6 +38,11 @@ export default function Footer() {
                   </a>
                 </li>
                 <li>
+                  <a href="#walkthrough" className="text-sm text-stone-600 transition-colors hover:text-amber-600">
+                    Walkthrough
+                  </a>
+                </li>
+                <li>
                   <a href="#pricing" className="text-sm text-stone-600 transition-colors hover:text-amber-600">
                     Pricing
                   </a>

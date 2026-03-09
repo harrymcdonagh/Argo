@@ -15,6 +15,7 @@ export default function Nav() {
   const links = [
     { label: "How It Works", href: "#how-it-works" },
     { label: "Live Demo", href: "#demo" },
+    { label: "Walkthrough", href: "#walkthrough" },
     { label: "Pricing", href: "#pricing" },
     { label: "FAQ", href: "#faq" },
   ];

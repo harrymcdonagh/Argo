@@ -1,6 +1,6 @@
 export default function VideoDemo() {
   return (
-    <section className="paper-texture relative py-20 md:py-28">
+    <section id="walkthrough" className="paper-texture relative py-20 md:py-28">
       <div className="mx-auto max-w-4xl px-6">
         <div className="mx-auto mb-10 max-w-2xl text-center">
           <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-widest text-amber-600">
