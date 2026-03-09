@@ -1,42 +1,141 @@
+"use client";
+
+import { motion, useMotionValue, useTransform } from "framer-motion";
+import { useRef } from "react";
+import MagneticButton from "./MagneticButton";
+
+const headlineWords = ["Never", "Miss", "a", "Customer"];
+const amberWords = ["Because", "You", "Were", "Busy"];
+
+const staggerContainer = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.05,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const wordVariant = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.4, ease: "easeOut" as const },
+  },
+};
+
 export default function Hero() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const blob1X = useTransform(mouseX, (v) => v / 50);
+  const blob1Y = useTransform(mouseY, (v) => v / 50);
+  const blob2X = useTransform(mouseX, (v) => v / 50);
+  const blob2Y = useTransform(mouseY, (v) => v / 50);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!sectionRef.current) return;
+    const rect = sectionRef.current.getBoundingClientRect();
+    mouseX.set(e.clientX - rect.left - rect.width / 2);
+    mouseY.set(e.clientY - rect.top - rect.height / 2);
+  };
+
   return (
-    <section className="paper-texture relative overflow-hidden pt-28 pb-16 md:pt-40 md:pb-28">
-      {/* Subtle warm gradient */}
-      <div className="pointer-events-none absolute -top-20 right-0 h-[500px] w-[500px] rounded-full bg-amber-500/5 blur-3xl" />
-      <div className="pointer-events-none absolute bottom-0 -left-20 h-[300px] w-[300px] rounded-full bg-amber-600/5 blur-3xl" />
+    <section
+      ref={sectionRef}
+      onMouseMove={handleMouseMove}
+      className="paper-texture relative min-h-screen flex items-center py-20 overflow-hidden"
+    >
+      {/* Subtle warm gradient — floating parallax blobs */}
+      <motion.div
+        className="pointer-events-none absolute -top-20 right-0 h-[500px] w-[500px] rounded-full bg-amber-500/5 blur-3xl"
+        animate={{ y: [0, -20, 0], x: [0, 10, 0] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        style={{ x: blob1X, y: blob1Y }}
+      />
+      <motion.div
+        className="pointer-events-none absolute bottom-0 -left-20 h-[300px] w-[300px] rounded-full bg-amber-600/5 blur-3xl"
+        animate={{ y: [0, -20, 0], x: [0, 10, 0] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        style={{ x: blob2X, y: blob2Y }}
+      />
 
       <div className="relative z-10 mx-auto max-w-6xl px-6">
         <div className="grid items-center gap-12 md:grid-cols-2">
           {/* Left: Copy */}
           <div>
             {/* Live badge */}
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-600/20 bg-emerald-100 px-4 py-1.5">
+            <motion.div
+              className="mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-600/20 bg-emerald-100 px-4 py-1.5"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
+            >
               <span className="pulse-dot inline-block h-2 w-2 rounded-full bg-emerald-600" />
               <span className="text-sm font-medium text-emerald-700">
                 Live for local businesses in Essex
               </span>
-            </div>
+            </motion.div>
 
-            <h1 className="font-[family-name:var(--font-display)] text-4xl font-extrabold leading-[1.08] tracking-tight text-stone-900 md:text-5xl lg:text-6xl">
-              Never Miss a Customer{" "}
-              <span className="text-amber-600">Because You Were Busy</span>
-            </h1>
+            <motion.h1
+              className="font-[family-name:var(--font-display)] text-4xl font-extrabold leading-[1.08] tracking-tight text-stone-900 md:text-5xl lg:text-6xl"
+              variants={staggerContainer}
+              initial="hidden"
+              animate="visible"
+            >
+              {headlineWords.map((word, i) => (
+                <motion.span
+                  key={i}
+                  variants={wordVariant}
+                  className="inline-block mr-[0.25em]"
+                >
+                  {word}
+                </motion.span>
+              ))}
+              {amberWords.map((word, i) => (
+                <motion.span
+                  key={`amber-${i}`}
+                  variants={wordVariant}
+                  className="inline-block mr-[0.25em] text-amber-600"
+                >
+                  {word}
+                </motion.span>
+              ))}
+            </motion.h1>
 
             {/* Punchy tagline */}
-            <p className="mt-4 text-xl font-medium text-stone-700">
+            <motion.p
+              className="mt-4 text-xl font-medium text-stone-700"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.55, ease: "easeOut" }}
+            >
               CallCatch texts your missed callers back in under 10 seconds — so you never
               lose a job while you&apos;re on one.
-            </p>
+            </motion.p>
 
-            <p className="mt-4 max-w-lg text-base leading-relaxed text-stone-600 md:text-lg">
+            <motion.p
+              className="mt-4 max-w-lg text-base leading-relaxed text-stone-600 md:text-lg"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.65, ease: "easeOut" }}
+            >
               Your phone rings while you&apos;re under a sink, up a ladder, or with a
               client. You can&apos;t answer — but <strong>CallCatch</strong> texts them
               back within seconds, finds out what they need, and sends you the details.
               Fully done for you.
-            </p>
+            </motion.p>
 
             {/* Mobile-only notification card (compact) */}
-            <div className="mt-6 md:hidden">
+            <motion.div
+              className="mt-6 md:hidden"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.6, ease: "easeOut" }}
+            >
               <div className="rounded-2xl border border-cream-200 bg-white p-4 shadow-warm">
                 <div className="flex items-start gap-3 rounded-xl bg-cream-50 p-3">
                   <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-amber-100 text-amber-600">
@@ -77,10 +176,15 @@ export default function Hero() {
                   </span>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <a
+            <motion.div
+              className="mt-8 flex flex-col gap-3 sm:flex-row"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.75, ease: "easeOut" }}
+            >
+              <MagneticButton
                 href="https://calendly.com/harry-argosystems/callcatch-demo"
                 className="group inline-flex items-center justify-center gap-2 rounded-xl bg-amber-600 px-8 py-4 text-base font-bold text-white transition-all duration-300 hover:bg-amber-700 shadow-warm hover:shadow-warm-lg hover:-translate-y-0.5"
               >
@@ -99,18 +203,23 @@ export default function Hero() {
                     d="M13 7l5 5m0 0l-5 5m5-5H6"
                   />
                 </svg>
-              </a>
+              </MagneticButton>
               <a
                 href="#how-it-works"
                 className="inline-flex items-center justify-center gap-2 rounded-xl border border-cream-200 bg-white px-8 py-4 text-base font-medium text-stone-900 transition-all duration-300 hover:border-stone-400 hover:shadow-warm-sm"
               >
                 See How It Works
               </a>
-            </div>
+            </motion.div>
           </div>
 
           {/* Right: Visual element — lead notification card (desktop only) */}
-          <div className="relative mx-auto hidden w-full max-w-xs md:block md:mx-0 md:ml-auto">
+          <motion.div
+            className="relative mx-auto hidden w-full max-w-xs md:block md:mx-0 md:ml-auto"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.8, ease: "easeOut" }}
+          >
             <div className="rounded-3xl border border-cream-200 bg-white p-5 shadow-warm-xl transition-all duration-500 hover:shadow-warm-xl hover:-translate-y-1">
               {/* Simulated notification */}
               <div className="mb-4 rounded-xl bg-cream-50 p-4">
@@ -182,7 +291,7 @@ export default function Hero() {
               className="absolute -bottom-3 -left-3 h-12 w-12 rounded-xl border border-cream-200 bg-cream-100"
               style={{ zIndex: -1 }}
             />
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
