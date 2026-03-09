@@ -15,13 +15,13 @@ export default function ArgoHero() {
           </div>
 
           <h1 className="font-[family-name:var(--font-display)] text-4xl font-extrabold leading-[1.08] tracking-tight text-stone-900 md:text-5xl lg:text-6xl">
-            Done-for-You Systems{" "}
-            <span className="text-amber-600">for Local Businesses</span>
+            Making Sure Your Business Runs Smoothly{" "}
+            <span className="text-amber-600">— Even When You&apos;re Busy</span>
           </h1>
 
           <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-stone-600 md:text-xl">
-            We build tools that catch the work you&apos;re too busy to chase. You focus on
-            the job — we make sure nothing slips through the cracks.
+            We build done-for-you tools for local businesses. No tech skills needed
+            — we handle everything.
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">

@@ -2,6 +2,7 @@ import Nav from "../components/Nav";
 import Hero from "../components/Hero";
 import Problem from "../components/Problem";
 import DemoSMS from "../components/DemoSMS";
+import VideoDemo from "../components/VideoDemo";
 import HowItWorks from "../components/HowItWorks";
 import WhatYouGet from "../components/WhatYouGet";
 import Pricing from "../components/Pricing";
@@ -15,11 +16,11 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Argo | CallCatch — Missed Call Recovery for Local Businesses in Essex",
   description:
-    "CallCatch by Argo texts your missed callers back in under 60 seconds, finds out what they need, and sends you the details. Built for local businesses in Essex and South East England.",
+    "CallCatch by Argo texts your missed callers back in under 10 seconds, finds out what they need, and sends you the details. Built for local businesses in Essex and South East England.",
   openGraph: {
     title: "Argo | CallCatch — Never Miss a Customer Because You Were Busy",
     description:
-      "Texts your missed callers back in under 60 seconds, finds out what they need, and sends you the details. Done for you.",
+      "Texts your missed callers back in under 10 seconds, finds out what they need, and sends you the details. Done for you.",
     siteName: "Argo",
     url: "https://argosystems.co.uk/callcatch",
     images: [
@@ -44,6 +45,7 @@ export default function CallCatchPage() {
       <Problem />
       <HowItWorks />
       <DemoSMS />
+      <VideoDemo />
       <WhatYouGet />
       <Pricing />
       <FinalCTA />

@@ -37,7 +37,7 @@ export default function ArgoProducts() {
               CallCatch
             </h3>
             <p className="mt-2 text-sm leading-relaxed text-stone-600">
-              Missed call recovery. Texts your callers back in under 60 seconds,
+              Missed call recovery. Texts your callers back in under 10 seconds,
               finds out what they need, and sends you the details.
             </p>
 

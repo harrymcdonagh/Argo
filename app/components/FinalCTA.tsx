@@ -2,7 +2,7 @@ export default function FinalCTA() {
   return (
     <section
       id="book-demo"
-      className="paper-texture relative overflow-hidden py-24 md:py-36"
+      className="relative overflow-hidden bg-cream-100 py-24 md:py-36"
     >
       {/* Subtle radial warmth behind the card */}
       <div className="pointer-events-none absolute top-1/2 left-1/2 h-[600px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-amber-500/6 blur-3xl" />

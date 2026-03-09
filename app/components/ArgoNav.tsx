@@ -15,6 +15,7 @@ export default function ArgoNav() {
   const links = [
     { label: "Products", href: "/#products" },
     { label: "About", href: "/#about" },
+    { label: "FAQ", href: "/#faq" },
     { label: "Contact", href: "/#contact" },
   ];
 

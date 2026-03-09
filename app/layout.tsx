@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   },
   title: "Argo | Done-for-You Systems for Local Businesses",
   description:
-    "Argo builds done-for-you tools for local businesses in Essex and South East England. Our first product, CallCatch, recovers missed calls in under 60 seconds.",
+    "Argo builds done-for-you tools for local businesses in Essex and South East England. Our first product, CallCatch, recovers missed calls in under 10 seconds.",
   openGraph: {
     title: "Argo | Done-for-You Systems for Local Businesses",
     description:
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Argo | Done-for-You Systems for Local Businesses",
     description:
-      "Argo builds done-for-you tools for local businesses in Essex and South East England. Our first product, CallCatch, recovers missed calls in under 60 seconds.",
+      "Argo builds done-for-you tools for local businesses in Essex and South East England. Our first product, CallCatch, recovers missed calls in under 10 seconds.",
   },
 };
 

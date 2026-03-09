@@ -24,14 +24,14 @@ export default function Hero() {
 
             {/* Punchy tagline */}
             <p className="mt-4 text-xl font-medium text-stone-700">
-              CallCatch texts your missed callers back in under 60 seconds — so you never
+              CallCatch texts your missed callers back in under 10 seconds — so you never
               lose a job while you&apos;re on one.
             </p>
 
             <p className="mt-4 max-w-lg text-base leading-relaxed text-stone-600 md:text-lg">
               Your phone rings while you&apos;re under a sink, up a ladder, or with a
               client. You can&apos;t answer — but <strong>CallCatch</strong> texts them
-              back within a minute, finds out what they need, and sends you the details.
+              back within seconds, finds out what they need, and sends you the details.
               Fully done for you.
             </p>
 

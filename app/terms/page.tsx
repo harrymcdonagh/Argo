@@ -43,7 +43,7 @@ export default function TermsOfServicePage() {
               current product, CallCatch, is a missed call text-back service. It
               automatically texts your missed callers, finds out what they need
               (name, service required, postcode), and sends you the enquiry
-              details — typically within 60 seconds.
+              details — typically within 10 seconds.
             </p>
             <p className="mt-3">
               We aim to keep the service running reliably, but we cannot

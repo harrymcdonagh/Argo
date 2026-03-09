@@ -6,7 +6,7 @@ const features = [
       </svg>
     ),
     title: "Instant Text-Back",
-    description: "Caller gets a text within a minute of the missed call. No voicemail, no waiting.",
+    description: "Caller gets a text within seconds of the missed call. No voicemail, no waiting.",
   },
   {
     icon: (
@@ -57,7 +57,7 @@ const features = [
 
 export default function WhatYouGet() {
   return (
-    <section className="paper-texture relative py-20 md:py-28">
+    <section className="relative bg-cream-100 py-20 md:py-28">
       <div className="relative z-10 mx-auto max-w-6xl px-6">
         <div className="mx-auto mb-14 max-w-2xl text-center">
           <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-widest text-amber-600">

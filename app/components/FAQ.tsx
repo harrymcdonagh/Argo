@@ -26,7 +26,7 @@ const faqs = [
   {
     question: "What if the caller doesn't reply to the text?",
     answer:
-      "You still get notified that you missed a call from that number, so you can call them back yourself. On the Standard plan, we also send follow-up texts to re-engage them. Most people do reply though \u2014 the text is friendly, relevant, and arrives within a minute of their call.",
+      "You still get notified that you missed a call from that number, so you can call them back yourself. On the Standard plan, we also send follow-up texts to re-engage them. Most people do reply though \u2014 the text is friendly, relevant, and arrives within seconds of their call.",
   },
   {
     question: "How much does it cost per text?",
@@ -49,7 +49,7 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="relative bg-cream-100 py-20 md:py-28">
+    <section id="faq" className="paper-texture relative py-20 md:py-28">
       <div className="mx-auto max-w-3xl px-6">
         <div className="mb-14 text-center">
           <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-widest text-amber-600">

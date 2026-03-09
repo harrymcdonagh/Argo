@@ -5,7 +5,7 @@ const tiers = [
     setup: "400",
     description: "Perfect for sole traders who want to stop losing jobs to missed calls.",
     features: [
-      "Missed call text-back within 60 seconds",
+      "Missed call text-back in under 10 seconds",
       "3-4 questions to find out what they need",
       "You get a notification with full details",
       "Every enquiry saved and logged for you",
@@ -36,7 +36,7 @@ const tiers = [
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="relative bg-cream-100 py-20 md:py-28">
+    <section id="pricing" className="paper-texture relative py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-6">
         <div className="mx-auto mb-6 max-w-2xl text-center">
           <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-widest text-amber-600">
