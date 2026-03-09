@@ -3,46 +3,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
-const badges = [
-  {
-    icon: (
-      <svg className="h-5 w-5 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M4.26 10.147a60.438 60.438 0 00-.491 6.347A48.62 48.62 0 0112 20.904a48.62 48.62 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.636 50.636 0 00-2.658-.813A59.906 59.906 0 0112 3.493a59.903 59.903 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />
-      </svg>
-    ),
-    title: "CS Graduate",
-    description: "University-trained developer",
-  },
-  {
-    icon: (
-      <svg className="h-5 w-5 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-      </svg>
-    ),
-    title: "Based in Essex",
-    description: "Local to your area",
-  },
-  {
-    icon: (
-      <svg className="h-5 w-5 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17l-5.384 3.024c-.317.179-.692-.112-.643-.477l1.028-5.994-4.358-4.244c-.255-.248-.118-.695.226-.743l6.02-.874 2.692-5.455c.156-.317.61-.317.766 0l2.692 5.455 6.02.874c.344.048.481.495.226.743l-4.358 4.244 1.028 5.994c.049.365-.326.656-.643.477L12 15.17l-.58.327z" />
-      </svg>
-    ),
-    title: "Built for Trades",
-    description: "Plumbers, electricians, locksmiths",
-  },
-  {
-    icon: (
-      <svg className="h-5 w-5 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z" />
-      </svg>
-    ),
-    title: "Done For You",
-    description: "No tech skills needed",
-  },
-];
-
 export default function ArgoAbout() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.2 });
@@ -67,75 +27,68 @@ export default function ArgoAbout() {
         </motion.div>
 
         {/* Two-column layout */}
-        <div className="mx-auto max-w-4xl" ref={ref}>
+        <div className="mx-auto max-w-3xl" ref={ref}>
           <div className="grid items-center gap-10 md:grid-cols-5 md:gap-14">
             {/* Photo Column (left, 2 cols) */}
             <div className="md:col-span-2 flex flex-col items-center">
               <motion.img
                 src="/profile.jpg"
                 alt="Harry McDonagh, Founder of Argo"
-                className="h-52 w-52 rounded-2xl border-2 border-amber-200/50 object-cover shadow-warm-lg md:h-56 md:w-56"
+                className="h-48 w-48 rounded-2xl border-2 border-amber-200/50 object-cover shadow-warm-lg md:h-52 md:w-52"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={inView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.6, ease: "easeOut" as const }}
               />
-              <motion.div
-                className="mt-4 text-center"
-                initial={{ opacity: 0, y: 12 }}
+            </div>
+
+            {/* Bio Column (right, 3 cols) */}
+            <div className="md:col-span-3">
+              <motion.h3
+                className="font-[family-name:var(--font-display)] text-2xl font-bold text-stone-900"
+                initial={{ opacity: 0, y: 16 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" as const }}
               >
-                <h3 className="font-[family-name:var(--font-display)] text-xl font-bold text-stone-900">
-                  Harry McDonagh
-                </h3>
-                <p className="mt-1 text-sm font-medium text-amber-600">
-                  Founder, Argo
-                </p>
-              </motion.div>
-            </div>
-
-            {/* Badges + Bio Column (right, 3 cols) */}
-            <div className="md:col-span-3">
-              {/* 2x2 badge grid */}
-              <div className="grid grid-cols-2 gap-3">
-                {badges.map((badge, i) => (
-                  <motion.div
-                    key={badge.title}
-                    className="rounded-xl border border-cream-200 bg-white p-4 shadow-warm-sm"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={inView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.5, delay: 0.3 + i * 0.1, ease: "easeOut" as const }}
-                  >
-                    <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-lg bg-amber-50">
-                      {badge.icon}
-                    </div>
-                    <p className="font-[family-name:var(--font-display)] text-sm font-bold text-stone-900">
-                      {badge.title}
-                    </p>
-                    <p className="mt-0.5 text-xs leading-relaxed text-stone-500">
-                      {badge.description}
-                    </p>
-                  </motion.div>
-                ))}
-              </div>
-
-              {/* Short bio */}
+                Harry McDonagh
+              </motion.h3>
               <motion.p
-                className="mt-6 leading-relaxed text-stone-600"
-                initial={{ opacity: 0, y: 20 }}
+                className="mt-1 text-sm font-medium text-amber-600"
+                initial={{ opacity: 0, y: 10 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.7, ease: "easeOut" as const }}
+                transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" as const }}
               >
-                I kept seeing local tradespeople lose good work to missed calls and slow
-                follow-ups. So I built the tools to fix that.
+                Founder, Argo
+              </motion.p>
+
+              <motion.p
+                className="mt-4 leading-relaxed text-stone-600"
+                initial={{ opacity: 0, y: 16 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.4, ease: "easeOut" as const }}
+              >
+                Computer Science graduate from UEA with experience building
+                AI-powered tools and full-stack applications. I&apos;ve worked with
+                AI consultancies on chatbot systems, built RAG pipelines, and
+                automated workflows that saved businesses days of manual work.
+              </motion.p>
+
+              <motion.p
+                className="mt-3 leading-relaxed text-stone-600"
+                initial={{ opacity: 0, y: 16 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.5, ease: "easeOut" as const }}
+              >
+                I started Argo because I kept seeing local tradespeople lose good
+                work to missed calls and slow follow-ups. I know how to build
+                software that solves real problems, so I built the tools to fix that.
               </motion.p>
 
               {/* Contact links */}
               <motion.div
                 className="mt-5 flex flex-wrap gap-3"
-                initial={{ opacity: 0, y: 15 }}
+                initial={{ opacity: 0, y: 12 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.9, ease: "easeOut" as const }}
+                transition={{ duration: 0.5, delay: 0.55, ease: "easeOut" as const }}
               >
                 <a
                   href="https://wa.me/447939939885"

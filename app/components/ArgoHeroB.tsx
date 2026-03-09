@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useMotionValue, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { useRef, useEffect, useCallback } from "react";
 import MagneticButton from "./MagneticButton";
 
@@ -55,8 +55,9 @@ const statCards = [
     ),
     value: "8s",
     label: "Avg Response",
-    position: "top-[18%] left-[8%] md:left-[10%]",
-    parallax: 0.03,
+    position: "top-[14%] left-[12%] md:left-[14%]",
+    drift: { x: [0, 14, -10, 0], y: [0, -18, -6, 0] },
+    driftDuration: 8,
     delay: 0.8,
   },
   {
@@ -77,8 +78,9 @@ const statCards = [
     ),
     value: "94%",
     label: "Recovery Rate",
-    position: "top-[14%] right-[6%] md:right-[10%]",
-    parallax: 0.04,
+    position: "top-[18%] right-[10%] md:right-[13%]",
+    drift: { x: [0, -16, 8, 0], y: [0, 12, -14, 0] },
+    driftDuration: 9.5,
     delay: 1.0,
   },
   {
@@ -99,8 +101,9 @@ const statCards = [
     ),
     value: "47",
     label: "Calls Saved This Month",
-    position: "bottom-[20%] left-[5%] md:left-[12%]",
-    parallax: 0.025,
+    position: "top-[46%] left-[8%] md:left-[11%]",
+    drift: { x: [0, 12, -14, 0], y: [0, -15, 16, 0] },
+    driftDuration: 10,
     delay: 1.2,
   },
   {
@@ -121,8 +124,9 @@ const statCards = [
     ),
     value: "3.2x",
     label: "ROI Average",
-    position: "bottom-[22%] right-[4%] md:right-[11%]",
-    parallax: 0.035,
+    position: "top-[42%] right-[6%] md:right-[10%]",
+    drift: { x: [0, -12, 15, 0], y: [0, 16, -10, 0] },
+    driftDuration: 8.5,
     delay: 1.1,
   },
   {
@@ -143,8 +147,9 @@ const statCards = [
     ),
     value: "100%",
     label: "Done For You",
-    position: "top-[42%] left-[3%] md:left-[6%]",
-    parallax: 0.028,
+    position: "bottom-[14%] left-[14%] md:left-[18%]",
+    drift: { x: [0, -15, 10, 0], y: [0, 14, -12, 0] },
+    driftDuration: 11,
     delay: 1.3,
   },
   {
@@ -165,8 +170,9 @@ const statCards = [
     ),
     value: "£0",
     label: "Hidden Fees",
-    position: "top-[44%] right-[2%] md:right-[7%]",
-    parallax: 0.032,
+    position: "bottom-[12%] right-[10%] md:right-[14%]",
+    drift: { x: [0, 10, -16, 0], y: [0, -14, 12, 0] },
+    driftDuration: 9,
     delay: 1.4,
   },
 ];
@@ -212,28 +218,13 @@ export default function ArgoHeroB() {
   >([]);
   const rafRef = useRef<number>(0);
 
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  /* parallax transforms for stat cards */
-  const cardTransforms = statCards.map((card) => ({
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    x: useTransform(mouseX, (v) => v * card.parallax),
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    y: useTransform(mouseY, (v) => v * card.parallax),
-  }));
-
   const handleMouseMove = useCallback(
     (e: React.MouseEvent) => {
       if (!sectionRef.current) return;
       const rect = sectionRef.current.getBoundingClientRect();
-      const relX = e.clientX - rect.left;
-      const relY = e.clientY - rect.top;
-      mouseRef.current = { x: relX, y: relY };
-      mouseX.set(e.clientX - rect.left - rect.width / 2);
-      mouseY.set(e.clientY - rect.top - rect.height / 2);
+      mouseRef.current = { x: e.clientX - rect.left, y: e.clientY - rect.top };
     },
-    [mouseX, mouseY]
+    []
   );
 
   const handleMouseLeave = useCallback(() => {
@@ -387,24 +378,29 @@ export default function ArgoHeroB() {
       {statCards.map((card, i) => (
         <motion.div
           key={i}
-          className={`absolute ${card.position} z-20 hidden xl:block`}
-          initial={{ opacity: 0, y: 20, scale: 0.9 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
+          className={`absolute ${card.position} z-20 hidden 2xl:block`}
+          initial={{ opacity: 0, y: 24, scale: 0.92 }}
+          animate={{
+            opacity: 1,
+            y: 0,
+            scale: 1,
+          }}
           transition={{
             duration: 0.6,
             delay: card.delay,
             ease: "easeOut",
           }}
-          style={{ x: cardTransforms[i].x, y: cardTransforms[i].y }}
         >
           <motion.div
             className="rounded-xl bg-white px-4 py-3 shadow-warm"
-            animate={{ y: [0, -8, 0] }}
+            animate={{
+              x: card.drift.x,
+              y: card.drift.y,
+            }}
             transition={{
-              duration: 7,
+              duration: card.driftDuration,
               repeat: Infinity,
               ease: "easeInOut",
-              delay: i * 0.6,
             }}
           >
             <div className="flex items-center gap-2.5">
