@@ -387,7 +387,7 @@ export default function ArgoHeroB() {
       {statCards.map((card, i) => (
         <motion.div
           key={i}
-          className={`absolute ${card.position} z-20 hidden lg:block`}
+          className={`absolute ${card.position} z-20 hidden xl:block`}
           initial={{ opacity: 0, y: 20, scale: 0.9 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{
