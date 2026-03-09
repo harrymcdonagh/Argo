@@ -1,5 +1,5 @@
 import ArgoNav from "./components/ArgoNav";
-import ArgoHero from "./components/ArgoHero";
+import ArgoHero from "./components/ArgoHeroC";
 import ArgoProducts from "./components/ArgoProducts";
 import ArgoAbout from "./components/ArgoAbout";
 import ArgoFAQ from "./components/ArgoFAQ";
