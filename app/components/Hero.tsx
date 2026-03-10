@@ -3,6 +3,7 @@
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import { useRef } from "react";
 import MagneticButton from "./MagneticButton";
+import DotGrid from "./DotGrid";
 
 const headlineWords = ["Never", "Miss", "a", "Customer"];
 const amberWords = ["Because", "You", "Were", "Busy"];
@@ -49,6 +50,9 @@ export default function Hero() {
       onMouseMove={handleMouseMove}
       className="paper-texture relative min-h-screen flex items-center py-20 overflow-hidden"
     >
+      {/* ── dot-grid canvas ── */}
+      <DotGrid sectionRef={sectionRef} />
+
       {/* Subtle warm gradient — floating parallax blobs */}
       <motion.div
         className="pointer-events-none absolute -top-20 right-0 h-[500px] w-[500px] rounded-full bg-amber-500/5 blur-3xl"

@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import ScrollReveal from "../components/ScrollReveal";
 import StaggerGroup, { staggerItem } from "../components/StaggerGroup";
 import MagneticButton from "../components/MagneticButton";
+import DotGrid from "../components/DotGrid";
 
 const CALENDLY_URL = "https://calendly.com/harry-argosystems/callcatch-demo";
 
@@ -239,6 +240,7 @@ export default function WebDesignContent() {
   const headlineWords = ["A", "Professional", "Website", "For", "Your", "Business", "\u2014"];
   const amberWords = ["Without", "The", "Hassle"];
 
+  const heroSectionRef = useRef<HTMLElement>(null);
   const howItWorksSectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -263,7 +265,8 @@ export default function WebDesignContent() {
   return (
     <main>
       {/* ── Hero ── */}
-      <section className="paper-texture relative min-h-screen flex items-center py-20 overflow-hidden">
+      <section ref={heroSectionRef} className="paper-texture relative min-h-screen flex items-center py-20 overflow-hidden">
+        <DotGrid sectionRef={heroSectionRef} />
         <div className="relative z-10 mx-auto max-w-6xl px-6">
           <div className="grid items-center gap-12 md:grid-cols-2">
             {/* Left column */}
