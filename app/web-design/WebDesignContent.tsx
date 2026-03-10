@@ -250,22 +250,6 @@ export default function WebDesignContent() {
 
       {/* ── What You Get ── */}
       <section id="what-you-get" className="relative bg-cream-100">
-        {/* Sticky title block */}
-        <div className="pt-20 md:pt-28 pb-8 md:sticky md:top-0 md:z-20 md:bg-cream-100">
-          <div className="mx-auto max-w-2xl px-6 text-center">
-            <ScrollReveal>
-              <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-widest text-amber-600">
-                Everything Included
-              </span>
-              <h2 className="font-[family-name:var(--font-display)] text-3xl font-bold text-stone-900 md:text-4xl">
-                What You Get
-              </h2>
-              <p className="mt-4 text-lg text-stone-600">
-                Every website we build comes with the essentials to help your business stand out online.
-              </p>
-            </ScrollReveal>
-          </div>
-        </div>
         <WebsiteBuildScroll />
       </section>
 
