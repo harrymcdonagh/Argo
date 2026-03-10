@@ -249,7 +249,7 @@ export default function WebDesignContent() {
       </section>
 
       {/* ── What You Get ── */}
-      <section id="what-you-get" className="bg-cream-100">
+      <section id="what-you-get" className="bg-cream-100 overflow-hidden">
         <WebsiteBuildScroll />
       </section>
 
