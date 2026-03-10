@@ -249,9 +249,7 @@ export default function WebDesignContent() {
       </section>
 
       {/* ── What You Get ── */}
-      <section id="what-you-get" className="relative bg-cream-100 pt-10 md:pt-16">
-        <WebsiteBuildScroll />
-      </section>
+      <WebsiteBuildScroll />
 
       {/* ── How It Works ── */}
       <section id="how-it-works" ref={howItWorksSectionRef} className="paper-texture relative py-20 md:py-28">
