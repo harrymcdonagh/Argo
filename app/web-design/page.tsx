@@ -12,6 +12,14 @@ export const metadata: Metadata = {
     description:
       "Custom websites for local businesses — designed, built, and launched for you. No templates, no hassle.",
     url: "https://argosystems.co.uk/web-design",
+    images: [
+      {
+        url: "/og-web-design.png",
+        width: 1200,
+        height: 630,
+        alt: "Argo Web Design — Professional websites for local businesses",
+      },
+    ],
   },
 };
 

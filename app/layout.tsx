@@ -29,7 +29,7 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Argo — Done-for-you tools and services for local businesses",
+        alt: "Argo — Tools and services for local businesses",
       },
     ],
   },

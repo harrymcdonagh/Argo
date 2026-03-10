@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     url: "https://argosystems.co.uk/callcatch",
     images: [
       {
-        url: "/og-image.png",
+        url: "/og-callcatch.png",
         width: 1200,
         height: 630,
         alt: "CallCatch by Argo — Missed call recovery for local businesses",
