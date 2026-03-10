@@ -15,6 +15,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: "https://argosystems.co.uk/web-design",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: "https://argosystems.co.uk/privacy",
       lastModified: new Date(),
       changeFrequency: "yearly",
