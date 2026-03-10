@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import ScrollReveal from "../components/ScrollReveal";
 import StaggerGroup, { staggerItem } from "../components/StaggerGroup";
@@ -141,26 +142,41 @@ const features = [
   },
 ];
 
-const steps = [
+const howItWorksSteps = [
   {
-    number: "1",
+    number: "01",
     title: "Book a Call",
-    description:
-      "Tell us about your business, your customers, and what you want from your website.",
+    description: "Tell us about your business, your customers, and what you want from your website. We'll handle the rest.",
+    icon: (
+      <svg className="h-7 w-7" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+      </svg>
+    ),
   },
   {
-    number: "2",
+    number: "02",
     title: "We Build It",
-    description:
-      "We design and develop your site, keeping you in the loop with previews along the way.",
+    description: "We design and develop your site, keeping you in the loop with previews along the way. No surprises.",
+    icon: (
+      <svg className="h-7 w-7" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
+      </svg>
+    ),
   },
   {
-    number: "3",
+    number: "03",
     title: "Go Live",
-    description:
-      "We launch your site, set up hosting, and make sure everything's running smoothly.",
+    description: "We launch your site, set up hosting, and make sure everything's running smoothly. You're online.",
+    icon: (
+      <svg className="h-7 w-7" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.58-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
+      </svg>
+    ),
   },
 ];
+
+// Node appear times: 01 = 0s, 02 = 1.5s (first line done), 03 = 2.7s (second line done)
+const NODE_DELAYS = [0, 1.5, 2.7];
 
 const whyArgo = [
   {
@@ -220,15 +236,36 @@ const wireframeItem = {
 /* ───── Component ───── */
 
 export default function WebDesignContent() {
-  const headlineWords = ["A", "Professional", "Website", "For", "Your", "Business", "—"];
+  const headlineWords = ["A", "Professional", "Website", "For", "Your", "Business", "\u2014"];
   const amberWords = ["Without", "The", "Hassle"];
+
+  const howItWorksSectionRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15 }
+    );
+
+    if (howItWorksSectionRef.current) {
+      observer.observe(howItWorksSectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <main>
       {/* ── Hero ── */}
-      <section className="paper-texture min-h-screen flex items-center pt-24">
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <section className="paper-texture relative min-h-screen flex items-center py-20 overflow-hidden">
+        <div className="relative z-10 mx-auto max-w-6xl px-6">
+          <div className="grid items-center gap-12 md:grid-cols-2">
             {/* Left column */}
             <div>
               <motion.div
@@ -241,7 +278,7 @@ export default function WebDesignContent() {
               </motion.div>
 
               <motion.h1
-                className="font-[family-name:var(--font-display)] text-4xl font-extrabold leading-[1.08] tracking-tight md:text-5xl lg:text-5xl"
+                className="font-[family-name:var(--font-display)] text-4xl font-extrabold leading-[1.08] tracking-tight text-stone-900 md:text-5xl lg:text-6xl"
                 variants={staggerContainer}
                 initial="hidden"
                 animate="visible"
@@ -255,7 +292,6 @@ export default function WebDesignContent() {
                     {word}
                   </motion.span>
                 ))}
-                <br />
                 {amberWords.map((word, i) => (
                   <motion.span
                     key={`a-${i}`}
@@ -302,7 +338,7 @@ export default function WebDesignContent() {
               initial={{ opacity: 0, y: 30, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
-              className="relative"
+              className="relative hidden md:block"
             >
               <div className="absolute -inset-4 -z-10 rounded-3xl bg-amber-100/30 blur-2xl" />
 
@@ -393,36 +429,149 @@ export default function WebDesignContent() {
       </section>
 
       {/* ── How It Works ── */}
-      <section id="how-it-works" className="paper-texture py-20 md:py-28">
-        <div className="mx-auto max-w-6xl px-6">
-          <ScrollReveal>
-            <h2 className="text-center font-[family-name:var(--font-display)] text-3xl font-bold text-stone-900 md:text-4xl">
+      <section id="how-it-works" ref={howItWorksSectionRef} className="paper-texture relative py-20 md:py-28">
+        <div className="relative z-10 mx-auto max-w-6xl px-6">
+          <div className="mx-auto mb-14 max-w-2xl text-center">
+            <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-widest text-amber-600">
+              Simple as 1-2-3
+            </span>
+            <h2 className="font-[family-name:var(--font-display)] text-3xl font-bold tracking-tight text-stone-900 md:text-4xl">
               How It Works
             </h2>
-          </ScrollReveal>
+            <p className="mt-4 text-lg text-stone-600">
+              From first call to live website &mdash; we handle every step so you don&apos;t have to.
+            </p>
+          </div>
 
-          <div className="relative mt-12 grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-6">
-            {/* Connecting line (desktop only) */}
-            <div className="absolute top-5 left-0 right-0 hidden md:block">
-              <div className="mx-auto" style={{ width: "60%"}}>
-                <div className="h-px border-t-2 border-dashed border-amber-200" />
+          {/* Timeline */}
+          <div className="mx-auto max-w-4xl">
+            {/* Desktop: horizontal timeline with content aligned under nodes */}
+            <div className="hidden md:block">
+              {/* Two-segment line behind all nodes */}
+              <div className="relative">
+                <div className="pointer-events-none absolute left-[calc(100%/6)] right-[calc(100%/6)] top-8 -translate-y-1/2">
+                  {/* Background track */}
+                  <div className="h-0.5 w-full bg-cream-200" />
+                  {/* First half: 01 → 02 */}
+                  <div
+                    className="absolute left-0 top-0 h-0.5 w-1/2 bg-amber-600 origin-left transition-transform duration-[1.2s] ease-out"
+                    style={{
+                      transform: isVisible ? "scaleX(1)" : "scaleX(0)",
+                      transitionDelay: "0.3s",
+                    }}
+                  />
+                  {/* Second half: 02 → 03 */}
+                  <div
+                    className="absolute left-1/2 top-0 h-0.5 w-1/2 bg-amber-600 origin-left transition-transform duration-[1.2s] ease-out"
+                    style={{
+                      transform: isVisible ? "scaleX(1)" : "scaleX(0)",
+                      transitionDelay: `${NODE_DELAYS[1]}s`,
+                    }}
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-3 gap-8">
+                {howItWorksSteps.map((step, i) => (
+                  <div key={i} className="flex flex-col items-center text-center">
+                    {/* Node */}
+                    <div
+                      className="relative z-10 mb-6"
+                      style={{
+                        opacity: isVisible ? 1 : 0,
+                        transform: isVisible ? "scale(1)" : "scale(0.5)",
+                        transition: `opacity 0.5s ease-out ${NODE_DELAYS[i]}s, transform 0.5s ease-out ${NODE_DELAYS[i]}s`,
+                      }}
+                    >
+                      <div
+                        className={`flex h-16 w-16 items-center justify-center rounded-full border-2 bg-white shadow-warm transition-colors duration-500 ${
+                          isVisible ? "border-amber-600" : "border-cream-200"
+                        }`}
+                        style={{ transitionDelay: `${NODE_DELAYS[i]}s` }}
+                      >
+                        <span className="font-[family-name:var(--font-display)] text-2xl font-extrabold text-amber-600">
+                          {step.number}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Content directly below node */}
+                    <div
+                      style={{
+                        opacity: isVisible ? 1 : 0,
+                        transform: isVisible ? "translateY(0)" : "translateY(20px)",
+                        transition: `opacity 0.5s ease-out ${NODE_DELAYS[i] + 0.3}s, transform 0.5s ease-out ${NODE_DELAYS[i] + 0.3}s`,
+                      }}
+                    >
+                      <div className="mx-auto mb-3 flex justify-center text-amber-600">
+                        {step.icon}
+                      </div>
+                      <h3 className="font-[family-name:var(--font-display)] text-xl font-bold text-stone-900">
+                        {step.title}
+                      </h3>
+                      <p className="mt-3 leading-relaxed text-stone-600">
+                        {step.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
-            {steps.map((step, i) => (
-              <ScrollReveal key={step.title} delay={i * 0.1}>
-                <div className="text-center md:text-left">
-                  <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-amber-600 text-sm font-bold text-white md:mx-0">
-                    {step.number}
+
+            {/* Mobile: vertical timeline */}
+            <div className="md:hidden">
+              <div className="relative pl-12">
+                {/* Vertical track */}
+                <div className="absolute left-[19px] top-5 bottom-5 w-0.5 bg-cream-200" />
+
+                {/* Animated fill line */}
+                <div
+                  className="absolute left-[19px] top-5 w-0.5 bg-amber-600 origin-top transition-transform duration-[2.5s] ease-out"
+                  style={{
+                    height: "calc(100% - 40px)",
+                    transform: isVisible ? "scaleY(1)" : "scaleY(0)",
+                    transitionDelay: "0.3s",
+                  }}
+                />
+
+                {howItWorksSteps.map((step, i) => (
+                  <div
+                    key={i}
+                    className="relative pb-12 last:pb-0"
+                    style={{
+                      opacity: isVisible ? 1 : 0,
+                      transform: isVisible ? "translateX(0)" : "translateX(-16px)",
+                      transition: `opacity 0.5s ease-out ${NODE_DELAYS[i]}s, transform 0.5s ease-out ${NODE_DELAYS[i]}s`,
+                    }}
+                  >
+                    {/* Node on the line */}
+                    <div
+                      className={`absolute -left-12 top-0 flex h-10 w-10 items-center justify-center rounded-full border-2 bg-white shadow-warm-sm transition-colors duration-500 ${
+                        isVisible ? "border-amber-600" : "border-cream-200"
+                      }`}
+                      style={{ transitionDelay: `${NODE_DELAYS[i]}s` }}
+                    >
+                      <span className="font-[family-name:var(--font-display)] text-lg font-extrabold text-amber-600">
+                        {step.number}
+                      </span>
+                    </div>
+
+                    {/* Content */}
+                    <div className="rounded-2xl border border-cream-200 bg-white p-5 shadow-warm-sm">
+                      <div className="mb-2 text-amber-600">
+                        {step.icon}
+                      </div>
+                      <h3 className="font-[family-name:var(--font-display)] text-lg font-bold text-stone-900">
+                        {step.title}
+                      </h3>
+                      <p className="mt-2 text-sm leading-relaxed text-stone-600">
+                        {step.description}
+                      </p>
+                    </div>
                   </div>
-                  <h3 className="mt-4 font-[family-name:var(--font-display)] text-lg font-bold text-stone-900">
-                    {step.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-stone-600">
-                    {step.description}
-                  </p>
-                </div>
-              </ScrollReveal>
-            ))}
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
