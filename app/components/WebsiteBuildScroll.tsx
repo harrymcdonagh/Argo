@@ -355,11 +355,11 @@ export default function WebsiteBuildScroll() {
     [16, 28, 28, 16]
   );
 
-  // Mobile: phone maxWidth (hook called at top level, not in JSX)
+  // Mobile: phone maxWidth — use consistent percentage units to avoid interpolation bugs
   const mobileMaxWidth = useTransform(
     scrollYProgress,
     [0.37, 0.45, 0.54, 0.62],
-    ["100%", "220px", "220px", "100%"]
+    ["100%", "60%", "60%", "100%"]
   );
 
   return (
@@ -367,8 +367,8 @@ export default function WebsiteBuildScroll() {
       ref={containerRef}
       className="relative h-[250vh] md:h-[350vh]"
     >
-      {/* Sticky centered container */}
-      <div className="sticky top-[4vh] mx-auto max-w-6xl px-6 py-6">
+      {/* Sticky viewport-height container — flexbox centers content, pt clears nav */}
+      <div className="sticky top-0 h-screen flex flex-col items-center justify-center pt-20 pb-6 mx-auto max-w-6xl px-6">
         {/* Section title */}
         <div className="text-center mb-4">
           <span className="mb-1 inline-block text-sm font-semibold uppercase tracking-widest text-amber-600">
