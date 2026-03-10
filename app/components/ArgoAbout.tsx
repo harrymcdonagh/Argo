@@ -8,7 +8,7 @@ export default function ArgoAbout() {
   const inView = useInView(ref, { once: true, amount: 0.2 });
 
   return (
-    <section id="about" className="paper-texture relative py-20 md:py-28">
+    <section id="about" className="bg-cream-100 relative py-20 md:py-28">
       <div className="relative z-10 mx-auto max-w-6xl px-6">
         {/* Section Header */}
         <motion.div

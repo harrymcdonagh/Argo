@@ -362,7 +362,7 @@ export default function WebDesignContent() {
       </section>
 
       {/* ── What You Get ── */}
-      <section className="py-20 md:py-28">
+      <section className="bg-cream-100 py-20 md:py-28">
         <div className="mx-auto max-w-6xl px-6">
           <ScrollReveal>
             <h2 className="text-center font-[family-name:var(--font-display)] text-3xl font-bold text-stone-900 md:text-4xl">
@@ -428,7 +428,7 @@ export default function WebDesignContent() {
       </section>
 
       {/* ── Why Argo ── */}
-      <section className="py-20 md:py-28">
+      <section className="bg-cream-100 py-20 md:py-28">
         <div className="mx-auto max-w-6xl px-6">
           <ScrollReveal>
             <h2 className="text-center font-[family-name:var(--font-display)] text-3xl font-bold text-stone-900 md:text-4xl">
