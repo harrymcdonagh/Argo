@@ -3,145 +3,14 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import ScrollReveal from "../components/ScrollReveal";
-import StaggerGroup, { staggerItem } from "../components/StaggerGroup";
 import MagneticButton from "../components/MagneticButton";
 import DotGrid from "../components/DotGrid";
+import WebsiteBuildScroll from "../components/WebsiteBuildScroll";
+import ArgoComparison from "../components/ArgoComparison";
 
 const CALENDLY_URL = "https://calendly.com/harry-argosystems/callcatch-demo";
 
-/* ───── SVG Icons ───── */
-
-function PaintbrushIcon() {
-  return (
-    <svg
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="text-amber-600"
-    >
-      <path d="M18.37 2.63 14 7l-1.59-1.59a2 2 0 0 0-2.82 0L8 7l9 9 1.59-1.59a2 2 0 0 0 0-2.82L17 10l4.37-4.37a2.12 2.12 0 1 0-3-3Z" />
-      <path d="M9 8c-2 3-4 3.5-7 4l8 10c2-1 6-5 6-7" />
-      <path d="M14.5 17.5 4.5 15" />
-    </svg>
-  );
-}
-
-function SmartphoneIcon() {
-  return (
-    <svg
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="text-amber-600"
-    >
-      <rect width="14" height="20" x="5" y="2" rx="2" ry="2" />
-      <path d="M12 18h.01" />
-    </svg>
-  );
-}
-
-function ZapIcon() {
-  return (
-    <svg
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="text-amber-600"
-    >
-      <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z" />
-    </svg>
-  );
-}
-
-function SearchIcon() {
-  return (
-    <svg
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="text-amber-600"
-    >
-      <circle cx="11" cy="11" r="8" />
-      <path d="m21 21-4.3-4.3" />
-    </svg>
-  );
-}
-
-function CodeIcon() {
-  return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-amber-600">
-      <polyline points="16 18 22 12 16 6" />
-      <polyline points="8 6 2 12 8 18" />
-    </svg>
-  );
-}
-
-function UserIcon() {
-  return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-amber-600">
-      <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
-      <circle cx="12" cy="7" r="4" />
-    </svg>
-  );
-}
-
-function MapPinIcon() {
-  return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-amber-600">
-      <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
-      <circle cx="12" cy="10" r="3" />
-    </svg>
-  );
-}
-
 /* ───── Data ───── */
-
-const features = [
-  {
-    icon: <PaintbrushIcon />,
-    title: "Custom Design",
-    description:
-      "A unique site designed around your business, not a cookie-cutter template.",
-  },
-  {
-    icon: <SmartphoneIcon />,
-    title: "Mobile Responsive",
-    description:
-      "Looks great on every device — phones, tablets, and desktops.",
-  },
-  {
-    icon: <ZapIcon />,
-    title: "Fast & Reliable",
-    description:
-      "Built with modern tech for fast load times and 99.9% uptime.",
-  },
-  {
-    icon: <SearchIcon />,
-    title: "SEO Ready",
-    description:
-      "Found on Google from day one with proper structure and metadata.",
-  },
-];
 
 const howItWorksSteps = [
   {
@@ -178,27 +47,6 @@ const howItWorksSteps = [
 
 // Node appear times: 01 = 0s, 02 = 1.5s (first line done), 03 = 2.7s (second line done)
 const NODE_DELAYS = [0, 1.5, 2.7];
-
-const whyArgo = [
-  {
-    icon: <CodeIcon />,
-    title: "Modern Technology",
-    description:
-      "Your site is built with the same tech used by top startups — not a drag-and-drop builder.",
-  },
-  {
-    icon: <UserIcon />,
-    title: "Founder-Led",
-    description:
-      "You work directly with the person building your site. No handoffs, no miscommunication.",
-  },
-  {
-    icon: <MapPinIcon />,
-    title: "Built for Local Business",
-    description:
-      "We understand what local businesses need — clear info, easy contact, and a site that converts.",
-  },
-];
 
 /* ───── Hero Animation Variants ───── */
 
@@ -408,26 +256,9 @@ export default function WebDesignContent() {
               What You Get
             </h2>
           </ScrollReveal>
-
-          <StaggerGroup className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {features.map((feature) => (
-              <motion.div
-                key={feature.title}
-                variants={staggerItem}
-                className="rounded-2xl bg-white p-6 shadow-warm-sm transition-all duration-300 hover:shadow-warm hover:-translate-y-1"
-              >
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-amber-50">
-                  {feature.icon}
-                </div>
-                <h3 className="mt-4 font-[family-name:var(--font-display)] text-lg font-bold text-stone-900">
-                  {feature.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-stone-600">
-                  {feature.description}
-                </p>
-              </motion.div>
-            ))}
-          </StaggerGroup>
+        </div>
+        <div className="mt-12">
+          <WebsiteBuildScroll />
         </div>
       </section>
 
@@ -581,33 +412,7 @@ export default function WebDesignContent() {
 
       {/* ── Why Argo ── */}
       <section id="why-argo" className="bg-cream-100 py-20 md:py-28">
-        <div className="mx-auto max-w-6xl px-6">
-          <ScrollReveal>
-            <h2 className="text-center font-[family-name:var(--font-display)] text-3xl font-bold text-stone-900 md:text-4xl">
-              Why Argo
-            </h2>
-          </ScrollReveal>
-
-          <StaggerGroup className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
-            {whyArgo.map((item) => (
-              <motion.div
-                key={item.title}
-                variants={staggerItem}
-                className="rounded-2xl bg-white p-6 shadow-warm-sm transition-all duration-300 hover:shadow-warm hover:-translate-y-1"
-              >
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-amber-50">
-                  {item.icon}
-                </div>
-                <h3 className="mt-4 font-[family-name:var(--font-display)] text-lg font-bold text-stone-900">
-                  {item.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-stone-600">
-                  {item.description}
-                </p>
-              </motion.div>
-            ))}
-          </StaggerGroup>
-        </div>
+        <ArgoComparison />
       </section>
 
       {/* ── Final CTA ── */}
