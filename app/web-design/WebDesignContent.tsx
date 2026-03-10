@@ -249,20 +249,7 @@ export default function WebDesignContent() {
       </section>
 
       {/* ── What You Get ── */}
-      <section id="what-you-get" className="bg-cream-100 py-20 md:py-28">
-        <div className="mx-auto max-w-2xl px-6 mb-12 text-center">
-          <ScrollReveal>
-            <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-widest text-amber-600">
-              Everything Included
-            </span>
-            <h2 className="font-[family-name:var(--font-display)] text-3xl font-bold text-stone-900 md:text-4xl">
-              What You Get
-            </h2>
-            <p className="mt-4 text-lg text-stone-600">
-              Every website we build comes with the essentials to help your business stand out online.
-            </p>
-          </ScrollReveal>
-        </div>
+      <section id="what-you-get" className="bg-cream-100">
         <WebsiteBuildScroll />
       </section>
 

@@ -371,6 +371,19 @@ export default function WebsiteBuildScroll() {
     >
       {/* Sticky centered container */}
       <div className="sticky top-1/2 -translate-y-1/2 mx-auto max-w-6xl px-6">
+        {/* Section title */}
+        <div className="text-center mb-6">
+          <span className="mb-2 inline-block text-sm font-semibold uppercase tracking-widest text-amber-600">
+            Everything Included
+          </span>
+          <h2 className="font-[family-name:var(--font-display)] text-2xl font-bold text-stone-900 md:text-3xl">
+            What You Get
+          </h2>
+          <p className="mx-auto mt-2 max-w-lg text-sm md:text-base text-stone-600">
+            Every website we build comes with the essentials to help your business stand out online.
+          </p>
+        </div>
+
         {/* ── Desktop: Two-column layout ── */}
         <div className="hidden md:grid md:grid-cols-[1fr_320px] md:gap-12 lg:grid-cols-[1fr_360px] lg:gap-16 items-start">
           {/* Browser / Phone mockup */}
