@@ -14,13 +14,13 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.svg",
   },
-  title: "Argo | Tools for Local Businesses",
+  title: "Argo | Tools & Services for Local Businesses",
   description:
-    "Argo builds done-for-you tools for local businesses in Essex and South East England. Our first product, CallCatch, recovers missed calls in under 10 seconds.",
+    "Argo builds done-for-you tools and services for local businesses in Essex and South East England. From CallCatch missed-call recovery to custom web design — we handle it so you don't have to.",
   openGraph: {
-    title: "Argo | Tools for Local Businesses",
+    title: "Argo | Tools & Services for Local Businesses",
     description:
-      "Argo builds done-for-you tools for local businesses in Essex and South East England.",
+      "Argo builds done-for-you tools and services for local businesses in Essex and South East England.",
     siteName: "Argo",
     url: "https://argosystems.co.uk",
     type: "website",
@@ -29,15 +29,15 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Argo — Done-for-you tools for local businesses",
+        alt: "Argo — Done-for-you tools and services for local businesses",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Argo | Tools for Local Businesses",
+    title: "Argo | Tools & Services for Local Businesses",
     description:
-      "Argo builds done-for-you tools for local businesses in Essex and South East England. Our first product, CallCatch, recovers missed calls in under 10 seconds.",
+      "Argo builds done-for-you tools and services for local businesses in Essex and South East England. From CallCatch missed-call recovery to custom web design — we handle it so you don't have to.",
   },
 };
 
@@ -72,7 +72,7 @@ export default function RootLayout({
               "@type": "LocalBusiness",
               name: "Argo",
               description:
-                "Done-for-you tools for local businesses in Essex and South East England. CallCatch — missed call text-back and recovery service.",
+                "Done-for-you tools and services for local businesses in Essex and South East England. CallCatch missed-call recovery and custom web design.",
               url: "https://argosystems.co.uk",
               telephone: "07939939885",
               email: "harry@argosystems.co.uk",

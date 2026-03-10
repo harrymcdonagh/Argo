@@ -15,8 +15,8 @@ export default function Home() {
       <ArgoProducts />
       <ArgoServices />
       <ArgoAbout />
-      <ArgoContact />
       <ArgoFAQ />
+      <ArgoContact />
       <ArgoFooter />
     </>
   );

@@ -176,10 +176,10 @@ export default function WebDesignContent() {
                   Book a Free Call
                 </MagneticButton>
                 <a
-                  href="#how-it-works"
+                  href="#what-you-get"
                   className="rounded-xl border border-cream-200 bg-white px-8 py-4 text-base font-medium text-stone-900 transition-all duration-300 hover:border-stone-400 hover:shadow-warm-sm"
                 >
-                  See How It Works
+                  Learn More
                 </a>
               </motion.div>
             </div>
@@ -402,20 +402,25 @@ export default function WebDesignContent() {
       </section>
 
       {/* ── Why Argo ── */}
-      <section id="why-argo" className="bg-cream-100 py-20 md:py-28">
+      <section id="why-argo" className="bg-cream-100">
         <ArgoComparison />
       </section>
 
       {/* ── Final CTA ── */}
-      <section className="relative bg-cream-100 py-24 md:py-36 overflow-hidden">
-        {/* Ambient glow */}
-        <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-          <motion.div
-            className="h-[500px] w-[700px] rounded-full bg-amber-500/8 blur-3xl"
-            animate={{ scale: [1, 1.08, 1], opacity: [0.6, 1, 0.6] }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          />
-        </div>
+      <section className="relative bg-cream-50 py-24 md:py-36 overflow-hidden">
+        {/* Animated orange gradient */}
+        <motion.div
+          className="pointer-events-none absolute inset-0"
+          animate={{
+            background: [
+              "linear-gradient(120deg, rgba(251,191,36,0.15) 0%, rgba(249,115,22,0.20) 50%, rgba(251,191,36,0.10) 100%)",
+              "linear-gradient(120deg, rgba(249,115,22,0.10) 0%, rgba(251,191,36,0.20) 50%, rgba(249,115,22,0.15) 100%)",
+              "linear-gradient(120deg, rgba(251,191,36,0.20) 0%, rgba(249,115,22,0.10) 50%, rgba(251,191,36,0.15) 100%)",
+              "linear-gradient(120deg, rgba(251,191,36,0.15) 0%, rgba(249,115,22,0.20) 50%, rgba(251,191,36,0.10) 100%)",
+            ],
+          }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        />
 
         <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
           {/* Amber accent line */}

@@ -4,13 +4,13 @@ import ArgoFooter from "../components/ArgoFooter";
 import WebDesignContent from "./WebDesignContent";
 
 export const metadata: Metadata = {
-  title: "Web Design for Local Businesses | Argo",
+  title: "Argo | Web Design — Professional Websites for Local Businesses",
   description:
-    "Professional websites for local businesses — designed, built, and launched for you. Tell us about your business, we handle everything.",
+    "Custom websites for local businesses — designed, built, and launched for you. No templates, no hassle. Tell us about your business, we handle everything.",
   openGraph: {
-    title: "Web Design for Local Businesses | Argo",
+    title: "Argo | Web Design — Professional Websites for Local Businesses",
     description:
-      "Professional websites for local businesses — designed, built, and launched for you.",
+      "Custom websites for local businesses — designed, built, and launched for you. No templates, no hassle.",
     url: "https://argosystems.co.uk/web-design",
   },
 };

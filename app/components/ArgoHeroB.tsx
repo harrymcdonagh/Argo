@@ -283,7 +283,7 @@ export default function ArgoHeroB() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5, ease: "easeOut" }}
           >
-            We build done-for-you tools for local businesses. No tech skills needed
+            We build done-for-you tools and services for local businesses. No tech skills needed
             — we handle everything.
           </motion.p>
 
@@ -313,10 +313,23 @@ export default function ArgoHeroB() {
               </svg>
             </MagneticButton>
             <a
-              href="#contact"
-              className="inline-flex items-center justify-center gap-2 rounded-xl border border-cream-200 bg-white px-8 py-4 text-base font-medium text-stone-900 transition-all duration-300 hover:border-stone-400 hover:shadow-warm-sm"
+              href="#services"
+              className="group inline-flex items-center justify-center gap-2 rounded-xl border border-cream-200 bg-white px-8 py-4 text-base font-medium text-stone-900 transition-all duration-300 hover:border-stone-400 hover:shadow-warm-sm"
             >
-              Get in Touch
+              See Our Services
+              <svg
+                className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2.5}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3"
+                />
+              </svg>
             </a>
           </motion.div>
         </div>

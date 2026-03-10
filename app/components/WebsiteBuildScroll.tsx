@@ -106,11 +106,11 @@ function NavLayer({ progress }: { progress: MotionValue<number> }) {
       className="flex items-center justify-between"
       style={{ opacity, y }}
     >
-      <div className="h-3 w-20 rounded-full bg-stone-200" />
-      <div className="flex items-center gap-3">
-        <div className="h-2 w-10 rounded-full bg-stone-200 hidden sm:block" />
-        <div className="h-2 w-10 rounded-full bg-stone-200 hidden sm:block" />
-        <div className="h-6 w-14 rounded-md bg-amber-300" />
+      <div className="h-2 sm:h-3 w-16 sm:w-20 rounded-full bg-stone-200" />
+      <div className="flex items-center gap-2 sm:gap-3">
+        <div className="h-1.5 sm:h-2 w-8 sm:w-10 rounded-full bg-stone-200 hidden sm:block" />
+        <div className="h-1.5 sm:h-2 w-8 sm:w-10 rounded-full bg-stone-200 hidden sm:block" />
+        <div className="h-5 sm:h-6 w-12 sm:w-14 rounded-md bg-amber-300" />
       </div>
     </motion.div>
   );
@@ -122,21 +122,21 @@ function HeroLayer({ progress }: { progress: MotionValue<number> }) {
 
   return (
     <motion.div
-      className="mt-4 rounded-xl bg-stone-100 relative overflow-hidden"
+      className="mt-2 sm:mt-4 rounded-xl bg-stone-100 relative overflow-hidden"
       style={{ opacity, y }}
     >
-      <div className="p-5 sm:p-6">
-        <div className="space-y-2 mb-4">
-          <div className="h-3 w-3/4 rounded-full bg-stone-200" />
-          <div className="h-3 w-1/2 rounded-full bg-stone-200" />
+      <div className="p-3 sm:p-6">
+        <div className="space-y-1.5 sm:space-y-2 mb-2 sm:mb-4">
+          <div className="h-2 sm:h-3 w-3/4 rounded-full bg-stone-200" />
+          <div className="h-2 sm:h-3 w-1/2 rounded-full bg-stone-200" />
         </div>
-        <div className="space-y-1.5 mb-5">
-          <div className="h-2 w-full rounded-full bg-stone-200/60" />
-          <div className="h-2 w-5/6 rounded-full bg-stone-200/60" />
+        <div className="space-y-1 sm:space-y-1.5 mb-3 sm:mb-5">
+          <div className="h-1.5 sm:h-2 w-full rounded-full bg-stone-200/60" />
+          <div className="h-1.5 sm:h-2 w-5/6 rounded-full bg-stone-200/60" />
         </div>
         <div className="flex gap-2">
-          <div className="h-7 w-20 rounded-lg bg-amber-300" />
-          <div className="h-7 w-20 rounded-lg bg-stone-200/80" />
+          <div className="h-5 sm:h-7 w-16 sm:w-20 rounded-lg bg-amber-300" />
+          <div className="h-5 sm:h-7 w-16 sm:w-20 rounded-lg bg-stone-200/80" />
         </div>
       </div>
     </motion.div>
@@ -148,22 +148,22 @@ function ContentLayer({ progress }: { progress: MotionValue<number> }) {
   const y = useSlideUp(progress, THRESHOLDS[2]);
 
   return (
-    <motion.div className="mt-4 space-y-3" style={{ opacity, y }}>
-      <div className="flex gap-3">
+    <motion.div className="mt-2 sm:mt-4 space-y-2 sm:space-y-3" style={{ opacity, y }}>
+      <div className="flex gap-2 sm:gap-3">
         {[0, 1, 2].map((i) => (
-          <div key={i} className="h-16 sm:h-20 flex-1 rounded-lg bg-stone-100 relative overflow-hidden">
-            <div className="absolute top-3 left-3 h-4 w-4 rounded bg-amber-200" />
-            <div className="absolute bottom-3 left-3 right-3 space-y-1">
-              <div className="h-1.5 w-3/4 rounded-full bg-stone-200" />
-              <div className="h-1.5 w-1/2 rounded-full bg-stone-200/60" />
+          <div key={i} className="h-10 sm:h-20 flex-1 rounded-lg bg-stone-100 relative overflow-hidden">
+            <div className="absolute top-2 left-2 sm:top-3 sm:left-3 h-3 w-3 sm:h-4 sm:w-4 rounded bg-amber-200" />
+            <div className="absolute bottom-2 left-2 right-2 sm:bottom-3 sm:left-3 sm:right-3 space-y-1">
+              <div className="h-1 sm:h-1.5 w-3/4 rounded-full bg-stone-200" />
+              <div className="h-1 sm:h-1.5 w-1/2 rounded-full bg-stone-200/60" />
             </div>
           </div>
         ))}
       </div>
-      <div className="space-y-2 px-1">
-        <div className="h-2 w-full rounded-full bg-stone-200/70" />
-        <div className="h-2 w-[85%] rounded-full bg-stone-200/70" />
-        <div className="h-2 w-[70%] rounded-full bg-stone-200/70" />
+      <div className="space-y-1.5 sm:space-y-2 px-1">
+        <div className="h-1.5 sm:h-2 w-full rounded-full bg-stone-200/70" />
+        <div className="h-1.5 sm:h-2 w-[85%] rounded-full bg-stone-200/70" />
+        <div className="h-1.5 sm:h-2 w-[70%] rounded-full bg-stone-200/70" />
       </div>
     </motion.div>
   );
@@ -175,21 +175,21 @@ function FooterLayer({ progress }: { progress: MotionValue<number> }) {
 
   return (
     <motion.div
-      className="mt-4 rounded-lg bg-stone-100 p-3 sm:p-4"
+      className="mt-2 sm:mt-4 rounded-lg bg-stone-100 p-2 sm:p-4"
       style={{ opacity, y }}
     >
       <div className="flex items-center justify-between">
-        <div className="h-2.5 w-16 rounded-full bg-stone-200" />
-        <div className="flex gap-2">
-          <div className="h-3 w-3 rounded-full bg-stone-200" />
-          <div className="h-3 w-3 rounded-full bg-stone-200" />
-          <div className="h-3 w-3 rounded-full bg-stone-200" />
+        <div className="h-2 sm:h-2.5 w-12 sm:w-16 rounded-full bg-stone-200" />
+        <div className="flex gap-1.5 sm:gap-2">
+          <div className="h-2 w-2 sm:h-3 sm:w-3 rounded-full bg-stone-200" />
+          <div className="h-2 w-2 sm:h-3 sm:w-3 rounded-full bg-stone-200" />
+          <div className="h-2 w-2 sm:h-3 sm:w-3 rounded-full bg-stone-200" />
         </div>
       </div>
-      <div className="mt-2 flex gap-4">
-        <div className="h-1.5 w-12 rounded-full bg-stone-200/60" />
-        <div className="h-1.5 w-12 rounded-full bg-stone-200/60" />
-        <div className="h-1.5 w-12 rounded-full bg-stone-200/60" />
+      <div className="mt-1.5 sm:mt-2 flex gap-3 sm:gap-4">
+        <div className="h-1 sm:h-1.5 w-10 sm:w-12 rounded-full bg-stone-200/60" />
+        <div className="h-1 sm:h-1.5 w-10 sm:w-12 rounded-full bg-stone-200/60" />
+        <div className="h-1 sm:h-1.5 w-10 sm:w-12 rounded-full bg-stone-200/60" />
       </div>
     </motion.div>
   );
@@ -367,12 +367,12 @@ export default function WebsiteBuildScroll() {
   return (
     <div
       ref={containerRef}
-      className="relative h-[180vh] md:h-[250vh]"
+      className="relative h-[180vh] md:h-[250vh] py-8 md:py-20"
     >
       {/* Sticky centered container */}
-      <div className="sticky top-[18vh] mx-auto max-w-6xl px-6">
+      <div className="sticky mx-auto max-w-6xl px-6 [top:8vh] md:[top:18vh]">
         {/* Section title */}
-        <div className="text-center mb-6">
+        <div className="text-center mb-4 md:mb-6">
           <span className="mb-2 inline-block text-sm font-semibold uppercase tracking-widest text-amber-600">
             Everything Included
           </span>
@@ -435,7 +435,7 @@ export default function WebsiteBuildScroll() {
               }}
             >
               <BrowserChrome phoneOpacity={phoneProgress} />
-              <div className="p-3 bg-white min-h-[140px]">
+              <div className="p-2 bg-white min-h-[90px]">
                 <NavLayer progress={scrollYProgress} />
                 <HeroLayer progress={scrollYProgress} />
                 <ContentLayer progress={scrollYProgress} />

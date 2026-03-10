@@ -35,8 +35,8 @@ export default function ArgoContact() {
                 </h2>
 
                 <p className="mx-auto mt-6 max-w-md text-base leading-relaxed text-stone-600 md:text-lg">
-                  Whether you&apos;re curious about CallCatch or want to talk about
-                  something custom for your business — drop me a message.
+                  Whether you need a website, want to recover missed calls with CallCatch,
+                  or just want to chat about how we can help your business — we&apos;re here.
                   No pressure, no sales pitch.
                 </p>
 
@@ -45,7 +45,7 @@ export default function ArgoContact() {
                     href="https://calendly.com/harry-argosystems/callcatch-demo"
                     className="group inline-flex items-center justify-center gap-2.5 rounded-xl bg-amber-600 px-8 py-4 text-base font-bold text-white shadow-warm-lg transition-all duration-300 hover:bg-amber-700 hover:shadow-warm-xl hover:-translate-y-0.5"
                   >
-                    Book a Free Demo
+                    Book a Call
                   </MagneticButton>
                   <a
                     href="mailto:harry@argosystems.co.uk?subject=Enquiry%20from%20Argo%20website"
