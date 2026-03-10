@@ -363,22 +363,22 @@ export default function WebsiteBuildScroll() {
       className="relative h-[250vh] md:h-[350vh]"
     >
       {/* Sticky centered container */}
-      <div className="sticky top-[8vh] mx-auto max-w-6xl px-6">
+      <div className="sticky top-[3vh] mx-auto max-w-6xl px-6">
         {/* Section title */}
-        <div className="text-center mb-8">
-          <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-widest text-amber-600">
+        <div className="text-center mb-4 md:mb-6">
+          <span className="mb-1 inline-block text-sm font-semibold uppercase tracking-widest text-amber-600">
             Everything Included
           </span>
-          <h2 className="font-[family-name:var(--font-display)] text-3xl font-bold text-stone-900 md:text-4xl">
+          <h2 className="font-[family-name:var(--font-display)] text-2xl font-bold text-stone-900 md:text-4xl">
             What You Get
           </h2>
-          <p className="mx-auto mt-4 max-w-lg text-lg text-stone-600">
+          <p className="mx-auto mt-2 max-w-lg text-sm md:text-lg text-stone-600">
             Every website we build comes with the essentials to help your business stand out online.
           </p>
         </div>
 
         {/* ── Desktop: Two-column layout ── */}
-        <div className="hidden md:grid md:grid-cols-[1fr_320px] md:gap-12 lg:grid-cols-[1fr_360px] lg:gap-16 items-center">
+        <div className="hidden md:grid md:grid-cols-[1fr_280px] md:gap-10 lg:grid-cols-[1fr_320px] lg:gap-14 items-center">
           {/* Browser / Phone mockup */}
           <div className="relative flex justify-center">
             {/* Glow */}
