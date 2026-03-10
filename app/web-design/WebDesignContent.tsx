@@ -85,6 +85,33 @@ function SearchIcon() {
   );
 }
 
+function CodeIcon() {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-amber-600">
+      <polyline points="16 18 22 12 16 6" />
+      <polyline points="8 6 2 12 8 18" />
+    </svg>
+  );
+}
+
+function UserIcon() {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-amber-600">
+      <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+      <circle cx="12" cy="7" r="4" />
+    </svg>
+  );
+}
+
+function MapPinIcon() {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-amber-600">
+      <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+      <circle cx="12" cy="10" r="3" />
+    </svg>
+  );
+}
+
 /* ───── Data ───── */
 
 const features = [
@@ -137,16 +164,19 @@ const steps = [
 
 const whyArgo = [
   {
+    icon: <CodeIcon />,
     title: "Modern Technology",
     description:
       "Your site is built with the same tech used by top startups — not a drag-and-drop builder.",
   },
   {
+    icon: <UserIcon />,
     title: "Founder-Led",
     description:
       "You work directly with the person building your site. No handoffs, no miscommunication.",
   },
   {
+    icon: <MapPinIcon />,
     title: "Built for Local Business",
     description:
       "We understand what local businesses need — clear info, easy contact, and a site that converts.",
@@ -345,7 +375,7 @@ export default function WebDesignContent() {
               <motion.div
                 key={feature.title}
                 variants={staggerItem}
-                className="rounded-2xl bg-white p-6 shadow-warm-sm"
+                className="rounded-2xl bg-white p-6 shadow-warm-sm transition-all duration-300 hover:shadow-warm hover:-translate-y-1"
               >
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-amber-50">
                   {feature.icon}
@@ -371,7 +401,13 @@ export default function WebDesignContent() {
             </h2>
           </ScrollReveal>
 
-          <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-6">
+          <div className="relative mt-12 grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-6">
+            {/* Connecting line (desktop only) */}
+            <div className="absolute top-5 left-0 right-0 hidden md:block">
+              <div className="mx-auto" style={{ width: "60%"}}>
+                <div className="h-px border-t-2 border-dashed border-amber-200" />
+              </div>
+            </div>
             {steps.map((step, i) => (
               <ScrollReveal key={step.title} delay={i * 0.1}>
                 <div className="text-center md:text-left">
@@ -405,9 +441,12 @@ export default function WebDesignContent() {
               <motion.div
                 key={item.title}
                 variants={staggerItem}
-                className="rounded-2xl bg-white p-6 shadow-warm-sm"
+                className="rounded-2xl bg-white p-6 shadow-warm-sm transition-all duration-300 hover:shadow-warm hover:-translate-y-1"
               >
-                <h3 className="font-[family-name:var(--font-display)] text-lg font-bold text-stone-900">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-amber-50">
+                  {item.icon}
+                </div>
+                <h3 className="mt-4 font-[family-name:var(--font-display)] text-lg font-bold text-stone-900">
                   {item.title}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-stone-600">
