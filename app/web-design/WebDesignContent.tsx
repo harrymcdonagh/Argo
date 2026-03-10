@@ -611,19 +611,39 @@ export default function WebDesignContent() {
       </section>
 
       {/* ── Final CTA ── */}
-      <section className="paper-texture py-20 md:py-28">
-        <div className="mx-auto max-w-6xl px-6 text-center">
+      <section className="relative bg-cream-100 py-24 md:py-36 overflow-hidden">
+        {/* Ambient glow */}
+        <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          <motion.div
+            className="h-[500px] w-[700px] rounded-full bg-amber-500/8 blur-3xl"
+            animate={{ scale: [1, 1.08, 1], opacity: [0.6, 1, 0.6] }}
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+          />
+        </div>
+
+        <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
+          {/* Amber accent line */}
           <ScrollReveal>
-            <h2 className="font-[family-name:var(--font-display)] text-2xl font-bold text-stone-900 md:text-3xl">
+            <div className="mx-auto mb-8 h-0.5 w-12 rounded-full bg-amber-600" />
+          </ScrollReveal>
+
+          <ScrollReveal>
+            <h2 className="font-[family-name:var(--font-display)] text-3xl font-extrabold leading-tight tracking-tight text-stone-900 md:text-4xl lg:text-5xl">
               Ready to get a website that works as hard as you do?
             </h2>
           </ScrollReveal>
 
+          <ScrollReveal delay={0.05}>
+            <p className="mx-auto mt-5 max-w-lg text-lg text-stone-600">
+              No commitment. No tech jargon. Just a quick chat about what you need.
+            </p>
+          </ScrollReveal>
+
           <ScrollReveal delay={0.1}>
-            <div className="mt-8">
+            <div className="mt-10">
               <MagneticButton
                 href={CALENDLY_URL}
-                className="inline-block rounded-lg bg-amber-600 px-5 py-2.5 text-sm font-semibold text-white shadow-warm-sm transition-all hover:bg-amber-700 hover:shadow-warm"
+                className="inline-block rounded-xl bg-amber-600 px-8 py-4 text-base font-bold text-white shadow-warm transition-all duration-300 hover:bg-amber-700 hover:shadow-warm-lg hover:-translate-y-0.5"
               >
                 Book a Free Call
               </MagneticButton>
@@ -631,11 +651,11 @@ export default function WebDesignContent() {
           </ScrollReveal>
 
           <ScrollReveal delay={0.15}>
-            <p className="mt-4 text-sm text-stone-500">
+            <p className="mt-5 text-sm text-stone-500">
               or email us at{" "}
               <a
                 href="mailto:harry@argosystems.co.uk"
-                className="underline transition-colors hover:text-amber-600"
+                className="font-medium underline transition-colors hover:text-amber-600"
               >
                 harry@argosystems.co.uk
               </a>
