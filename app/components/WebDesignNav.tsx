@@ -16,6 +16,7 @@ export default function WebDesignNav() {
     { label: "What You Get", href: "#what-you-get" },
     { label: "How It Works", href: "#how-it-works" },
     { label: "Why Argo", href: "#why-argo" },
+    { label: "Pricing", href: "#pricing" },
   ];
 
   return (
@@ -59,7 +60,7 @@ export default function WebDesignNav() {
             </a>
           ))}
           <a
-            href="https://calendly.com/harry-argosystems/callcatch-demo"
+            href="https://calendly.com/harry-argosystems/free-web-design-consultation"
             className="rounded-lg bg-amber-600 px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-amber-700 shadow-warm-sm hover:shadow-warm"
           >
             Book a Free Call
@@ -100,7 +101,7 @@ export default function WebDesignNav() {
               </a>
             ))}
             <a
-              href="https://calendly.com/harry-argosystems/callcatch-demo"
+              href="https://calendly.com/harry-argosystems/free-web-design-consultation"
               onClick={() => setMobileOpen(false)}
               className="mt-2 rounded-lg bg-amber-600 px-5 py-2.5 text-center text-sm font-semibold text-white transition-all hover:bg-amber-700"
             >

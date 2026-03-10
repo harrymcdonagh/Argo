@@ -100,8 +100,8 @@ const statCards = [
         />
       </svg>
     ),
-    value: "47",
-    label: "Calls Saved This Month",
+    value: "24/7",
+    label: "Always On",
     position: "top-[46%] left-[8%] md:left-[11%]",
     drift: { x: [0, 12, -14, 0], y: [0, -15, 16, 0] },
     driftDuration: 10,
@@ -286,6 +286,29 @@ export default function ArgoHeroB() {
             We build done-for-you tools and services for local businesses. No tech skills needed
             — we handle everything.
           </motion.p>
+
+          {/* Mobile stat strip */}
+          <motion.div
+            className="mt-8 flex flex-wrap justify-center gap-2 2xl:hidden"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.55, ease: "easeOut" }}
+          >
+            {[
+              { value: "8s", label: "Avg Response" },
+              { value: "94%", label: "Recovery Rate" },
+              { value: "24/7", label: "Always On" },
+              { value: "£0", label: "Hidden Fees" },
+            ].map((stat) => (
+              <div
+                key={stat.label}
+                className="flex items-center gap-2 rounded-full border border-cream-200 bg-white/80 px-3.5 py-1.5 shadow-warm-sm"
+              >
+                <span className="text-sm font-bold text-stone-900">{stat.value}</span>
+                <span className="text-xs text-stone-500">{stat.label}</span>
+              </div>
+            ))}
+          </motion.div>
 
           <motion.div
             className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center"

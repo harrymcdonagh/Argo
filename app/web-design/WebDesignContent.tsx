@@ -7,8 +7,9 @@ import MagneticButton from "../components/MagneticButton";
 import DotGrid from "../components/DotGrid";
 import WebsiteBuildScroll from "../components/WebsiteBuildScroll";
 import ArgoComparison from "../components/ArgoComparison";
+import WebDesignPricing from "../components/WebDesignPricing";
 
-const CALENDLY_URL = "https://calendly.com/harry-argosystems/callcatch-demo";
+const CALENDLY_URL = "https://calendly.com/harry-argosystems/free-web-design-consultation";
 
 /* ───── Data ───── */
 
@@ -405,6 +406,9 @@ export default function WebDesignContent() {
       <section id="why-argo" className="bg-cream-100">
         <ArgoComparison />
       </section>
+
+      {/* ── Pricing ── */}
+      <WebDesignPricing />
 
       {/* ── Final CTA ── */}
       <section className="relative bg-cream-50 py-24 md:py-36 overflow-hidden">

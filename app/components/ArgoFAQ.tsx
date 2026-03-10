@@ -24,7 +24,7 @@ const faqs = [
   {
     question: "How much does it cost?",
     answer:
-      "CallCatch starts at £150 per month. There's a one-time setup fee, and we're currently offering a reduced setup fee for early clients. No hidden costs — your monthly fee covers everything including all texts sent and received.",
+      "CallCatch starts at £150 per month on our Early Adopter plan — that's a reduced rate for our first clients, locked in for 3 months. After that, it moves to £200–£250 per month depending on your plan. There's a one-time setup fee (also reduced for early clients). No hidden costs — your monthly fee covers everything including all texts sent and received.",
   },
   {
     question: "What if I want to cancel?",
