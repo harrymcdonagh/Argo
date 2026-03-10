@@ -350,6 +350,13 @@ export default function WebsiteBuildScroll() {
     ["100%", "55%", "55%", "100%"]
   );
 
+  // Mobile: phone maxWidth — consistent percentage units
+  const mobileMaxWidth = useTransform(
+    scrollYProgress,
+    [0.38, 0.46, 0.56, 0.64],
+    ["100%", "60%", "60%", "100%"]
+  );
+
   // Border radius morphs to more rounded for phone
   const frameBorderRadius = useTransform(
     scrollYProgress,
@@ -372,7 +379,7 @@ export default function WebsiteBuildScroll() {
             <div className="absolute -inset-6 -z-10 rounded-3xl bg-amber-100/20 blur-3xl" />
 
             <motion.div
-              className="bg-white shadow-warm-lg overflow-hidden border border-cream-200"
+              className="w-full rounded-2xl bg-white shadow-warm-lg overflow-hidden border border-cream-200"
               style={{
                 width: frameWidth,
                 borderRadius: frameBorderRadius,
@@ -408,13 +415,9 @@ export default function WebsiteBuildScroll() {
             <div className="absolute -inset-3 -z-10 rounded-2xl bg-amber-100/20 blur-2xl" />
 
             <motion.div
-              className="bg-white shadow-warm overflow-hidden border border-cream-200 w-full"
+              className="w-full rounded-2xl bg-white shadow-warm overflow-hidden border border-cream-200"
               style={{
-                maxWidth: useTransform(
-                  scrollYProgress,
-                  [0.38, 0.46, 0.56, 0.64],
-                  ["100%", "240px", "240px", "100%"]
-                ),
+                maxWidth: mobileMaxWidth,
                 borderRadius: frameBorderRadius,
               }}
             >
