@@ -153,40 +153,181 @@ const whyArgo = [
   },
 ];
 
+/* ───── Hero Animation Variants ───── */
+
+const staggerContainer = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.05, delayChildren: 0.2 },
+  },
+};
+
+const wordVariant = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.4, ease: "easeOut" as const },
+  },
+};
+
+const wireframeContainer = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.15, delayChildren: 0.8 },
+  },
+};
+
+const wireframeItem = {
+  hidden: { opacity: 0, y: 12 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.4, ease: "easeOut" as const },
+  },
+};
+
 /* ───── Component ───── */
 
 export default function WebDesignContent() {
+  const headlineWords = ["A", "Professional", "Website", "For", "Your", "Business", "—"];
+  const amberWords = ["Without", "The", "Hassle"];
+
   return (
     <main>
       {/* ── Hero ── */}
-      <section className="paper-texture pt-32 pb-20 md:pt-40 md:pb-28">
-        <div className="mx-auto max-w-6xl px-6 text-center">
-          <ScrollReveal>
-            <h1 className="font-[family-name:var(--font-display)] text-4xl font-bold leading-tight tracking-tight md:text-5xl lg:text-6xl">
-              <span className="text-stone-900">
-                A Professional Website For Your Business —{" "}
-              </span>
-              <span className="text-amber-600">Without The Hassle</span>
-            </h1>
-          </ScrollReveal>
-
-          <ScrollReveal delay={0.1}>
-            <p className="mx-auto mt-6 max-w-2xl text-lg text-stone-600">
-              Tell us what you need. We design, build, and launch your site — so
-              you can focus on running your business.
-            </p>
-          </ScrollReveal>
-
-          <ScrollReveal delay={0.2}>
-            <div className="mt-10">
-              <MagneticButton
-                href={CALENDLY_URL}
-                className="inline-block rounded-lg bg-amber-600 px-5 py-2.5 text-sm font-semibold text-white shadow-warm-sm transition-all hover:bg-amber-700 hover:shadow-warm"
+      <section className="paper-texture min-h-screen flex items-center pt-24">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Left column */}
+            <div>
+              <motion.div
+                className="mb-6 inline-flex items-center gap-2 rounded-full border border-amber-600/20 bg-amber-50 px-4 py-1.5"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
               >
-                Book a Free Call
-              </MagneticButton>
+                <span className="text-sm font-medium text-amber-700">Web Design for Local Businesses</span>
+              </motion.div>
+
+              <motion.h1
+                className="font-[family-name:var(--font-display)] text-4xl font-extrabold leading-[1.08] tracking-tight md:text-5xl lg:text-5xl"
+                variants={staggerContainer}
+                initial="hidden"
+                animate="visible"
+              >
+                {headlineWords.map((word, i) => (
+                  <motion.span
+                    key={`h-${i}`}
+                    className="inline-block mr-[0.25em] text-stone-900"
+                    variants={wordVariant}
+                  >
+                    {word}
+                  </motion.span>
+                ))}
+                <br />
+                {amberWords.map((word, i) => (
+                  <motion.span
+                    key={`a-${i}`}
+                    className="inline-block mr-[0.25em] text-amber-600"
+                    variants={wordVariant}
+                  >
+                    {word}
+                  </motion.span>
+                ))}
+              </motion.h1>
+
+              <motion.p
+                className="mt-6 max-w-lg text-lg leading-relaxed text-stone-600"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.5, ease: "easeOut" }}
+              >
+                Tell us what you need. We design, build, and launch your site — so you can focus on running your business.
+              </motion.p>
+
+              <motion.div
+                className="mt-8 flex flex-wrap items-center gap-3"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.6, ease: "easeOut" }}
+              >
+                <MagneticButton
+                  href={CALENDLY_URL}
+                  className="rounded-xl bg-amber-600 px-8 py-4 text-base font-bold text-white transition-all duration-300 hover:bg-amber-700 shadow-warm hover:shadow-warm-lg hover:-translate-y-0.5"
+                >
+                  Book a Free Call
+                </MagneticButton>
+                <a
+                  href="#how-it-works"
+                  className="rounded-xl border border-cream-200 bg-white px-8 py-4 text-base font-medium text-stone-900 transition-all duration-300 hover:border-stone-400 hover:shadow-warm-sm"
+                >
+                  See How It Works
+                </a>
+              </motion.div>
             </div>
-          </ScrollReveal>
+
+            {/* Right column — Animated Browser Mockup */}
+            <motion.div
+              initial={{ opacity: 0, y: 30, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
+              className="relative"
+            >
+              <div className="absolute -inset-4 -z-10 rounded-3xl bg-amber-100/30 blur-2xl" />
+
+              <div className="relative rounded-2xl bg-white shadow-warm-lg overflow-hidden border border-cream-200">
+                {/* Browser top bar */}
+                <div className="flex items-center gap-2 px-4 py-3 bg-cream-50 border-b border-cream-200">
+                  <div className="h-2.5 w-2.5 rounded-full bg-red-400" />
+                  <div className="h-2.5 w-2.5 rounded-full bg-yellow-400" />
+                  <div className="h-2.5 w-2.5 rounded-full bg-green-400" />
+                  <div className="ml-3 flex-1 rounded-md bg-cream-100 px-3 py-1">
+                    <span className="text-xs text-stone-400">yourbusiness.co.uk</span>
+                  </div>
+                </div>
+
+                {/* Wireframe content */}
+                <motion.div
+                  className="p-6 bg-white"
+                  variants={wireframeContainer}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  {/* Nav bar */}
+                  <motion.div className="flex items-center justify-between" variants={wireframeItem}>
+                    <div className="h-3 w-20 rounded-full bg-stone-200" />
+                    <div className="h-3 w-12 rounded-full bg-amber-200" />
+                  </motion.div>
+
+                  {/* Hero block */}
+                  <motion.div className="h-28 rounded-xl bg-stone-100 mt-4 relative" variants={wireframeItem}>
+                    <div className="absolute bottom-4 left-4 h-3 w-16 rounded-full bg-amber-300" />
+                  </motion.div>
+
+                  {/* Three cards */}
+                  <motion.div className="flex gap-3 mt-4" variants={wireframeItem}>
+                    <div className="h-16 flex-1 rounded-lg bg-stone-100" />
+                    <div className="h-16 flex-1 rounded-lg bg-stone-100" />
+                    <div className="h-16 flex-1 rounded-lg bg-stone-100" />
+                  </motion.div>
+
+                  {/* Text lines */}
+                  <motion.div className="space-y-2 mt-4" variants={wireframeItem}>
+                    <div className="h-2 w-full rounded-full bg-stone-200" />
+                    <div className="h-2 w-[85%] rounded-full bg-stone-200" />
+                    <div className="h-2 w-[70%] rounded-full bg-stone-200" />
+                    <div className="h-2 w-1/2 rounded-full bg-stone-200" />
+                  </motion.div>
+
+                  {/* Footer */}
+                  <motion.div className="mt-4" variants={wireframeItem}>
+                    <div className="h-3 w-full rounded-full bg-stone-200" />
+                  </motion.div>
+                </motion.div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -222,7 +363,7 @@ export default function WebDesignContent() {
       </section>
 
       {/* ── How It Works ── */}
-      <section className="paper-texture py-20 md:py-28">
+      <section id="how-it-works" className="paper-texture py-20 md:py-28">
         <div className="mx-auto max-w-6xl px-6">
           <ScrollReveal>
             <h2 className="text-center font-[family-name:var(--font-display)] text-3xl font-bold text-stone-900 md:text-4xl">
