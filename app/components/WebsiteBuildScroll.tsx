@@ -246,18 +246,12 @@ function StageLabel({
 
       {/* Text */}
       <motion.div style={{ opacity, scale }} className="origin-left pb-8">
-        <motion.h3
-          className="font-[family-name:var(--font-display)] text-lg font-bold text-stone-900"
-          style={{ opacity }}
-        >
+        <h3 className="font-[family-name:var(--font-display)] text-lg font-bold text-amber-600">
           {stage.title}
-        </motion.h3>
-        <motion.p
-          className="mt-1 text-sm leading-relaxed text-stone-600"
-          style={{ opacity }}
-        >
+        </h3>
+        <p className="mt-1 text-sm leading-relaxed text-stone-600">
           {stage.description}
-        </motion.p>
+        </p>
       </motion.div>
     </div>
   );

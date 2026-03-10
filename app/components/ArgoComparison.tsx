@@ -72,7 +72,7 @@ export default function ArgoComparison() {
           transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
           className="flex justify-center mb-10"
         >
-          <div className="relative inline-flex bg-stone-100 rounded-full p-1 gap-1">
+          <div className="relative inline-flex bg-stone-100 rounded-full p-1 gap-0.5 sm:gap-1 max-w-full overflow-x-auto">
             {providers.map((provider) => (
               <button
                 key={provider}
@@ -132,7 +132,7 @@ export default function ArgoComparison() {
                   initial={{ opacity: 0, y: 6 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -6 }}
-                  transition={{ duration: 0.2, ease: "easeOut" }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
                   className={`text-base sm:text-lg font-medium ${
                     isArgo ? "text-amber-600" : "text-stone-600"
                   }`}
