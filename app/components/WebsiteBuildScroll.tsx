@@ -30,15 +30,15 @@ const buildStages = [
 
 /*
   Scroll zones (0–1 mapped across container height):
-  0.00–0.20  Stage 1: Custom Design  → Nav layer fades in
-  0.20–0.40  Stage 2: Fast & Reliable → Hero layer fades in
-  0.40–0.60  Stage 3: Mobile Responsive → Content layer + browser morphs to phone
-  0.60–0.80  Stage 4: SEO Ready → Footer layer + browser morphs back to desktop
-  0.80–1.00  Buffer zone — everything stays, scroll out gracefully
+  0.05–0.22  Stage 1: Custom Design  → Nav layer fades in
+  0.22–0.39  Stage 2: Fast & Reliable → Hero layer fades in
+  0.39–0.56  Stage 3: Mobile Responsive → Content layer + browser morphs to phone
+  0.56–0.73  Stage 4: SEO Ready → Footer layer + browser morphs back to desktop
+  0.73–1.00  Buffer zone — SEO Ready stays lit, scroll out gracefully
 */
 
-const STAGE_SIZE = 0.2;
-const THRESHOLDS = [0, 0.2, 0.4, 0.6]; // start of each stage
+const STAGE_SIZE = 0.17;
+const THRESHOLDS = [0.05, 0.22, 0.39, 0.56];
 
 /* ───── Helpers ───── */
 
@@ -53,7 +53,6 @@ function useSlideUp(progress: MotionValue<number>, start: number) {
 /* ───── Browser / Phone Chrome ───── */
 
 function BrowserChrome({ phoneOpacity }: { phoneOpacity: MotionValue<number> }) {
-  // Browser chrome fades out as phone chrome fades in
   const browserOpacity = useTransform(phoneOpacity, [0, 1], [1, 0]);
 
   return (
@@ -71,21 +70,19 @@ function BrowserChrome({ phoneOpacity }: { phoneOpacity: MotionValue<number> }) 
         </div>
       </motion.div>
 
-      {/* Phone status bar — overlaid, fades in */}
+      {/* Phone status bar */}
       <motion.div
         className="absolute inset-0 flex items-center justify-between px-5 py-2.5 bg-stone-900"
         style={{ opacity: phoneOpacity }}
       >
         <span className="text-[10px] font-medium text-white/80">9:41</span>
         <div className="flex items-center gap-1.5">
-          {/* Signal bars */}
           <div className="flex items-end gap-[2px]">
             <div className="h-1.5 w-[3px] rounded-sm bg-white/70" />
             <div className="h-2 w-[3px] rounded-sm bg-white/70" />
             <div className="h-2.5 w-[3px] rounded-sm bg-white/70" />
             <div className="h-3 w-[3px] rounded-sm bg-white/50" />
           </div>
-          {/* Battery */}
           <div className="ml-1 h-2.5 w-5 rounded-sm border border-white/60 relative">
             <div className="absolute inset-[1.5px] rounded-[1px] bg-white/70" />
           </div>
@@ -122,21 +119,21 @@ function HeroLayer({ progress }: { progress: MotionValue<number> }) {
 
   return (
     <motion.div
-      className="mt-4 rounded-xl bg-stone-100 relative overflow-hidden"
+      className="mt-3 rounded-xl bg-stone-100 relative overflow-hidden"
       style={{ opacity, y }}
     >
-      <div className="p-5 sm:p-6">
-        <div className="space-y-2 mb-4">
-          <div className="h-3 w-3/4 rounded-full bg-stone-200" />
-          <div className="h-3 w-1/2 rounded-full bg-stone-200" />
+      <div className="p-4">
+        <div className="space-y-2 mb-3">
+          <div className="h-2.5 w-3/4 rounded-full bg-stone-200" />
+          <div className="h-2.5 w-1/2 rounded-full bg-stone-200" />
         </div>
-        <div className="space-y-1.5 mb-5">
-          <div className="h-2 w-full rounded-full bg-stone-200/60" />
-          <div className="h-2 w-5/6 rounded-full bg-stone-200/60" />
+        <div className="space-y-1.5 mb-4">
+          <div className="h-1.5 w-full rounded-full bg-stone-200/60" />
+          <div className="h-1.5 w-5/6 rounded-full bg-stone-200/60" />
         </div>
         <div className="flex gap-2">
-          <div className="h-7 w-20 rounded-lg bg-amber-300" />
-          <div className="h-7 w-20 rounded-lg bg-stone-200/80" />
+          <div className="h-6 w-16 rounded-md bg-amber-300" />
+          <div className="h-6 w-16 rounded-md bg-stone-200/80" />
         </div>
       </div>
     </motion.div>
@@ -148,22 +145,21 @@ function ContentLayer({ progress }: { progress: MotionValue<number> }) {
   const y = useSlideUp(progress, THRESHOLDS[2]);
 
   return (
-    <motion.div className="mt-4 space-y-3" style={{ opacity, y }}>
-      <div className="flex gap-3">
+    <motion.div className="mt-3 space-y-2" style={{ opacity, y }}>
+      <div className="flex gap-2">
         {[0, 1, 2].map((i) => (
-          <div key={i} className="h-16 sm:h-20 flex-1 rounded-lg bg-stone-100 relative overflow-hidden">
-            <div className="absolute top-3 left-3 h-4 w-4 rounded bg-amber-200" />
-            <div className="absolute bottom-3 left-3 right-3 space-y-1">
-              <div className="h-1.5 w-3/4 rounded-full bg-stone-200" />
-              <div className="h-1.5 w-1/2 rounded-full bg-stone-200/60" />
+          <div key={i} className="h-14 flex-1 rounded-lg bg-stone-100 relative overflow-hidden">
+            <div className="absolute top-2 left-2 h-3 w-3 rounded bg-amber-200" />
+            <div className="absolute bottom-2 left-2 right-2 space-y-1">
+              <div className="h-1 w-3/4 rounded-full bg-stone-200" />
+              <div className="h-1 w-1/2 rounded-full bg-stone-200/60" />
             </div>
           </div>
         ))}
       </div>
-      <div className="space-y-2 px-1">
-        <div className="h-2 w-full rounded-full bg-stone-200/70" />
-        <div className="h-2 w-[85%] rounded-full bg-stone-200/70" />
-        <div className="h-2 w-[70%] rounded-full bg-stone-200/70" />
+      <div className="space-y-1.5 px-1">
+        <div className="h-1.5 w-full rounded-full bg-stone-200/70" />
+        <div className="h-1.5 w-[85%] rounded-full bg-stone-200/70" />
       </div>
     </motion.div>
   );
@@ -175,21 +171,21 @@ function FooterLayer({ progress }: { progress: MotionValue<number> }) {
 
   return (
     <motion.div
-      className="mt-4 rounded-lg bg-stone-100 p-3 sm:p-4"
+      className="mt-3 rounded-lg bg-stone-100 p-3"
       style={{ opacity, y }}
     >
       <div className="flex items-center justify-between">
-        <div className="h-2.5 w-16 rounded-full bg-stone-200" />
-        <div className="flex gap-2">
-          <div className="h-3 w-3 rounded-full bg-stone-200" />
-          <div className="h-3 w-3 rounded-full bg-stone-200" />
-          <div className="h-3 w-3 rounded-full bg-stone-200" />
+        <div className="h-2 w-14 rounded-full bg-stone-200" />
+        <div className="flex gap-1.5">
+          <div className="h-2.5 w-2.5 rounded-full bg-stone-200" />
+          <div className="h-2.5 w-2.5 rounded-full bg-stone-200" />
+          <div className="h-2.5 w-2.5 rounded-full bg-stone-200" />
         </div>
       </div>
-      <div className="mt-2 flex gap-4">
-        <div className="h-1.5 w-12 rounded-full bg-stone-200/60" />
-        <div className="h-1.5 w-12 rounded-full bg-stone-200/60" />
-        <div className="h-1.5 w-12 rounded-full bg-stone-200/60" />
+      <div className="mt-1.5 flex gap-3">
+        <div className="h-1 w-10 rounded-full bg-stone-200/60" />
+        <div className="h-1 w-10 rounded-full bg-stone-200/60" />
+        <div className="h-1 w-10 rounded-full bg-stone-200/60" />
       </div>
     </motion.div>
   );
@@ -201,39 +197,40 @@ function StageLabel({
   stage,
   index,
   progress,
+  isLast,
 }: {
   stage: (typeof buildStages)[number];
   index: number;
   progress: MotionValue<number>;
+  isLast: boolean;
 }) {
   const threshold = THRESHOLDS[index];
   const nextThreshold = threshold + STAGE_SIZE;
 
+  // Last label stays lit through the buffer zone (0.73–1.0)
   const opacity = useTransform(
     progress,
-    [
-      Math.max(0, threshold - 0.04),
-      threshold,
-      nextThreshold - 0.02,
-      Math.min(1, nextThreshold + 0.04),
-    ],
-    [0.3, 1, 1, 0.3]
+    isLast
+      ? [threshold - 0.04, threshold, 1, 1]
+      : [threshold - 0.04, threshold, nextThreshold - 0.02, nextThreshold + 0.04],
+    isLast
+      ? [0.3, 1, 1, 1]
+      : [0.3, 1, 1, 0.3]
   );
 
   const scale = useTransform(
     progress,
-    [
-      Math.max(0, threshold - 0.04),
-      threshold,
-      nextThreshold - 0.02,
-      Math.min(1, nextThreshold + 0.04),
-    ],
-    [0.97, 1, 1, 0.97]
+    isLast
+      ? [threshold - 0.04, threshold, 1, 1]
+      : [threshold - 0.04, threshold, nextThreshold - 0.02, nextThreshold + 0.04],
+    isLast
+      ? [0.97, 1, 1, 1]
+      : [0.97, 1, 1, 0.97]
   );
 
   const dotScale = useTransform(
     progress,
-    [Math.max(0, threshold - 0.02), threshold + 0.02],
+    [threshold - 0.02, threshold + 0.02],
     [0, 1]
   );
 
@@ -254,7 +251,7 @@ function StageLabel({
           />
         </div>
         {index < buildStages.length - 1 && (
-          <div className="relative w-0.5 flex-1 min-h-[3rem] bg-cream-200 mt-1">
+          <div className="relative w-0.5 flex-1 min-h-[2rem] bg-cream-200 mt-1">
             <motion.div
               className="absolute inset-x-0 top-0 bottom-0 bg-amber-600 origin-top"
               style={{ scaleY: lineScaleY }}
@@ -263,11 +260,11 @@ function StageLabel({
         )}
       </div>
 
-      <motion.div style={{ opacity, scale }} className="origin-left pb-8">
-        <h3 className="font-[family-name:var(--font-display)] text-lg font-bold text-amber-600">
+      <motion.div style={{ opacity, scale }} className="origin-left pb-5">
+        <h3 className="font-[family-name:var(--font-display)] text-base font-bold text-amber-600">
           {stage.title}
         </h3>
-        <p className="mt-1 text-sm leading-relaxed text-stone-600">
+        <p className="mt-0.5 text-sm leading-relaxed text-stone-600">
           {stage.description}
         </p>
       </motion.div>
@@ -281,28 +278,29 @@ function MobileStageCard({
   stage,
   index,
   progress,
+  isLast,
 }: {
   stage: (typeof buildStages)[number];
   index: number;
   progress: MotionValue<number>;
+  isLast: boolean;
 }) {
   const threshold = THRESHOLDS[index];
   const nextThreshold = threshold + STAGE_SIZE;
 
   const opacity = useTransform(
     progress,
-    [
-      Math.max(0, threshold - 0.04),
-      threshold,
-      nextThreshold - 0.02,
-      Math.min(1, nextThreshold + 0.04),
-    ],
-    [0.4, 1, 1, 0.4]
+    isLast
+      ? [threshold - 0.04, threshold, 1, 1]
+      : [threshold - 0.04, threshold, nextThreshold - 0.02, nextThreshold + 0.04],
+    isLast
+      ? [0.4, 1, 1, 1]
+      : [0.4, 1, 1, 0.4]
   );
 
   const dotScale = useTransform(
     progress,
-    [Math.max(0, threshold - 0.02), threshold + 0.02],
+    [threshold - 0.02, threshold + 0.02],
     [0, 1]
   );
 
@@ -336,25 +334,32 @@ export default function WebsiteBuildScroll() {
     offset: ["start start", "end end"],
   });
 
-  // Phone morph: ramps up during stage 3 (Mobile Responsive: 0.40–0.60), back down during stage 4
+  // Phone morph: aligned to stage 3 (0.39–0.56), morphs back during stage 4 (0.56–0.73)
   const phoneProgress = useTransform(
     scrollYProgress,
-    [0.38, 0.46, 0.56, 0.64],
+    [0.37, 0.45, 0.54, 0.62],
     [0, 1, 1, 0]
   );
 
   // Browser frame width: 100% → 55% for phone, back to 100%
   const frameWidth = useTransform(
     scrollYProgress,
-    [0.38, 0.46, 0.56, 0.64],
+    [0.37, 0.45, 0.54, 0.62],
     ["100%", "55%", "55%", "100%"]
   );
 
   // Border radius morphs to more rounded for phone
   const frameBorderRadius = useTransform(
     scrollYProgress,
-    [0.38, 0.46, 0.56, 0.64],
+    [0.37, 0.45, 0.54, 0.62],
     [16, 28, 28, 16]
+  );
+
+  // Mobile: phone maxWidth (hook called at top level, not in JSX)
+  const mobileMaxWidth = useTransform(
+    scrollYProgress,
+    [0.37, 0.45, 0.54, 0.62],
+    ["100%", "220px", "220px", "100%"]
   );
 
   return (
@@ -363,25 +368,24 @@ export default function WebsiteBuildScroll() {
       className="relative h-[250vh] md:h-[350vh]"
     >
       {/* Sticky centered container */}
-      <div className="sticky top-[3vh] mx-auto max-w-6xl px-6">
+      <div className="sticky top-[4vh] mx-auto max-w-6xl px-6 py-6">
         {/* Section title */}
-        <div className="text-center mb-4 md:mb-6">
+        <div className="text-center mb-4">
           <span className="mb-1 inline-block text-sm font-semibold uppercase tracking-widest text-amber-600">
             Everything Included
           </span>
-          <h2 className="font-[family-name:var(--font-display)] text-2xl font-bold text-stone-900 md:text-4xl">
+          <h2 className="font-[family-name:var(--font-display)] text-2xl font-bold text-stone-900 md:text-3xl">
             What You Get
           </h2>
-          <p className="mx-auto mt-2 max-w-lg text-sm md:text-lg text-stone-600">
+          <p className="mx-auto mt-1.5 max-w-lg text-sm md:text-base text-stone-600">
             Every website we build comes with the essentials to help your business stand out online.
           </p>
         </div>
 
         {/* ── Desktop: Two-column layout ── */}
-        <div className="hidden md:grid md:grid-cols-[1fr_280px] md:gap-10 lg:grid-cols-[1fr_320px] lg:gap-14 items-center">
+        <div className="hidden md:grid md:grid-cols-[1fr_260px] md:gap-8 lg:grid-cols-[1fr_300px] lg:gap-12 items-center">
           {/* Browser / Phone mockup */}
           <div className="relative flex justify-center">
-            {/* Glow */}
             <div className="absolute -inset-6 -z-10 rounded-3xl bg-amber-100/20 blur-3xl" />
 
             <motion.div
@@ -392,7 +396,7 @@ export default function WebsiteBuildScroll() {
               }}
             >
               <BrowserChrome phoneOpacity={phoneProgress} />
-              <div className="p-5 sm:p-6 bg-white min-h-[320px]">
+              <div className="p-4 bg-white min-h-[260px]">
                 <NavLayer progress={scrollYProgress} />
                 <HeroLayer progress={scrollYProgress} />
                 <ContentLayer progress={scrollYProgress} />
@@ -402,13 +406,14 @@ export default function WebsiteBuildScroll() {
           </div>
 
           {/* Labels column */}
-          <div className="pt-2">
+          <div>
             {buildStages.map((stage, i) => (
               <StageLabel
                 key={stage.title}
                 stage={stage}
                 index={i}
                 progress={scrollYProgress}
+                isLast={i === buildStages.length - 1}
               />
             ))}
           </div>
@@ -416,23 +421,18 @@ export default function WebsiteBuildScroll() {
 
         {/* ── Mobile: Stacked layout ── */}
         <div className="md:hidden">
-          {/* Mockup */}
-          <div className="relative mb-6 flex justify-center">
+          <div className="relative mb-4 flex justify-center">
             <div className="absolute -inset-3 -z-10 rounded-2xl bg-amber-100/20 blur-2xl" />
 
             <motion.div
               className="bg-white shadow-warm overflow-hidden border border-cream-200 w-full"
               style={{
-                maxWidth: useTransform(
-                  scrollYProgress,
-                  [0.38, 0.46, 0.56, 0.64],
-                  ["100%", "240px", "240px", "100%"]
-                ),
+                maxWidth: mobileMaxWidth,
                 borderRadius: frameBorderRadius,
               }}
             >
               <BrowserChrome phoneOpacity={phoneProgress} />
-              <div className="p-4 bg-white min-h-[200px]">
+              <div className="p-3 bg-white min-h-[180px]">
                 <NavLayer progress={scrollYProgress} />
                 <HeroLayer progress={scrollYProgress} />
                 <ContentLayer progress={scrollYProgress} />
@@ -441,14 +441,14 @@ export default function WebsiteBuildScroll() {
             </motion.div>
           </div>
 
-          {/* Labels */}
-          <div className="space-y-3">
+          <div className="space-y-2">
             {buildStages.map((stage, i) => (
               <MobileStageCard
                 key={stage.title}
                 stage={stage}
                 index={i}
                 progress={scrollYProgress}
+                isLast={i === buildStages.length - 1}
               />
             ))}
           </div>
