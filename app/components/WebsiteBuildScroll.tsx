@@ -367,10 +367,10 @@ export default function WebsiteBuildScroll() {
   return (
     <div
       ref={containerRef}
-      className="relative h-[180vh] md:h-[250vh]"
+      className="relative h-[250vh] md:h-[320vh] pt-[45vh]"
     >
       {/* Sticky centered container */}
-      <div className="sticky top-1/2 -translate-y-1/2 mx-auto max-w-6xl px-6">
+      <div className="sticky top-[18vh] mx-auto max-w-6xl px-6">
         {/* Section title */}
         <div className="text-center mb-6">
           <span className="mb-2 inline-block text-sm font-semibold uppercase tracking-widest text-amber-600">
