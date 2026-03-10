@@ -12,14 +12,14 @@ const buildStages = [
       "A unique site designed around your business, not a cookie-cutter template.",
   },
   {
-    title: "Mobile Responsive",
-    description:
-      "Looks great on every device — phones, tablets, and desktops.",
-  },
-  {
     title: "Fast & Reliable",
     description:
       "Built with modern tech for fast load times and 99.9% uptime.",
+  },
+  {
+    title: "Mobile Responsive",
+    description:
+      "Looks great on every device — phones, tablets, and desktops.",
   },
   {
     title: "SEO Ready",
@@ -28,36 +28,78 @@ const buildStages = [
   },
 ];
 
+/*
+  Scroll zones (0–1 mapped across container height):
+  0.00–0.20  Stage 1: Custom Design  → Nav layer fades in
+  0.20–0.40  Stage 2: Fast & Reliable → Hero layer fades in
+  0.40–0.60  Stage 3: Mobile Responsive → Content layer + browser morphs to phone
+  0.60–0.80  Stage 4: SEO Ready → Footer layer + browser morphs back to desktop
+  0.80–1.00  Buffer zone — everything stays, scroll out gracefully
+*/
+
+const STAGE_SIZE = 0.2;
+const THRESHOLDS = [0, 0.2, 0.4, 0.6]; // start of each stage
+
 /* ───── Helpers ───── */
 
-/** Returns a MotionValue that fades from 0→1 over a short scroll range. */
 function useFadeIn(progress: MotionValue<number>, start: number) {
-  return useTransform(progress, [start, start + 0.05], [0, 1]);
+  return useTransform(progress, [start, start + 0.06], [0, 1]);
 }
 
-/** Returns a MotionValue that slides from 12→0 over a short scroll range. */
 function useSlideUp(progress: MotionValue<number>, start: number) {
-  return useTransform(progress, [start, start + 0.08], [12, 0]);
+  return useTransform(progress, [start, start + 0.1], [12, 0]);
 }
 
-/* ───── Browser Mockup Layers ───── */
+/* ───── Browser / Phone Chrome ───── */
 
-function BrowserChrome() {
+function BrowserChrome({ phoneOpacity }: { phoneOpacity: MotionValue<number> }) {
+  // Browser chrome fades out as phone chrome fades in
+  const browserOpacity = useTransform(phoneOpacity, [0, 1], [1, 0]);
+
   return (
-    <div className="flex items-center gap-2 px-4 py-3 bg-cream-50 border-b border-cream-200">
-      <div className="h-2.5 w-2.5 rounded-full bg-red-400" />
-      <div className="h-2.5 w-2.5 rounded-full bg-yellow-400" />
-      <div className="h-2.5 w-2.5 rounded-full bg-green-400" />
-      <div className="ml-3 flex-1 rounded-md bg-cream-100 px-3 py-1">
-        <span className="text-xs text-stone-400">yourbusiness.co.uk</span>
-      </div>
+    <div className="relative border-b border-cream-200 overflow-hidden">
+      {/* Browser chrome */}
+      <motion.div
+        className="flex items-center gap-2 px-4 py-3 bg-cream-50"
+        style={{ opacity: browserOpacity }}
+      >
+        <div className="h-2.5 w-2.5 rounded-full bg-red-400" />
+        <div className="h-2.5 w-2.5 rounded-full bg-yellow-400" />
+        <div className="h-2.5 w-2.5 rounded-full bg-green-400" />
+        <div className="ml-3 flex-1 rounded-md bg-cream-100 px-3 py-1">
+          <span className="text-xs text-stone-400">yourbusiness.co.uk</span>
+        </div>
+      </motion.div>
+
+      {/* Phone status bar — overlaid, fades in */}
+      <motion.div
+        className="absolute inset-0 flex items-center justify-between px-5 py-2.5 bg-stone-900"
+        style={{ opacity: phoneOpacity }}
+      >
+        <span className="text-[10px] font-medium text-white/80">9:41</span>
+        <div className="flex items-center gap-1.5">
+          {/* Signal bars */}
+          <div className="flex items-end gap-[2px]">
+            <div className="h-1.5 w-[3px] rounded-sm bg-white/70" />
+            <div className="h-2 w-[3px] rounded-sm bg-white/70" />
+            <div className="h-2.5 w-[3px] rounded-sm bg-white/70" />
+            <div className="h-3 w-[3px] rounded-sm bg-white/50" />
+          </div>
+          {/* Battery */}
+          <div className="ml-1 h-2.5 w-5 rounded-sm border border-white/60 relative">
+            <div className="absolute inset-[1.5px] rounded-[1px] bg-white/70" />
+          </div>
+        </div>
+      </motion.div>
     </div>
   );
 }
 
+/* ───── Mockup Content Layers ───── */
+
 function NavLayer({ progress }: { progress: MotionValue<number> }) {
-  const opacity = useFadeIn(progress, 0);
-  const y = useSlideUp(progress, 0);
+  const opacity = useFadeIn(progress, THRESHOLDS[0]);
+  const y = useSlideUp(progress, THRESHOLDS[0]);
 
   return (
     <motion.div
@@ -75,8 +117,8 @@ function NavLayer({ progress }: { progress: MotionValue<number> }) {
 }
 
 function HeroLayer({ progress }: { progress: MotionValue<number> }) {
-  const opacity = useFadeIn(progress, 0.25);
-  const y = useSlideUp(progress, 0.25);
+  const opacity = useFadeIn(progress, THRESHOLDS[1]);
+  const y = useSlideUp(progress, THRESHOLDS[1]);
 
   return (
     <motion.div
@@ -84,17 +126,14 @@ function HeroLayer({ progress }: { progress: MotionValue<number> }) {
       style={{ opacity, y }}
     >
       <div className="p-5 sm:p-6">
-        {/* Headline lines */}
         <div className="space-y-2 mb-4">
           <div className="h-3 w-3/4 rounded-full bg-stone-200" />
           <div className="h-3 w-1/2 rounded-full bg-stone-200" />
         </div>
-        {/* Subtext */}
         <div className="space-y-1.5 mb-5">
           <div className="h-2 w-full rounded-full bg-stone-200/60" />
           <div className="h-2 w-5/6 rounded-full bg-stone-200/60" />
         </div>
-        {/* CTA buttons */}
         <div className="flex gap-2">
           <div className="h-7 w-20 rounded-lg bg-amber-300" />
           <div className="h-7 w-20 rounded-lg bg-stone-200/80" />
@@ -105,36 +144,22 @@ function HeroLayer({ progress }: { progress: MotionValue<number> }) {
 }
 
 function ContentLayer({ progress }: { progress: MotionValue<number> }) {
-  const opacity = useFadeIn(progress, 0.5);
-  const y = useSlideUp(progress, 0.5);
+  const opacity = useFadeIn(progress, THRESHOLDS[2]);
+  const y = useSlideUp(progress, THRESHOLDS[2]);
 
   return (
     <motion.div className="mt-4 space-y-3" style={{ opacity, y }}>
-      {/* Three cards row */}
       <div className="flex gap-3">
-        <div className="h-16 sm:h-20 flex-1 rounded-lg bg-stone-100 relative overflow-hidden">
-          <div className="absolute top-3 left-3 h-4 w-4 rounded bg-amber-200" />
-          <div className="absolute bottom-3 left-3 right-3 space-y-1">
-            <div className="h-1.5 w-3/4 rounded-full bg-stone-200" />
-            <div className="h-1.5 w-1/2 rounded-full bg-stone-200/60" />
+        {[0, 1, 2].map((i) => (
+          <div key={i} className="h-16 sm:h-20 flex-1 rounded-lg bg-stone-100 relative overflow-hidden">
+            <div className="absolute top-3 left-3 h-4 w-4 rounded bg-amber-200" />
+            <div className="absolute bottom-3 left-3 right-3 space-y-1">
+              <div className="h-1.5 w-3/4 rounded-full bg-stone-200" />
+              <div className="h-1.5 w-1/2 rounded-full bg-stone-200/60" />
+            </div>
           </div>
-        </div>
-        <div className="h-16 sm:h-20 flex-1 rounded-lg bg-stone-100 relative overflow-hidden">
-          <div className="absolute top-3 left-3 h-4 w-4 rounded bg-amber-200" />
-          <div className="absolute bottom-3 left-3 right-3 space-y-1">
-            <div className="h-1.5 w-3/4 rounded-full bg-stone-200" />
-            <div className="h-1.5 w-1/2 rounded-full bg-stone-200/60" />
-          </div>
-        </div>
-        <div className="h-16 sm:h-20 flex-1 rounded-lg bg-stone-100 relative overflow-hidden">
-          <div className="absolute top-3 left-3 h-4 w-4 rounded bg-amber-200" />
-          <div className="absolute bottom-3 left-3 right-3 space-y-1">
-            <div className="h-1.5 w-3/4 rounded-full bg-stone-200" />
-            <div className="h-1.5 w-1/2 rounded-full bg-stone-200/60" />
-          </div>
-        </div>
+        ))}
       </div>
-      {/* Text block */}
       <div className="space-y-2 px-1">
         <div className="h-2 w-full rounded-full bg-stone-200/70" />
         <div className="h-2 w-[85%] rounded-full bg-stone-200/70" />
@@ -145,8 +170,8 @@ function ContentLayer({ progress }: { progress: MotionValue<number> }) {
 }
 
 function FooterLayer({ progress }: { progress: MotionValue<number> }) {
-  const opacity = useFadeIn(progress, 0.75);
-  const y = useSlideUp(progress, 0.75);
+  const opacity = useFadeIn(progress, THRESHOLDS[3]);
+  const y = useSlideUp(progress, THRESHOLDS[3]);
 
   return (
     <motion.div
@@ -170,7 +195,7 @@ function FooterLayer({ progress }: { progress: MotionValue<number> }) {
   );
 }
 
-/* ───── Label with Progress Line ───── */
+/* ───── Stage Label ───── */
 
 function StageLabel({
   stage,
@@ -181,40 +206,37 @@ function StageLabel({
   index: number;
   progress: MotionValue<number>;
 }) {
-  const threshold = index * 0.25;
-  const nextThreshold = (index + 1) * 0.25;
+  const threshold = THRESHOLDS[index];
+  const nextThreshold = threshold + STAGE_SIZE;
 
-  // Active when scroll is in this stage's range
   const opacity = useTransform(
     progress,
     [
-      Math.max(0, threshold - 0.05),
+      Math.max(0, threshold - 0.04),
       threshold,
       nextThreshold - 0.02,
-      nextThreshold + 0.03,
+      Math.min(1, nextThreshold + 0.04),
     ],
-    [0.35, 1, 1, 0.35]
+    [0.3, 1, 1, 0.3]
   );
 
   const scale = useTransform(
     progress,
     [
-      Math.max(0, threshold - 0.05),
+      Math.max(0, threshold - 0.04),
       threshold,
       nextThreshold - 0.02,
-      nextThreshold + 0.03,
+      Math.min(1, nextThreshold + 0.04),
     ],
     [0.97, 1, 1, 0.97]
   );
 
-  // Amber dot fill — fills when active
   const dotScale = useTransform(
     progress,
     [Math.max(0, threshold - 0.02), threshold + 0.02],
     [0, 1]
   );
 
-  // Progress line between labels
   const lineScaleY = useTransform(
     progress,
     [threshold, nextThreshold],
@@ -223,17 +245,14 @@ function StageLabel({
 
   return (
     <div className="relative pl-8">
-      {/* Vertical connector dot + line */}
+      {/* Vertical connector */}
       <div className="absolute left-0 top-0 flex flex-col items-center">
-        {/* Outer ring */}
         <div className="relative h-5 w-5 rounded-full border-2 border-cream-200 bg-white flex items-center justify-center mt-1">
-          {/* Inner fill dot */}
           <motion.div
             className="h-2.5 w-2.5 rounded-full bg-amber-600"
             style={{ scale: dotScale }}
           />
         </div>
-        {/* Connecting line to next label */}
         {index < buildStages.length - 1 && (
           <div className="relative w-0.5 flex-1 min-h-[3rem] bg-cream-200 mt-1">
             <motion.div
@@ -244,7 +263,6 @@ function StageLabel({
         )}
       </div>
 
-      {/* Text */}
       <motion.div style={{ opacity, scale }} className="origin-left pb-8">
         <h3 className="font-[family-name:var(--font-display)] text-lg font-bold text-amber-600">
           {stage.title}
@@ -268,16 +286,16 @@ function MobileStageCard({
   index: number;
   progress: MotionValue<number>;
 }) {
-  const threshold = index * 0.25;
-  const nextThreshold = (index + 1) * 0.25;
+  const threshold = THRESHOLDS[index];
+  const nextThreshold = threshold + STAGE_SIZE;
 
   const opacity = useTransform(
     progress,
     [
-      Math.max(0, threshold - 0.05),
+      Math.max(0, threshold - 0.04),
       threshold,
       nextThreshold - 0.02,
-      nextThreshold + 0.03,
+      Math.min(1, nextThreshold + 0.04),
     ],
     [0.4, 1, 1, 0.4]
   );
@@ -289,20 +307,15 @@ function MobileStageCard({
   );
 
   return (
-    <motion.div
-      className="flex items-start gap-3"
-      style={{ opacity }}
-    >
-      {/* Dot */}
+    <motion.div className="flex items-start gap-3" style={{ opacity }}>
       <div className="relative mt-1.5 h-4 w-4 shrink-0 rounded-full border-2 border-cream-200 bg-white flex items-center justify-center">
         <motion.div
           className="h-2 w-2 rounded-full bg-amber-600"
           style={{ scale: dotScale }}
         />
       </div>
-      {/* Text */}
       <div>
-        <h3 className="font-[family-name:var(--font-display)] text-base font-bold text-stone-900">
+        <h3 className="font-[family-name:var(--font-display)] text-base font-bold text-amber-600">
           {stage.title}
         </h3>
         <p className="mt-0.5 text-sm leading-relaxed text-stone-600">
@@ -320,36 +333,63 @@ export default function WebsiteBuildScroll() {
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start end", "end start"],
+    offset: ["start start", "end end"],
   });
+
+  // Phone morph: ramps up during stage 3 (Mobile Responsive: 0.40–0.60), back down during stage 4
+  const phoneProgress = useTransform(
+    scrollYProgress,
+    [0.38, 0.46, 0.56, 0.64],
+    [0, 1, 1, 0]
+  );
+
+  // Browser frame width: 100% → 55% for phone, back to 100%
+  const frameWidth = useTransform(
+    scrollYProgress,
+    [0.38, 0.46, 0.56, 0.64],
+    ["100%", "55%", "55%", "100%"]
+  );
+
+  // Border radius morphs to more rounded for phone
+  const frameBorderRadius = useTransform(
+    scrollYProgress,
+    [0.38, 0.46, 0.56, 0.64],
+    [16, 28, 28, 16]
+  );
 
   return (
     <div
       ref={containerRef}
-      className="relative h-[200vh] md:h-[300vh]"
+      className="relative h-[250vh] md:h-[350vh]"
     >
       {/* Sticky centered container */}
-      <div className="sticky top-1/2 -translate-y-1/2 mx-auto max-w-6xl px-6">
+      <div className="sticky top-[15vh] mx-auto max-w-6xl px-6 pb-12">
         {/* ── Desktop: Two-column layout ── */}
-        <div className="hidden md:grid md:grid-cols-[1fr_320px] md:gap-12 lg:grid-cols-[1fr_360px] lg:gap-16 items-center">
-          {/* Browser mockup */}
-          <div className="relative">
-            {/* Glow behind browser */}
+        <div className="hidden md:grid md:grid-cols-[1fr_320px] md:gap-12 lg:grid-cols-[1fr_360px] lg:gap-16 items-start">
+          {/* Browser / Phone mockup */}
+          <div className="relative flex justify-center">
+            {/* Glow */}
             <div className="absolute -inset-6 -z-10 rounded-3xl bg-amber-100/20 blur-3xl" />
 
-            <div className="rounded-2xl bg-white shadow-warm-lg overflow-hidden border border-cream-200">
-              <BrowserChrome />
+            <motion.div
+              className="bg-white shadow-warm-lg overflow-hidden border border-cream-200"
+              style={{
+                width: frameWidth,
+                borderRadius: frameBorderRadius,
+              }}
+            >
+              <BrowserChrome phoneOpacity={phoneProgress} />
               <div className="p-5 sm:p-6 bg-white min-h-[320px]">
                 <NavLayer progress={scrollYProgress} />
                 <HeroLayer progress={scrollYProgress} />
                 <ContentLayer progress={scrollYProgress} />
                 <FooterLayer progress={scrollYProgress} />
               </div>
-            </div>
+            </motion.div>
           </div>
 
           {/* Labels column */}
-          <div className="py-4">
+          <div className="pt-2">
             {buildStages.map((stage, i) => (
               <StageLabel
                 key={stage.title}
@@ -363,22 +403,32 @@ export default function WebsiteBuildScroll() {
 
         {/* ── Mobile: Stacked layout ── */}
         <div className="md:hidden">
-          {/* Smaller browser mockup */}
-          <div className="relative mb-6">
+          {/* Mockup */}
+          <div className="relative mb-6 flex justify-center">
             <div className="absolute -inset-3 -z-10 rounded-2xl bg-amber-100/20 blur-2xl" />
 
-            <div className="rounded-xl bg-white shadow-warm overflow-hidden border border-cream-200">
-              <BrowserChrome />
-              <div className="p-4 bg-white min-h-[220px]">
+            <motion.div
+              className="bg-white shadow-warm overflow-hidden border border-cream-200 w-full"
+              style={{
+                maxWidth: useTransform(
+                  scrollYProgress,
+                  [0.38, 0.46, 0.56, 0.64],
+                  ["100%", "240px", "240px", "100%"]
+                ),
+                borderRadius: frameBorderRadius,
+              }}
+            >
+              <BrowserChrome phoneOpacity={phoneProgress} />
+              <div className="p-4 bg-white min-h-[200px]">
                 <NavLayer progress={scrollYProgress} />
                 <HeroLayer progress={scrollYProgress} />
                 <ContentLayer progress={scrollYProgress} />
                 <FooterLayer progress={scrollYProgress} />
               </div>
-            </div>
+            </motion.div>
           </div>
 
-          {/* Labels as cards below */}
+          {/* Labels */}
           <div className="space-y-3">
             {buildStages.map((stage, i) => (
               <MobileStageCard

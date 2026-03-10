@@ -249,17 +249,15 @@ export default function WebDesignContent() {
       </section>
 
       {/* ── What You Get ── */}
-      <section id="what-you-get" className="bg-cream-100 py-20 md:py-28">
-        <div className="mx-auto max-w-6xl px-6">
+      <section id="what-you-get" className="bg-cream-100 pt-20 md:pt-28">
+        <div className="mx-auto max-w-6xl px-6 mb-12">
           <ScrollReveal>
             <h2 className="text-center font-[family-name:var(--font-display)] text-3xl font-bold text-stone-900 md:text-4xl">
               What You Get
             </h2>
           </ScrollReveal>
         </div>
-        <div className="mt-12">
-          <WebsiteBuildScroll />
-        </div>
+        <WebsiteBuildScroll />
       </section>
 
       {/* ── How It Works ── */}
