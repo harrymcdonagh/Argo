@@ -217,7 +217,7 @@ function StageLabel({
       nextThreshold - 0.02,
       Math.min(1, nextThreshold + 0.04),
     ],
-    [0.3, 1, 1, 0.3]
+    [0.3, 1, 1, 1]
   );
 
   const scale = useTransform(
@@ -228,7 +228,7 @@ function StageLabel({
       nextThreshold - 0.02,
       Math.min(1, nextThreshold + 0.04),
     ],
-    [0.97, 1, 1, 0.97]
+    [0.97, 1, 1, 1]
   );
 
   const dotScale = useTransform(
@@ -297,7 +297,7 @@ function MobileStageCard({
       nextThreshold - 0.02,
       Math.min(1, nextThreshold + 0.04),
     ],
-    [0.4, 1, 1, 0.4]
+    [0.4, 1, 1, 1]
   );
 
   const dotScale = useTransform(
@@ -435,7 +435,7 @@ export default function WebsiteBuildScroll() {
               }}
             >
               <BrowserChrome phoneOpacity={phoneProgress} />
-              <div className="p-4 bg-white min-h-[200px]">
+              <div className="p-3 bg-white min-h-[140px]">
                 <NavLayer progress={scrollYProgress} />
                 <HeroLayer progress={scrollYProgress} />
                 <ContentLayer progress={scrollYProgress} />
