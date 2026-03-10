@@ -363,9 +363,9 @@ export default function WebsiteBuildScroll() {
       className="relative h-[250vh] md:h-[350vh]"
     >
       {/* Sticky centered container */}
-      <div className="sticky top-[15vh] mx-auto max-w-6xl px-6 pb-12">
+      <div className="sticky top-1/2 -translate-y-1/2 mx-auto max-w-6xl px-6">
         {/* ── Desktop: Two-column layout ── */}
-        <div className="hidden md:grid md:grid-cols-[1fr_320px] md:gap-12 lg:grid-cols-[1fr_360px] lg:gap-16 items-start">
+        <div className="hidden md:grid md:grid-cols-[1fr_320px] md:gap-12 lg:grid-cols-[1fr_360px] lg:gap-16 items-center">
           {/* Browser / Phone mockup */}
           <div className="relative flex justify-center">
             {/* Glow */}

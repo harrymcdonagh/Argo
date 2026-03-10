@@ -56,8 +56,11 @@ export default function ArgoComparison() {
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="text-center mb-12"
         >
+          <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-widest text-amber-600">
+            Why Choose Us
+          </span>
           <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold text-stone-900 mb-4">
-            How Argo compares
+            How Argo Compares
           </h2>
           <p className="text-stone-600 text-lg">
             See the difference for yourself.
