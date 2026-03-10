@@ -16,7 +16,7 @@ export default function ArgoFooter() {
               Argo
             </a>
             <p className="mt-3 text-sm leading-relaxed text-stone-500">
-              Done-for-you tools for local businesses across
+              Done-for-you tools and services for local businesses across
               Essex and South East England.
             </p>
           </div>
@@ -31,6 +31,19 @@ export default function ArgoFooter() {
                 <li>
                   <a href="/callcatch" className="text-sm text-stone-600 transition-colors hover:text-amber-600">
                     CallCatch
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-xs font-bold uppercase tracking-[0.15em] text-stone-400">
+                Services
+              </h4>
+              <ul className="mt-4 space-y-2.5">
+                <li>
+                  <a href="/web-design" className="text-sm text-stone-600 transition-colors hover:text-amber-600">
+                    Web Design
                   </a>
                 </li>
               </ul>
