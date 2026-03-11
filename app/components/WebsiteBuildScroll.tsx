@@ -307,21 +307,24 @@ function MobileStageCard({
   );
 
   return (
-    <motion.div className="flex items-start gap-3" style={{ opacity }}>
-      <div className="relative mt-1.5 h-4 w-4 shrink-0 rounded-full border-2 border-cream-200 bg-white flex items-center justify-center">
-        <motion.div
-          className="h-2 w-2 rounded-full bg-amber-600"
-          style={{ scale: dotScale }}
-        />
-      </div>
-      <div>
-        <h3 className="font-[family-name:var(--font-display)] text-base font-bold text-amber-600">
+    <motion.div
+      className="rounded-xl border border-cream-200 bg-white p-3 shadow-warm-sm"
+      style={{ opacity }}
+    >
+      <div className="flex items-center gap-2 mb-1">
+        <div className="relative h-4 w-4 shrink-0 rounded-full border-2 border-cream-200 bg-white flex items-center justify-center">
+          <motion.div
+            className="h-2 w-2 rounded-full bg-amber-600"
+            style={{ scale: dotScale }}
+          />
+        </div>
+        <h3 className="font-[family-name:var(--font-display)] text-sm font-bold text-amber-600">
           {stage.title}
         </h3>
-        <p className="mt-0.5 text-sm leading-relaxed text-stone-600">
-          {stage.description}
-        </p>
       </div>
+      <p className="text-xs leading-relaxed text-stone-600">
+        {stage.description}
+      </p>
     </motion.div>
   );
 }
@@ -367,7 +370,7 @@ export default function WebsiteBuildScroll() {
   return (
     <div
       ref={containerRef}
-      className="relative h-[180vh] md:h-[250vh] py-8 md:py-20"
+      className="relative h-[180vh] md:h-[250vh] pt-6 pb-8 md:pt-18 md:pb-20"
     >
       {/* Sticky centered container */}
       <div className="sticky mx-auto max-w-6xl px-6 [top:8vh] md:[top:18vh]">
@@ -424,7 +427,7 @@ export default function WebsiteBuildScroll() {
         {/* ── Mobile: Stacked layout ── */}
         <div className="md:hidden">
           {/* Mockup */}
-          <div className="relative mb-6 flex justify-center">
+          <div className="relative mb-4 flex justify-center">
             <div className="absolute -inset-3 -z-10 rounded-2xl bg-amber-100/20 blur-2xl" />
 
             <motion.div
@@ -435,7 +438,7 @@ export default function WebsiteBuildScroll() {
               }}
             >
               <BrowserChrome phoneOpacity={phoneProgress} />
-              <div className="p-2 bg-white min-h-[90px]">
+              <div className="p-2 bg-white min-h-[70px]">
                 <NavLayer progress={scrollYProgress} />
                 <HeroLayer progress={scrollYProgress} />
                 <ContentLayer progress={scrollYProgress} />
@@ -444,8 +447,8 @@ export default function WebsiteBuildScroll() {
             </motion.div>
           </div>
 
-          {/* Labels */}
-          <div className="space-y-3">
+          {/* Labels — 2x2 grid so all 4 fit on screen */}
+          <div className="grid grid-cols-2 gap-3">
             {buildStages.map((stage, i) => (
               <MobileStageCard
                 key={stage.title}

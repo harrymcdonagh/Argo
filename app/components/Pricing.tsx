@@ -10,7 +10,9 @@ const tiers = [
   {
     name: "Starter",
     monthly: "150",
+    standardMonthly: "200",
     setup: "400",
+    standardSetup: "535",
     description: "Perfect for sole traders who want to stop losing jobs to missed calls.",
     features: [
       "Missed call text-back in under 10 seconds",
@@ -26,7 +28,9 @@ const tiers = [
   {
     name: "Standard",
     monthly: "250",
+    standardMonthly: "335",
     setup: "900",
+    standardSetup: "1,200",
     description:
       "For businesses that want follow-up texts and weekly reports too.",
     features: [
@@ -105,9 +109,22 @@ export default function Pricing() {
                     />
                     <span className="text-sm text-stone-500">/month</span>
                   </div>
-                  <div className="mt-1 flex items-baseline gap-1">
+                  <div className="mt-1">
+                    <span className="text-xs text-stone-400 line-through">
+                      £{tier.standardMonthly}/month
+                    </span>
+                    <span className="ml-2 inline-flex items-center rounded-full bg-amber-50 px-2 py-0.5 text-xs font-semibold text-amber-700 border border-amber-600/20">
+                      25% off — first 3 months
+                    </span>
+                  </div>
+                  <div className="mt-2 flex items-baseline gap-1">
                     <span className="text-sm text-stone-500">
                       + <AnimatedCounter value={parseInt(tier.setup)} prefix="£" className="" /> one-time setup
+                    </span>
+                  </div>
+                  <div className="mt-0.5">
+                    <span className="text-xs text-stone-400 line-through">
+                      Setup: £{tier.standardSetup}
                     </span>
                   </div>
                 </div>
@@ -190,8 +207,7 @@ export default function Pricing() {
                 />
               </svg>
               <span className="text-sm font-medium text-amber-800">
-                Reduced setup fee for early clients — you get the full system,
-                we get a case study
+                25% off monthly &amp; setup for early clients — after 3 months, pricing returns to standard rate
               </span>
             </div>
           </div>
