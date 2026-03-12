@@ -10,21 +10,45 @@ const buildStages = [
     title: "Custom Design",
     description:
       "A unique site designed around your business, not a cookie-cutter template.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6">
+        <path d="M12 2L2 7l10 5 10-5-10-5z" />
+        <path d="M2 17l10 5 10-5" />
+        <path d="M2 12l10 5 10-5" />
+      </svg>
+    ),
   },
   {
     title: "Fast & Reliable",
     description:
       "Built with modern tech for fast load times and 99.9% uptime.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6">
+        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+      </svg>
+    ),
   },
   {
     title: "Mobile Responsive",
     description:
       "Looks great on every device — phones, tablets, and desktops.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6">
+        <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+        <path d="M12 18h.01" />
+      </svg>
+    ),
   },
   {
     title: "SEO Ready",
     description:
       "Found on Google from day one with proper structure and metadata.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6">
+        <circle cx="11" cy="11" r="8" />
+        <path d="M21 21l-4.35-4.35" />
+      </svg>
+    ),
   },
 ];
 
@@ -280,51 +304,30 @@ function StageLabel({
 function MobileStageCard({
   stage,
   index,
-  progress,
 }: {
   stage: (typeof buildStages)[number];
   index: number;
   progress: MotionValue<number>;
 }) {
-  const threshold = THRESHOLDS[index];
-  const nextThreshold = threshold + STAGE_SIZE;
-
-  const opacity = useTransform(
-    progress,
-    [
-      Math.max(0, threshold - 0.04),
-      threshold,
-      nextThreshold - 0.02,
-      Math.min(1, nextThreshold + 0.04),
-    ],
-    [0.4, 1, 1, 1]
-  );
-
-  const dotScale = useTransform(
-    progress,
-    [Math.max(0, threshold - 0.02), threshold + 0.02],
-    [0, 1]
-  );
-
   return (
     <motion.div
-      className="rounded-xl border border-cream-200 bg-white p-3 shadow-warm-sm"
-      style={{ opacity }}
+      className="flex items-start gap-4 rounded-2xl border border-cream-200 bg-white p-5 shadow-warm-sm"
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-40px" }}
+      transition={{ duration: 0.4, delay: index * 0.1 }}
     >
-      <div className="flex items-center gap-2 mb-1">
-        <div className="relative h-4 w-4 shrink-0 rounded-full border-2 border-cream-200 bg-white flex items-center justify-center">
-          <motion.div
-            className="h-2 w-2 rounded-full bg-amber-600"
-            style={{ scale: dotScale }}
-          />
-        </div>
-        <h3 className="font-[family-name:var(--font-display)] text-sm font-bold text-amber-600">
+      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-amber-50 text-amber-600">
+        {stage.icon}
+      </div>
+      <div className="min-w-0">
+        <h3 className="font-[family-name:var(--font-display)] text-base font-bold text-stone-900">
           {stage.title}
         </h3>
+        <p className="mt-1 text-sm leading-relaxed text-stone-600">
+          {stage.description}
+        </p>
       </div>
-      <p className="text-xs leading-relaxed text-stone-600">
-        {stage.description}
-      </p>
     </motion.div>
   );
 }
@@ -370,10 +373,10 @@ export default function WebsiteBuildScroll() {
   return (
     <div
       ref={containerRef}
-      className="relative h-[180vh] md:h-[250vh] pt-6 pb-8 md:pt-18 md:pb-20"
+      className="relative h-auto md:h-[250vh] pt-6 pb-8 md:pt-18 md:pb-20"
     >
       {/* Sticky centered container */}
-      <div className="sticky mx-auto max-w-6xl px-6 [top:8vh] md:[top:18vh]">
+      <div className="md:sticky mx-auto max-w-6xl px-6 md:[top:18vh]">
         {/* Section title */}
         <div className="text-center mb-4 md:mb-6">
           <span className="mb-2 inline-block text-sm font-semibold uppercase tracking-widest text-amber-600">
@@ -424,40 +427,16 @@ export default function WebsiteBuildScroll() {
           </div>
         </div>
 
-        {/* ── Mobile: Stacked layout ── */}
-        <div className="md:hidden">
-          {/* Mockup */}
-          <div className="relative mb-4 flex justify-center">
-            <div className="absolute -inset-3 -z-10 rounded-2xl bg-amber-100/20 blur-2xl" />
-
-            <motion.div
-              className="w-full rounded-2xl bg-white shadow-warm overflow-hidden border border-cream-200"
-              style={{
-                maxWidth: mobileMaxWidth,
-                borderRadius: frameBorderRadius,
-              }}
-            >
-              <BrowserChrome phoneOpacity={phoneProgress} />
-              <div className="p-2 bg-white min-h-[70px]">
-                <NavLayer progress={scrollYProgress} />
-                <HeroLayer progress={scrollYProgress} />
-                <ContentLayer progress={scrollYProgress} />
-                <FooterLayer progress={scrollYProgress} />
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Labels — 2x2 grid so all 4 fit on screen */}
-          <div className="grid grid-cols-2 gap-3">
-            {buildStages.map((stage, i) => (
-              <MobileStageCard
-                key={stage.title}
-                stage={stage}
-                index={i}
-                progress={scrollYProgress}
-              />
-            ))}
-          </div>
+        {/* ── Mobile: Vertical card layout ── */}
+        <div className="md:hidden flex flex-col gap-4">
+          {buildStages.map((stage, i) => (
+            <MobileStageCard
+              key={stage.title}
+              stage={stage}
+              index={i}
+              progress={scrollYProgress}
+            />
+          ))}
         </div>
       </div>
     </div>
