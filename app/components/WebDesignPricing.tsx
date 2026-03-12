@@ -47,7 +47,7 @@ const tiers = [
 
 export default function WebDesignPricing() {
   return (
-    <section id="pricing" className="paper-texture relative py-20 md:py-28">
+    <section id="pricing" className="bg-cream-100 relative py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-6">
         <ScrollReveal>
           <div className="mx-auto mb-6 max-w-2xl text-center">

@@ -8,6 +8,7 @@ import DotGrid from "../components/DotGrid";
 import WebsiteBuildScroll from "../components/WebsiteBuildScroll";
 import ArgoComparison from "../components/ArgoComparison";
 import WebDesignPricing from "../components/WebDesignPricing";
+import WebDesignPortfolio from "../components/WebDesignPortfolio";
 
 const CALENDLY_URL = "https://calendly.com/harry-argosystems/free-web-design-consultation";
 
@@ -406,6 +407,9 @@ export default function WebDesignContent() {
       <section id="why-argo" className="bg-cream-100">
         <ArgoComparison />
       </section>
+
+      {/* ── Portfolio ── */}
+      <WebDesignPortfolio />
 
       {/* ── Pricing ── */}
       <WebDesignPricing />
