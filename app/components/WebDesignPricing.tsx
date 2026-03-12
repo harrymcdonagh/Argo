@@ -12,6 +12,7 @@ const tiers = [
     name: "Starter Site",
     setup: "450",
     standardSetup: "600",
+    monthly: "50",
     description:
       "A clean, professional website that makes your business look the part online.",
     features: [
@@ -19,7 +20,7 @@ const tiers = [
       "Mobile-first design that works on every device",
       "Google-ready with basic SEO setup",
       "Custom design — no templates, no page builders",
-      "Hosted on fast, reliable infrastructure",
+      "Hosting, SSL & maintenance included",
       "Live within 2 weeks of kickoff",
     ],
     cta: "Get a Quote",
@@ -29,6 +30,7 @@ const tiers = [
     name: "Pro Site",
     setup: "750",
     standardSetup: "1,000",
+    monthly: "75",
     description:
       "For businesses that want their website to actively bring in work.",
     features: [
@@ -115,6 +117,14 @@ export default function WebDesignPricing() {
                       Standard: from £{tier.standardSetup}
                     </span>
                   </div>
+                  <div className="mt-3 flex items-baseline gap-1">
+                    <span className="text-sm font-semibold text-stone-700">
+                      + £{tier.monthly}/month
+                    </span>
+                    <span className="text-xs text-stone-400">
+                      hosting & maintenance
+                    </span>
+                  </div>
                 </div>
 
                 <ul className="mt-6 flex-1 space-y-3">
@@ -175,31 +185,6 @@ export default function WebDesignPricing() {
             );
           })}
         </StaggerGroup>
-
-        {/* Maintenance add-on */}
-        <ScrollReveal delay={0.15}>
-          <div className="mx-auto mt-8 max-w-4xl">
-            <div className="rounded-2xl border border-cream-200 bg-white p-6 shadow-warm-sm md:p-8">
-              <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-                <div>
-                  <h4 className="font-[family-name:var(--font-display)] text-lg font-bold text-stone-900">
-                    Ongoing Maintenance
-                  </h4>
-                  <p className="mt-1 text-sm text-stone-600">
-                    Monthly updates, performance monitoring, and minor changes — so your site stays fresh.
-                  </p>
-                </div>
-                <div className="text-center md:text-right flex-shrink-0">
-                  <span className="font-[family-name:var(--font-display)] text-2xl font-extrabold text-stone-900">
-                    from £50
-                  </span>
-                  <span className="text-sm text-stone-500">/month</span>
-                  <p className="mt-0.5 text-xs text-stone-400">Optional add-on</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </ScrollReveal>
 
         {/* Early client note */}
         <ScrollReveal delay={0.2}>
