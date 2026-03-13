@@ -86,11 +86,11 @@ export default function ArgoFooter() {
           </p>
           <div className="flex items-center gap-4">
             <p className="text-xs text-stone-400">
-              Registered in England &amp; Wales
+              Based in Essex, England
             </p>
             <span className="text-xs text-stone-300">&middot;</span>
             <p className="text-xs text-stone-400">
-              Essex-based. Built for local businesses.
+              Built for local businesses.
             </p>
           </div>
         </div>
