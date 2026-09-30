@@ -1,7 +1,6 @@
 "use client";
 
 import ScrollReveal from "./ScrollReveal";
-import MagneticButton from "./MagneticButton";
 
 export default function ArgoContact() {
   return (
@@ -41,12 +40,12 @@ export default function ArgoContact() {
                 </p>
 
                 <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:justify-center">
-                  <MagneticButton
-                    href="https://calendly.com/harry-argosystems/callcatch-demo"
-                    className="group inline-flex items-center justify-center gap-2.5 rounded-xl bg-amber-600 px-8 py-4 text-base font-bold text-white shadow-warm-lg transition-all duration-300 hover:bg-amber-700 hover:shadow-warm-xl hover:-translate-y-0.5"
+                  <span
+                    title="Not currently taking bookings" aria-disabled="true"
+                    className="inline-flex cursor-not-allowed items-center justify-center gap-2.5 rounded-xl bg-stone-200 px-8 py-4 text-base font-bold text-stone-400"
                   >
                     Book a Call
-                  </MagneticButton>
+                  </span>
                   <a
                     href="mailto:harrymcdonagh82@gmail.com?subject=Enquiry%20from%20Argo%20website"
                     className="inline-flex items-center justify-center gap-2 rounded-xl border border-cream-200 bg-white px-8 py-4 text-base font-medium text-stone-900 transition-all duration-300 hover:border-stone-400 hover:shadow-warm-sm"

@@ -29,7 +29,7 @@ const faqs = [
   {
     question: "How do I get started?",
     answer:
-      "Book a free 15-minute demo and I'll show you exactly how it works for your business. No commitment, no pressure. If it's a good fit, we can have you up and running within a week.",
+      "We're not taking on new clients right now, but I'm always happy to chat. Drop me an email and I'll get back to you.",
   },
 ];
 
