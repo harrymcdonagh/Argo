@@ -1,6 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
+import { AnimatePresence, motion } from "framer-motion";
 import ScrollReveal from "./ScrollReveal";
 import MagneticButton from "./MagneticButton";
 
@@ -37,7 +39,7 @@ const projects = [
 
 function ProjectCard({ project }: { project: (typeof projects)[number] }) {
   return (
-    <div className="overflow-hidden rounded-2xl border border-cream-200 bg-white shadow-warm transition-all duration-300 hover:shadow-warm-lg">
+    <div className="flex h-full flex-col overflow-hidden rounded-2xl border border-cream-200 bg-white shadow-warm transition-all duration-300 hover:shadow-warm-lg">
       {/* Browser chrome + screenshot */}
       <a
         href={project.url}
@@ -65,7 +67,7 @@ function ProjectCard({ project }: { project: (typeof projects)[number] }) {
             width={1200}
             height={750}
             className="w-full h-auto transition-transform duration-500 group-hover:scale-105"
-            sizes="(max-width: 768px) 100vw, 768px"
+            sizes="(max-width: 768px) 100vw, 560px"
           />
           {/* Hover overlay */}
           <div className="absolute inset-0 flex items-center justify-center bg-stone-900/60 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
@@ -76,8 +78,8 @@ function ProjectCard({ project }: { project: (typeof projects)[number] }) {
         </div>
       </a>
 
-      {/* Details — mobile: stacked & compact | desktop: 2-col grid */}
-      <div className="p-5 md:p-8">
+      {/* Details */}
+      <div className="flex flex-1 flex-col p-5 md:p-6 lg:p-8">
         {/* Tags — horizontal scroll on mobile, wrap on desktop */}
         <div className="mb-3 flex gap-2 overflow-x-auto md:flex-wrap scrollbar-none">
           {project.tags.map((tag) => (
@@ -90,79 +92,93 @@ function ProjectCard({ project }: { project: (typeof projects)[number] }) {
           ))}
         </div>
 
-        {/* Title — shared between layouts */}
         <h3 className="font-[family-name:var(--font-display)] text-xl font-bold text-stone-900 md:text-2xl">
           {project.title}
         </h3>
 
-        {/* Desktop: side-by-side description + features */}
-        <div className="hidden md:grid md:grid-cols-2 gap-6 mt-3">
-          <p className="text-base leading-relaxed text-stone-600">
-            {project.description}
-          </p>
+        <p className="mt-2 text-sm leading-relaxed text-stone-600 md:mt-3 md:text-base">
+          {project.description}
+        </p>
 
-          <div className="flex flex-col justify-center">
-            <ul className="space-y-2">
-              {project.features.map((feature) => (
-                <li
-                  key={feature}
-                  className="flex items-center gap-2 text-sm text-stone-600"
-                >
-                  <svg
-                    aria-hidden="true"
-                    className="h-4 w-4 flex-shrink-0 text-amber-600"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M4.5 12.75l6 6 9-13.5"
-                    />
-                  </svg>
-                  {feature}
-                </li>
-              ))}
-            </ul>
-
-            <div className="mt-5">
-              <MagneticButton
-                href={project.url}
-                className="inline-block rounded-xl border border-cream-200 px-6 py-3 text-sm font-bold text-stone-900 transition-all duration-300 hover:border-stone-400 hover:shadow-warm-sm"
-              >
-                View Live Site →
-              </MagneticButton>
-            </div>
-          </div>
-        </div>
-
-        {/* Mobile: compact stacked layout */}
-        <div className="md:hidden">
-          <p className="mt-2 text-sm leading-relaxed text-stone-600">
-            {project.description}
-          </p>
-
-          {/* Full-width CTA */}
-          <div className="mt-5">
-            <MagneticButton
-              href={project.url}
-              className="block w-full rounded-xl border border-cream-200 px-6 py-3.5 text-center text-sm font-bold text-stone-900 transition-all duration-300 hover:border-stone-400 hover:shadow-warm-sm"
+        <ul className="mt-5 hidden space-y-2 md:block">
+          {project.features.map((feature) => (
+            <li
+              key={feature}
+              className="flex items-center gap-2 text-sm text-stone-600"
             >
-              View Live Site →
-            </MagneticButton>
-          </div>
+              <svg
+                aria-hidden="true"
+                className="h-4 w-4 flex-shrink-0 text-amber-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M4.5 12.75l6 6 9-13.5"
+                />
+              </svg>
+              {feature}
+            </li>
+          ))}
+        </ul>
+
+        {/* Pinned to the bottom so buttons line up across cards */}
+        <div className="mt-auto pt-6">
+          <MagneticButton
+            href={project.url}
+            className="block w-full rounded-xl border border-cream-200 px-6 py-3.5 text-center text-sm font-bold text-stone-900 transition-all duration-300 hover:border-stone-400 hover:shadow-warm-sm md:inline-block md:w-auto md:py-3"
+          >
+            View Live Site →
+          </MagneticButton>
         </div>
       </div>
     </div>
   );
 }
 
+function ArrowButton({
+  direction,
+  onClick,
+}: {
+  direction: "prev" | "next";
+  onClick: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-label={direction === "prev" ? "Previous project" : "Next project"}
+      className="flex h-11 w-11 items-center justify-center rounded-full border border-cream-200 bg-white text-stone-900 shadow-warm-sm transition-colors hover:border-stone-400"
+    >
+      <svg
+        aria-hidden="true"
+        className="h-5 w-5"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={2}
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d={direction === "prev" ? "M15.75 19.5L8.25 12l7.5-7.5" : "M8.25 4.5l7.5 7.5-7.5 7.5"}
+        />
+      </svg>
+    </button>
+  );
+}
+
 export default function WebDesignPortfolio() {
+  const [active, setActive] = useState(0);
+  const go = (step: number) =>
+    setActive((i) => (i + step + projects.length) % projects.length);
+
   return (
     <section id="portfolio" className="paper-texture relative py-20 md:py-28">
-      <div className="mx-auto md:max-w-xl px-6">
+      <div className="mx-auto max-w-6xl px-6">
         <ScrollReveal>
           <div className="mx-auto mb-14 max-w-2xl text-center">
             <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-widest text-amber-600">
@@ -178,13 +194,48 @@ export default function WebDesignPortfolio() {
           </div>
         </ScrollReveal>
 
-        <div className="space-y-10">
+        {/* Tablet & desktop: side by side */}
+        <div className="hidden md:grid md:grid-cols-2 md:gap-8">
           {projects.map((project, i) => (
-            <ScrollReveal key={project.url} delay={0.1 * (i + 1)}>
+            <ScrollReveal key={project.url} delay={0.1 * (i + 1)} className="h-full">
               <ProjectCard project={project} />
             </ScrollReveal>
           ))}
         </div>
+
+        {/* Mobile: one at a time, click through */}
+        <ScrollReveal delay={0.1} className="md:hidden">
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.div
+              key={active}
+              initial={{ opacity: 0, x: 24 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -24 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+            >
+              <ProjectCard project={projects[active]} />
+            </motion.div>
+          </AnimatePresence>
+
+          <div className="mt-6 flex items-center justify-between">
+            <ArrowButton direction="prev" onClick={() => go(-1)} />
+            <div className="flex gap-2">
+              {projects.map((project, i) => (
+                <button
+                  key={project.url}
+                  type="button"
+                  onClick={() => setActive(i)}
+                  aria-label={`Show ${project.title}`}
+                  aria-current={i === active}
+                  className={`h-2.5 rounded-full transition-all duration-300 ${
+                    i === active ? "w-6 bg-amber-600" : "w-2.5 bg-cream-200"
+                  }`}
+                />
+              ))}
+            </div>
+            <ArrowButton direction="next" onClick={() => go(1)} />
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );
