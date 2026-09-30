@@ -19,6 +19,20 @@ const projects = [
       "SEO-optimised structure",
     ],
   },
+  {
+    title: "George Marsden — Journalist Portfolio",
+    description:
+      "A bold, editorial portfolio for a journalism MA student at Sheffield. Brings together features, reviews, radio work and a CV in one clean, easy-to-browse site.",
+    url: "https://george-marsden-portfolio.vercel.app",
+    image: "/george-marsden-preview.png",
+    tags: ["Portfolio", "Astro", "Editorial"],
+    features: [
+      "Striking typographic design",
+      "Writing, broadcast & CV sections",
+      "Responsive across all devices",
+      "SEO-optimised structure",
+    ],
+  },
 ];
 
 function ProjectCard({ project }: { project: (typeof projects)[number] }) {
@@ -164,9 +178,13 @@ export default function WebDesignPortfolio() {
           </div>
         </ScrollReveal>
 
-        <ScrollReveal delay={0.1}>
-          <ProjectCard project={projects[0]} />
-        </ScrollReveal>
+        <div className="space-y-10">
+          {projects.map((project, i) => (
+            <ScrollReveal key={project.url} delay={0.1 * (i + 1)}>
+              <ProjectCard project={project} />
+            </ScrollReveal>
+          ))}
+        </div>
       </div>
     </section>
   );
