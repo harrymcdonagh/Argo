@@ -33,9 +33,9 @@ export default function ArgoProducts() {
           </div>
         </ScrollReveal>
 
-        <div className="grid gap-6 md:grid-cols-5">
-          {/* CallCatch — featured card (left ~65%) */}
-          <ScrollReveal className="md:col-span-3">
+        <div className="mx-auto max-w-3xl">
+          {/* CallCatch */}
+          <ScrollReveal>
             <div className="rounded-2xl border-l-4 border-l-amber-600 border border-cream-200 bg-white p-8 md:p-10 shadow-warm-lg h-full">
               {/* Top row: badge + icon */}
               <div className="flex items-start justify-between mb-6">
@@ -129,64 +129,9 @@ export default function ArgoProducts() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
                 </a>
-                <span
-                  title="Not currently taking bookings" aria-disabled="true"
-                  className="inline-flex cursor-not-allowed items-center rounded-full bg-stone-200 px-5 py-2.5 text-sm font-semibold text-stone-400"
-                >
-                  Book a Free Demo
-                </span>
               </div>
             </div>
           </ScrollReveal>
-
-          {/* Coming Soon cards (right ~35%) */}
-          <div className="md:col-span-2 flex flex-col gap-4">
-            {/* Coming soon card 1 */}
-            <ScrollReveal delay={0.2} className="flex-1">
-              <div className="rounded-2xl border border-cream-200 bg-white/60 p-6 opacity-70 hover:opacity-85 transition-all duration-300 hover:-translate-y-0.5 h-full">
-                <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-stone-300/30 bg-cream-100 px-3 py-1">
-                  <span className="text-xs font-semibold text-stone-400">Coming Soon</span>
-                </div>
-
-                <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-cream-100 text-stone-400">
-                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
-                  </svg>
-                </div>
-
-                <h3 className="font-[family-name:var(--font-display)] text-lg font-bold text-stone-400">
-                  In Development
-                </h3>
-                <p className="mt-1 text-sm leading-relaxed text-stone-400">
-                  More tools for local businesses. We&apos;re building
-                  the next one now.
-                </p>
-              </div>
-            </ScrollReveal>
-
-            {/* Coming soon card 2 */}
-            <ScrollReveal delay={0.35} className="flex-1">
-              <div className="rounded-2xl border border-cream-200 bg-white/60 p-6 opacity-70 hover:opacity-85 transition-all duration-300 hover:-translate-y-0.5 h-full">
-                <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-stone-300/30 bg-cream-100 px-3 py-1">
-                  <span className="text-xs font-semibold text-stone-400">Coming Soon</span>
-                </div>
-
-                <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-cream-100 text-stone-400">
-                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
-                  </svg>
-                </div>
-
-                <h3 className="font-[family-name:var(--font-display)] text-lg font-bold text-stone-400">
-                  In Development
-                </h3>
-                <p className="mt-1 text-sm leading-relaxed text-stone-400">
-                  Another tool to help your business run smoother.
-                  Stay tuned.
-                </p>
-              </div>
-            </ScrollReveal>
-          </div>
         </div>
       </div>
     </section>
