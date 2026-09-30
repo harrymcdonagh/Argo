@@ -38,12 +38,12 @@ export default function ArgoFooter() {
 
             <div>
               <h4 className="text-xs font-bold uppercase tracking-[0.15em] text-stone-400">
-                Services
+                Work
               </h4>
               <ul className="mt-4 space-y-2.5">
                 <li>
-                  <a href="/web-design" className="text-sm text-stone-600 transition-colors hover:text-amber-600">
-                    Web Design
+                  <a href="/#work" className="text-sm text-stone-600 transition-colors hover:text-amber-600">
+                    Sites I&apos;ve Built
                   </a>
                 </li>
               </ul>

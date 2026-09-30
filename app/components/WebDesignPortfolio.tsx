@@ -171,11 +171,61 @@ function ArrowButton({
   );
 }
 
-export default function WebDesignPortfolio() {
+/* Side by side from tablet up; one at a time with arrows on phones */
+export function PortfolioShowcase() {
   const [active, setActive] = useState(0);
   const go = (step: number) =>
     setActive((i) => (i + step + projects.length) % projects.length);
 
+  return (
+    <>
+      {/* Tablet & desktop: side by side */}
+      <div className="hidden md:grid md:grid-cols-2 md:gap-8">
+        {projects.map((project, i) => (
+          <ScrollReveal key={project.url} delay={0.1 * (i + 1)} className="h-full">
+            <ProjectCard project={project} />
+          </ScrollReveal>
+        ))}
+      </div>
+
+      {/* Mobile: one at a time, click through */}
+      <ScrollReveal delay={0.1} className="md:hidden">
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.div
+            key={active}
+            initial={{ opacity: 0, x: 24 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -24 }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
+          >
+            <ProjectCard project={projects[active]} />
+          </motion.div>
+        </AnimatePresence>
+
+        <div className="mt-6 flex items-center justify-between">
+          <ArrowButton direction="prev" onClick={() => go(-1)} />
+          <div className="flex gap-2">
+            {projects.map((project, i) => (
+              <button
+                key={project.url}
+                type="button"
+                onClick={() => setActive(i)}
+                aria-label={`Show ${project.title}`}
+                aria-current={i === active}
+                className={`h-2.5 rounded-full transition-all duration-300 ${
+                  i === active ? "w-6 bg-amber-600" : "w-2.5 bg-cream-200"
+                }`}
+              />
+            ))}
+          </div>
+          <ArrowButton direction="next" onClick={() => go(1)} />
+        </div>
+      </ScrollReveal>
+    </>
+  );
+}
+
+export default function WebDesignPortfolio() {
   return (
     <section id="portfolio" className="paper-texture relative py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-6">
@@ -194,48 +244,7 @@ export default function WebDesignPortfolio() {
           </div>
         </ScrollReveal>
 
-        {/* Tablet & desktop: side by side */}
-        <div className="hidden md:grid md:grid-cols-2 md:gap-8">
-          {projects.map((project, i) => (
-            <ScrollReveal key={project.url} delay={0.1 * (i + 1)} className="h-full">
-              <ProjectCard project={project} />
-            </ScrollReveal>
-          ))}
-        </div>
-
-        {/* Mobile: one at a time, click through */}
-        <ScrollReveal delay={0.1} className="md:hidden">
-          <AnimatePresence mode="wait" initial={false}>
-            <motion.div
-              key={active}
-              initial={{ opacity: 0, x: 24 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -24 }}
-              transition={{ duration: 0.25, ease: "easeOut" }}
-            >
-              <ProjectCard project={projects[active]} />
-            </motion.div>
-          </AnimatePresence>
-
-          <div className="mt-6 flex items-center justify-between">
-            <ArrowButton direction="prev" onClick={() => go(-1)} />
-            <div className="flex gap-2">
-              {projects.map((project, i) => (
-                <button
-                  key={project.url}
-                  type="button"
-                  onClick={() => setActive(i)}
-                  aria-label={`Show ${project.title}`}
-                  aria-current={i === active}
-                  className={`h-2.5 rounded-full transition-all duration-300 ${
-                    i === active ? "w-6 bg-amber-600" : "w-2.5 bg-cream-200"
-                  }`}
-                />
-              ))}
-            </div>
-            <ArrowButton direction="next" onClick={() => go(1)} />
-          </div>
-        </ScrollReveal>
+        <PortfolioShowcase />
       </div>
     </section>
   );
