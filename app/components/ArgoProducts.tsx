@@ -3,7 +3,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import ScrollReveal from "./ScrollReveal";
-import MagneticButton from "./MagneticButton";
 
 const notificationFields: { label: string; value: string; highlight?: boolean }[] = [
   { label: "Name", value: "Sarah Mitchell" },
@@ -40,9 +39,9 @@ export default function ArgoProducts() {
             <div className="rounded-2xl border-l-4 border-l-amber-600 border border-cream-200 bg-white p-8 md:p-10 shadow-warm-lg h-full">
               {/* Top row: badge + icon */}
               <div className="flex items-start justify-between mb-6">
-                <div className="inline-flex items-center gap-2 rounded-full border border-emerald-600/20 bg-emerald-100 px-3 py-1">
-                  <span className="pulse-dot inline-block h-2 w-2 rounded-full bg-emerald-600" />
-                  <span className="text-xs font-semibold text-emerald-700">Live Now</span>
+                <div className="inline-flex items-center gap-2 rounded-full border border-stone-300/40 bg-stone-100 px-3 py-1">
+                  <span className="inline-block h-2 w-2 rounded-full bg-stone-400" />
+                  <span className="text-xs font-semibold text-stone-500">Paused</span>
                 </div>
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-amber-50 text-amber-600">
                   <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -130,12 +129,12 @@ export default function ArgoProducts() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
                 </a>
-                <MagneticButton
-                  href="https://calendly.com/harry-argosystems/callcatch-demo"
-                  className="inline-flex items-center rounded-full bg-amber-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-amber-700"
+                <span
+                  title="Not currently taking bookings" aria-disabled="true"
+                  className="inline-flex cursor-not-allowed items-center rounded-full bg-stone-200 px-5 py-2.5 text-sm font-semibold text-stone-400"
                 >
                   Book a Free Demo
-                </MagneticButton>
+                </span>
               </div>
             </div>
           </ScrollReveal>

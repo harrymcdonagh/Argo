@@ -107,7 +107,7 @@ export default function DemoSMS() {
       <div className="mx-auto max-w-6xl px-6">
         <div className="mx-auto mb-14 max-w-2xl text-center">
           <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-widest text-amber-600">
-            Live Demo
+            Demo
           </span>
           <h2 className="font-[family-name:var(--font-display)] text-3xl font-bold tracking-tight text-stone-900 md:text-4xl">
             See It In Action

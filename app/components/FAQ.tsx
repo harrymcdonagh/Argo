@@ -13,7 +13,7 @@ const faqs = [
       "Any local service business that relies on phone calls for new work. Plumbers, electricians, cleaners, landscapers, locksmiths, roofers, mobile mechanics — if you miss calls while working, this is built for you. We tailor the text messages and questions for your specific trade.",
   },
   {
-    question: "How long does it take to go live?",
+    question: "How long does setup take?",
     answer:
       "5-7 working days from sign-up. We handle everything — connecting to your phone system, writing the text messages, and testing the full flow. You get a walkthrough before we switch it on, and we're on hand to tweak anything.",
   },
@@ -30,12 +30,7 @@ const faqs = [
   {
     question: "What if the caller doesn't reply to the text?",
     answer:
-      "You still get notified that you missed a call from that number, so you can call them back yourself. On the Standard plan, we also send follow-up texts to re-engage them. Most people do reply though — the text is friendly, relevant, and arrives within seconds of their call.",
-  },
-  {
-    question: "How much does it cost per text?",
-    answer:
-      "Nothing extra. Your monthly fee covers everything — all texts sent, all replies received, all notifications to you. There are no per-text charges or hidden usage fees. The price you see is the price you pay.",
+      "You still get notified that you missed a call from that number, so you can call them back yourself. We can also send follow-up texts to re-engage them. Most people do reply though — the text is friendly, relevant, and arrives within seconds of their call.",
   },
   {
     question: "Can I see the conversations?",

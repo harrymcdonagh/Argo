@@ -2,10 +2,8 @@ import Nav from "../components/Nav";
 import Hero from "../components/Hero";
 import Problem from "../components/Problem";
 import DemoSMS from "../components/DemoSMS";
-import VideoDemo from "../components/VideoDemo";
 import HowItWorks from "../components/HowItWorks";
 import WhatYouGet from "../components/WhatYouGet";
-import Pricing from "../components/Pricing";
 import FinalCTA from "../components/FinalCTA";
 import FAQ from "../components/FAQ";
 import Footer from "../components/Footer";
@@ -45,9 +43,7 @@ export default function CallCatchPage() {
       <Problem />
       <HowItWorks />
       <DemoSMS />
-      <VideoDemo />
       <WhatYouGet />
-      <Pricing />
       <FinalCTA />
       <FAQ />
       <Footer />

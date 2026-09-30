@@ -2,7 +2,6 @@
 
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import { useRef } from "react";
-import MagneticButton from "./MagneticButton";
 import DotGrid from "./DotGrid";
 
 const headlineWords = ["Never", "Miss", "a", "Customer"];
@@ -71,16 +70,16 @@ export default function Hero() {
         <div className="grid items-center gap-12 md:grid-cols-2">
           {/* Left: Copy */}
           <div>
-            {/* Live badge */}
+            {/* Status badge */}
             <motion.div
-              className="mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-600/20 bg-emerald-100 px-4 py-1.5"
+              className="mb-6 inline-flex items-center gap-2 rounded-full border border-stone-300/40 bg-stone-100 px-4 py-1.5"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
             >
-              <span className="pulse-dot inline-block h-2 w-2 rounded-full bg-emerald-600" />
-              <span className="text-sm font-medium text-emerald-700">
-                Live for local businesses in Essex
+              <span className="inline-block h-2 w-2 rounded-full bg-stone-400" />
+              <span className="text-sm font-medium text-stone-500">
+                Not currently taking new clients
               </span>
             </motion.div>
 
@@ -188,26 +187,12 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.75, ease: "easeOut" }}
             >
-              <MagneticButton
-                href="https://calendly.com/harry-argosystems/callcatch-demo"
-                className="group inline-flex items-center justify-center gap-2 rounded-xl bg-amber-600 px-8 py-4 text-base font-bold text-white transition-all duration-300 hover:bg-amber-700 shadow-warm hover:shadow-warm-lg hover:-translate-y-0.5"
+              <span
+                title="Not currently taking bookings" aria-disabled="true"
+                className="inline-flex cursor-not-allowed items-center justify-center gap-2 rounded-xl bg-stone-200 px-8 py-4 text-base font-bold text-stone-400"
               >
                 Book a Free Demo
-                <svg
-                  className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
-                  aria-hidden="true"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2.5}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M13 7l5 5m0 0l-5 5m5-5H6"
-                  />
-                </svg>
-              </MagneticButton>
+              </span>
               <a
                 href="#how-it-works"
                 className="inline-flex items-center justify-center gap-2 rounded-xl border border-cream-200 bg-white px-8 py-4 text-base font-medium text-stone-900 transition-all duration-300 hover:border-stone-400 hover:shadow-warm-sm"

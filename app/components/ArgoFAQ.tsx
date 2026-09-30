@@ -22,11 +22,6 @@ const faqs = [
       "Not at all. We handle everything — setup, configuration, testing. You don't need to install anything or learn any software. We just need 15 minutes on a call to learn about your business, then we do the rest.",
   },
   {
-    question: "How much does it cost?",
-    answer:
-      "CallCatch starts at £150 per month on our Early Adopter plan — that's a reduced rate for our first clients, locked in for 3 months. After that, it moves to £200–£250 per month depending on your plan. There's a one-time setup fee (also reduced for early clients). No hidden costs — your monthly fee covers everything including all texts sent and received.",
-  },
-  {
     question: "What if I want to cancel?",
     answer:
       "You can cancel anytime with 30 days' notice. No lock-in contracts, no cancellation fees. We're confident the system pays for itself — one recovered job per month more than covers the fee.",
@@ -34,7 +29,7 @@ const faqs = [
   {
     question: "How do I get started?",
     answer:
-      "Book a free 15-minute demo and I'll show you exactly how it works for your business. No commitment, no pressure. If it's a good fit, we can have you live within a week.",
+      "Book a free 15-minute demo and I'll show you exactly how it works for your business. No commitment, no pressure. If it's a good fit, we can have you up and running within a week.",
   },
 ];
 

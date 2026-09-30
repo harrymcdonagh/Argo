@@ -34,17 +34,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <a href="#demo" className="text-sm text-stone-600 transition-colors hover:text-amber-600">
-                    Live Demo
-                  </a>
-                </li>
-                <li>
-                  <a href="#walkthrough" className="text-sm text-stone-600 transition-colors hover:text-amber-600">
-                    Walkthrough
-                  </a>
-                </li>
-                <li>
-                  <a href="#pricing" className="text-sm text-stone-600 transition-colors hover:text-amber-600">
-                    Pricing
+                    Demo
                   </a>
                 </li>
                 <li>

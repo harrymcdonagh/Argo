@@ -14,9 +14,7 @@ export default function Nav() {
 
   const links = [
     { label: "How It Works", href: "#how-it-works" },
-    { label: "Live Demo", href: "#demo" },
-    { label: "Walkthrough", href: "#walkthrough" },
-    { label: "Pricing", href: "#pricing" },
+    { label: "Demo", href: "#demo" },
     { label: "FAQ", href: "#faq" },
   ];
 
@@ -60,12 +58,12 @@ export default function Nav() {
               {link.label}
             </a>
           ))}
-          <a
-            href="https://calendly.com/harry-argosystems/callcatch-demo"
-            className="rounded-lg bg-amber-600 px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-amber-700 shadow-warm-sm hover:shadow-warm"
+          <span
+            title="Not currently taking bookings" aria-disabled="true"
+            className="cursor-not-allowed rounded-lg bg-stone-200 px-5 py-2.5 text-sm font-semibold text-stone-400"
           >
             Book a Free Demo
-          </a>
+          </span>
         </div>
 
         {/* Mobile hamburger */}
@@ -101,13 +99,12 @@ export default function Nav() {
                 {link.label}
               </a>
             ))}
-            <a
-              href="https://calendly.com/harry-argosystems/callcatch-demo"
-              onClick={() => setMobileOpen(false)}
-              className="mt-2 rounded-lg bg-amber-600 px-5 py-2.5 text-center text-sm font-semibold text-white transition-all hover:bg-amber-700"
+            <span
+              title="Not currently taking bookings" aria-disabled="true"
+              className="mt-2 cursor-not-allowed rounded-lg bg-stone-200 px-5 py-2.5 text-center text-sm font-semibold text-stone-400"
             >
               Book a Free Demo
-            </a>
+            </span>
           </div>
         </div>
       )}
