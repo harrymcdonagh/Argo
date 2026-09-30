@@ -7,7 +7,6 @@ import WhatYouGet from "../components/WhatYouGet";
 import FinalCTA from "../components/FinalCTA";
 import FAQ from "../components/FAQ";
 import Footer from "../components/Footer";
-import StickyMobileCTA from "../components/StickyMobileCTA";
 
 import type { Metadata } from "next";
 
@@ -47,7 +46,6 @@ export default function CallCatchPage() {
       <FinalCTA />
       <FAQ />
       <Footer />
-      <StickyMobileCTA />
     </>
   );
 }

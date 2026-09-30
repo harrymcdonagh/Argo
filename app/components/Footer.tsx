@@ -61,18 +61,8 @@ export default function Footer() {
               </h4>
               <ul className="mt-4 space-y-2.5">
                 <li>
-                  <a href="https://wa.me/447939939885" className="text-sm text-stone-600 transition-colors hover:text-amber-600">
-                    WhatsApp
-                  </a>
-                </li>
-                <li>
                   <a href="mailto:harrymcdonagh82@gmail.com" className="text-sm text-stone-600 transition-colors hover:text-amber-600">
                     Email
-                  </a>
-                </li>
-                <li>
-                  <a href="tel:07939939885" className="text-sm text-stone-600 transition-colors hover:text-amber-600">
-                    07939 939 885
                   </a>
                 </li>
               </ul>

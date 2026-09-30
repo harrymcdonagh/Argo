@@ -58,12 +58,12 @@ export default function Nav() {
               {link.label}
             </a>
           ))}
-          <span
-            title="Not currently taking bookings" aria-disabled="true"
-            className="cursor-not-allowed rounded-lg bg-stone-200 px-5 py-2.5 text-sm font-semibold text-stone-400"
+          <a
+            href="mailto:harrymcdonagh82@gmail.com?subject=CallCatch%20enquiry"
+            className="rounded-lg border border-cream-200 bg-white px-5 py-2.5 text-sm font-semibold text-stone-900 transition-colors hover:border-stone-400"
           >
-            Book a Free Demo
-          </span>
+            Get in touch
+          </a>
         </div>
 
         {/* Mobile hamburger */}
@@ -99,12 +99,13 @@ export default function Nav() {
                 {link.label}
               </a>
             ))}
-            <span
-              title="Not currently taking bookings" aria-disabled="true"
-              className="mt-2 cursor-not-allowed rounded-lg bg-stone-200 px-5 py-2.5 text-center text-sm font-semibold text-stone-400"
+            <a
+              href="mailto:harrymcdonagh82@gmail.com?subject=CallCatch%20enquiry"
+              onClick={() => setMobileOpen(false)}
+              className="mt-2 rounded-lg border border-cream-200 bg-white px-5 py-2.5 text-center text-sm font-semibold text-stone-900 transition-colors hover:border-stone-400"
             >
-              Book a Free Demo
-            </span>
+              Get in touch
+            </a>
           </div>
         </div>
       )}

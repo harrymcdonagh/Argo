@@ -5,7 +5,7 @@ import ScrollReveal from "./ScrollReveal";
 export default function FinalCTA() {
   return (
     <section
-      id="book-demo"
+      id="contact"
       className="relative overflow-hidden bg-cream-100 py-24 md:py-36"
     >
       {/* Subtle radial warmth behind the card */}
@@ -27,7 +27,7 @@ export default function FinalCTA() {
             <div className="text-center">
               {/* Small label */}
               <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-amber-600">
-                Ready to start?
+                Get in Touch
               </span>
 
               {/* Decorative line */}
@@ -38,14 +38,12 @@ export default function FinalCTA() {
               </div>
 
               <h2 className="font-[family-name:var(--font-display)] text-3xl font-extrabold leading-snug tracking-tight text-stone-900 md:text-5xl md:leading-tight">
-                Get Your System Running
-                <br />
-                in 7 Days
+                Want to Know More?
               </h2>
 
               <p className="mx-auto mt-6 max-w-md text-base leading-relaxed text-stone-600 md:text-lg">
-                Stop losing jobs to missed calls. Book a free 15-minute demo and
-                I&apos;ll show you exactly how it works for your business.
+                CallCatch isn&apos;t taking on new clients right now, but I&apos;m
+                always happy to talk about how it works.
               </p>
 
               {/* Founder mini-intro */}
@@ -62,34 +60,16 @@ export default function FinalCTA() {
               </div>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
-                <span
-                  title="Not currently taking bookings" aria-disabled="true"
-                  className="inline-flex cursor-not-allowed items-center justify-center gap-2.5 rounded-xl bg-stone-200 px-10 py-4 text-base font-bold text-stone-400"
-                >
-                  Book a Free Demo
-                </span>
                 <a
-                  href="mailto:harrymcdonagh82@gmail.com?subject=CallCatch%20Demo%20Request"
+                  href="mailto:harrymcdonagh82@gmail.com?subject=CallCatch%20enquiry"
                   className="inline-flex items-center justify-center gap-2 rounded-xl border border-cream-200 bg-white px-8 py-4 text-base font-medium text-stone-900 transition-all duration-300 hover:border-stone-400 hover:shadow-warm-sm"
                 >
                   <svg className="h-5 w-5 text-amber-600" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                   </svg>
-                  Send an Email
+                  Get in touch
                 </a>
               </div>
-
-              {/* Phone number */}
-              <div className="mt-6">
-                <a href="tel:07939939885" className="text-sm text-stone-500 transition-colors hover:text-stone-700">
-                  Or call directly: 07939 939 885
-                </a>
-              </div>
-
-              {/* Trust line */}
-              <p className="mt-4 text-sm text-stone-500">
-                No commitment. No tech jargon. Just a quick chat.
-              </p>
             </div>
           </div>
         </ScrollReveal>

@@ -187,12 +187,6 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.75, ease: "easeOut" }}
             >
-              <span
-                title="Not currently taking bookings" aria-disabled="true"
-                className="inline-flex cursor-not-allowed items-center justify-center gap-2 rounded-xl bg-stone-200 px-8 py-4 text-base font-bold text-stone-400"
-              >
-                Book a Free Demo
-              </span>
               <a
                 href="#how-it-works"
                 className="inline-flex items-center justify-center gap-2 rounded-xl border border-cream-200 bg-white px-8 py-4 text-base font-medium text-stone-900 transition-all duration-300 hover:border-stone-400 hover:shadow-warm-sm"
