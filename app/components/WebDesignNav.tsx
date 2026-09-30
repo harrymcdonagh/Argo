@@ -16,7 +16,7 @@ export default function WebDesignNav() {
     { label: "What You Get", href: "#what-you-get" },
     { label: "How It Works", href: "#how-it-works" },
     { label: "Why Argo", href: "#why-argo" },
-    { label: "Pricing", href: "#pricing" },
+    { label: "Our Work", href: "#portfolio" },
   ];
 
   return (
@@ -59,12 +59,12 @@ export default function WebDesignNav() {
               {link.label}
             </a>
           ))}
-          <a
-            href="https://calendly.com/harry-argosystems/free-web-design-consultation"
-            className="rounded-lg bg-amber-600 px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-amber-700 shadow-warm-sm hover:shadow-warm"
+          <span
+            title="Not currently taking bookings" aria-disabled="true"
+            className="cursor-not-allowed rounded-lg bg-stone-200 px-5 py-2.5 text-sm font-semibold text-stone-400"
           >
             Book a Free Call
-          </a>
+          </span>
         </div>
 
         {/* Mobile hamburger */}
@@ -100,13 +100,12 @@ export default function WebDesignNav() {
                 {link.label}
               </a>
             ))}
-            <a
-              href="https://calendly.com/harry-argosystems/free-web-design-consultation"
-              onClick={() => setMobileOpen(false)}
-              className="mt-2 rounded-lg bg-amber-600 px-5 py-2.5 text-center text-sm font-semibold text-white transition-all hover:bg-amber-700"
+            <span
+              title="Not currently taking bookings" aria-disabled="true"
+              className="mt-2 cursor-not-allowed rounded-lg bg-stone-200 px-5 py-2.5 text-center text-sm font-semibold text-stone-400"
             >
               Book a Free Call
-            </a>
+            </span>
           </div>
         </div>
       )}

@@ -69,7 +69,7 @@ export default function FinalCTA() {
                   Book a Free Demo
                 </span>
                 <a
-                  href="mailto:harry@argosystems.co.uk?subject=CallCatch%20Demo%20Request"
+                  href="mailto:harrymcdonagh82@gmail.com?subject=CallCatch%20Demo%20Request"
                   className="inline-flex items-center justify-center gap-2 rounded-xl border border-cream-200 bg-white px-8 py-4 text-base font-medium text-stone-900 transition-all duration-300 hover:border-stone-400 hover:shadow-warm-sm"
                 >
                   <svg className="h-5 w-5 text-amber-600" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>

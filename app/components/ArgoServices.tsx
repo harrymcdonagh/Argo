@@ -25,13 +25,13 @@ export default function ArgoServices() {
         </ScrollReveal>
 
         <StaggerGroup className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {/* Card 1 — Web Design (active) */}
+          {/* Card 1 — Web Design (coming soon, page still viewable) */}
           <motion.div variants={staggerItem}>
             <div className="rounded-2xl border border-cream-200 bg-white p-6 shadow-warm-sm md:p-8 h-full">
-              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-emerald-600/20 bg-emerald-100 px-3 py-1">
-                <span className="pulse-dot inline-block h-2 w-2 rounded-full bg-emerald-600" />
-                <span className="text-xs font-semibold text-emerald-700">
-                  Available Now
+              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-stone-300/40 bg-stone-100 px-3 py-1">
+                <span className="inline-block h-2 w-2 rounded-full bg-stone-400" />
+                <span className="text-xs font-semibold text-stone-500">
+                  Coming Soon
                 </span>
               </div>
 
@@ -64,7 +64,7 @@ export default function ArgoServices() {
                 href="/web-design"
                 className="group mt-5 inline-flex items-center gap-1 text-sm font-semibold text-amber-600 transition-colors hover:text-amber-700"
               >
-                Learn more
+                See our work
                 <svg
                   aria-hidden="true"
                   className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
@@ -144,7 +144,7 @@ export default function ArgoServices() {
                 We&apos;re building more services for local businesses — including SEO, marketing, and social media management.
               </p>
               <a
-                href="mailto:harry@argosystems.co.uk?subject=Keep%20me%20updated%20on%20new%20services"
+                href="mailto:harrymcdonagh82@gmail.com?subject=Keep%20me%20updated%20on%20new%20services"
                 className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-amber-600 transition-colors hover:text-amber-700"
               >
                 Want to be first to know?

@@ -100,7 +100,7 @@ export default function ArgoAbout() {
                   WhatsApp
                 </a>
                 <a
-                  href="mailto:harry@argosystems.co.uk"
+                  href="mailto:harrymcdonagh82@gmail.com"
                   className="inline-flex items-center gap-2 rounded-lg border border-cream-200 px-4 py-2 text-sm font-medium text-stone-700 transition-all hover:border-stone-400 hover:shadow-warm-sm"
                 >
                   <svg className="h-4 w-4 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>

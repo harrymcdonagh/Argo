@@ -75,7 +75,7 @@ export default function RootLayout({
                 "Done-for-you tools and services for local businesses in Essex and South East England. CallCatch missed-call recovery and custom web design.",
               url: "https://argosystems.co.uk",
               telephone: "07939939885",
-              email: "harry@argosystems.co.uk",
+              email: "harrymcdonagh82@gmail.com",
               address: {
                 "@type": "PostalAddress",
                 addressRegion: "Essex",

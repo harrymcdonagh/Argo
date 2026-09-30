@@ -66,7 +66,7 @@ export default function Footer() {
                   </a>
                 </li>
                 <li>
-                  <a href="mailto:harry@argosystems.co.uk" className="text-sm text-stone-600 transition-colors hover:text-amber-600">
+                  <a href="mailto:harrymcdonagh82@gmail.com" className="text-sm text-stone-600 transition-colors hover:text-amber-600">
                     Email
                   </a>
                 </li>

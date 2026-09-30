@@ -3,14 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import ScrollReveal from "../components/ScrollReveal";
-import MagneticButton from "../components/MagneticButton";
 import DotGrid from "../components/DotGrid";
 import WebsiteBuildScroll from "../components/WebsiteBuildScroll";
 import ArgoComparison from "../components/ArgoComparison";
-import WebDesignPricing from "../components/WebDesignPricing";
 import WebDesignPortfolio from "../components/WebDesignPortfolio";
-
-const CALENDLY_URL = "https://calendly.com/harry-argosystems/free-web-design-consultation";
 
 /* ───── Data ───── */
 
@@ -122,12 +118,13 @@ export default function WebDesignContent() {
             {/* Left column */}
             <div>
               <motion.div
-                className="mb-6 inline-flex items-center gap-2 rounded-full border border-amber-600/20 bg-amber-50 px-4 py-1.5"
+                className="mb-6 inline-flex items-center gap-2 rounded-full border border-stone-300/40 bg-stone-100 px-4 py-1.5"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
               >
-                <span className="text-sm font-medium text-amber-700">Web Design for Local Businesses</span>
+                <span className="inline-block h-2 w-2 rounded-full bg-stone-400" />
+                <span className="text-sm font-medium text-stone-500">Web Design &mdash; Coming Soon</span>
               </motion.div>
 
               <motion.h1
@@ -171,17 +168,17 @@ export default function WebDesignContent() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.6, ease: "easeOut" }}
               >
-                <MagneticButton
-                  href={CALENDLY_URL}
-                  className="rounded-xl bg-amber-600 px-8 py-4 text-base font-bold text-white transition-all duration-300 hover:bg-amber-700 shadow-warm hover:shadow-warm-lg hover:-translate-y-0.5"
+                <span
+                  title="Not currently taking bookings" aria-disabled="true"
+                  className="cursor-not-allowed rounded-xl bg-stone-200 px-8 py-4 text-center text-base font-bold text-stone-400"
                 >
                   Book a Free Call
-                </MagneticButton>
+                </span>
                 <a
-                  href="#what-you-get"
+                  href="#portfolio"
                   className="rounded-xl border border-cream-200 bg-white px-8 py-4 text-base font-medium text-stone-900 transition-all duration-300 hover:border-stone-400 hover:shadow-warm-sm"
                 >
-                  Learn More
+                  See Our Work
                 </a>
               </motion.div>
             </div>
@@ -411,9 +408,6 @@ export default function WebDesignContent() {
       {/* ── Portfolio ── */}
       <WebDesignPortfolio />
 
-      {/* ── Pricing ── */}
-      <WebDesignPricing />
-
       {/* ── Final CTA ── */}
       <section className="relative bg-cream-50 py-24 md:py-36 overflow-hidden">
         {/* Animated orange gradient */}
@@ -444,18 +438,18 @@ export default function WebDesignContent() {
 
           <ScrollReveal delay={0.05}>
             <p className="mx-auto mt-5 max-w-lg text-lg text-stone-600">
-              No commitment. No tech jargon. Just a quick chat about what you need.
+              We&apos;re not taking on new projects just yet &mdash; but have a look at our recent work above.
             </p>
           </ScrollReveal>
 
           <ScrollReveal delay={0.1}>
             <div className="mt-10">
-              <MagneticButton
-                href={CALENDLY_URL}
-                className="inline-block rounded-xl bg-amber-600 px-8 py-4 text-base font-bold text-white shadow-warm transition-all duration-300 hover:bg-amber-700 hover:shadow-warm-lg hover:-translate-y-0.5"
+              <span
+                title="Not currently taking bookings" aria-disabled="true"
+                className="inline-block cursor-not-allowed rounded-xl bg-stone-200 px-8 py-4 text-base font-bold text-stone-400"
               >
                 Book a Free Call
-              </MagneticButton>
+              </span>
             </div>
           </ScrollReveal>
 
@@ -463,10 +457,10 @@ export default function WebDesignContent() {
             <p className="mt-5 text-sm text-stone-500">
               or email us at{" "}
               <a
-                href="mailto:harry@argosystems.co.uk"
+                href="mailto:harrymcdonagh82@gmail.com"
                 className="font-medium underline transition-colors hover:text-amber-600"
               >
-                harry@argosystems.co.uk
+                harrymcdonagh82@gmail.com
               </a>
             </p>
           </ScrollReveal>

@@ -100,7 +100,7 @@ app/
 - Use `MagneticButton` for CTAs (wraps `<a>` tags with magnetic hover effect)
 - All external links to Calendly for booking: `https://calendly.com/harry-argosystems/callcatch-demo`
 - WhatsApp contact: `https://wa.me/447939939885`
-- Email: `harry@argosystems.co.uk`
+- Email: `harrymcdonagh82@gmail.com`
 
 ## Coding Standards
 - Tailwind utility classes for all styling (no inline styles)

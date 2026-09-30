@@ -331,10 +331,10 @@ export default function PrivacyPolicyPage() {
               <p className="mt-3">
                 Email:{" "}
                 <a
-                  href="mailto:harry@argosystems.co.uk"
+                  href="mailto:harrymcdonagh82@gmail.com"
                   className="text-amber-600 underline hover:text-amber-700"
                 >
-                  harry@argosystems.co.uk
+                  harrymcdonagh82@gmail.com
                 </a>
               </p>
               <p className="mt-1">
